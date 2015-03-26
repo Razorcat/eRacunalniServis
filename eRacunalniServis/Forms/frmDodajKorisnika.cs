@@ -27,7 +27,7 @@ namespace eProdaja.Forms
             k.Prezime = txtbPrezime.Text;
             k.Email = txtbEmail.Text.Trim();
             k.Telefon = mtxtbTelefon.Text;
-            k.KorisnickoIme = txtbKorisnickoIme.Text.Trim();///
+            k.KorisnickoIme = txtbKorisnickoIme.Text.Trim();/////
 
             k.LozinkaSalt = UIHelper.GenerateSalt();
             k.LozinkaHash = UIHelper.GenerateHash(txtbLozinka.Text, k.LozinkaSalt);
