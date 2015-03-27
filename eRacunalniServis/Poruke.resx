@@ -132,4 +132,31 @@
   <data name="usr_succ" xml:space="preserve">
     <value>Uspješno ste dodali korisnika!</value>
   </data>
+  <data name="usr_succ_upd" xml:space="preserve">
+    <value>Promjene uspješno spremljene!</value>
+  </data>
+  <data name="err_pass_ns" xml:space="preserve">
+    <value>Niste unije istu lozinku u potvrdi!</value>
+  </data>
+  <data name="status_err" xml:space="preserve">
+    <value>Ne možete deaktivirati korisnika koji upravo koristi sistem!</value>
+  </data>
+  <data name="email_err" xml:space="preserve">
+    <value>Neispravan format!</value>
+  </data>
+  <data name="email_req" xml:space="preserve">
+    <value>Obavezno unesite email!</value>
+  </data>
+  <data name="mail_con" xml:space="preserve">
+    <value>Email je zauzet!</value>
+  </data>
+  <data name="name_req" xml:space="preserve">
+    <value>Obavezno unesite ime!</value>
+  </data>
+  <data name="pass_err" xml:space="preserve">
+    <value>Lozinka treba da bude minimalno 4 karektera!</value>
+  </data>
+  <data name="username_con" xml:space="preserve">
+    <value>Korisničko ime je zauzeto!</value>
+  </data>
 </root>

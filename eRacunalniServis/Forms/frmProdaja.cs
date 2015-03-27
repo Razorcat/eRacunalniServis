@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace eProdaja.Forms
+namespace eRacunalniServis_Servis.Forms
 {
     public partial class frmProdaja : Form
     {

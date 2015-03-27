@@ -61,6 +61,33 @@ namespace eRacunalniServis {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Neispravan format!.
+        /// </summary>
+        internal static string email_err {
+            get {
+                return ResourceManager.GetString("email_err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite email!.
+        /// </summary>
+        internal static string email_req {
+            get {
+                return ResourceManager.GetString("email_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Niste unije istu lozinku u potvrdi!.
+        /// </summary>
+        internal static string err_pass_ns {
+            get {
+                return ResourceManager.GetString("err_pass_ns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pogrešni podaci!.
         /// </summary>
         internal static string log_err {
@@ -88,6 +115,33 @@ namespace eRacunalniServis {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email je zauzet!.
+        /// </summary>
+        internal static string mail_con {
+            get {
+                return ResourceManager.GetString("mail_con", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obavezno unesite ime!.
+        /// </summary>
+        internal static string name_req {
+            get {
+                return ResourceManager.GetString("name_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lozinka treba da bude minimalno 4 karektera!.
+        /// </summary>
+        internal static string pass_err {
+            get {
+                return ResourceManager.GetString("pass_err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Da li želite prekinuti program?.
         /// </summary>
         internal static string quit {
@@ -97,11 +151,38 @@ namespace eRacunalniServis {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ne možete deaktivirati korisnika koji upravo koristi sistem!.
+        /// </summary>
+        internal static string status_err {
+            get {
+                return ResourceManager.GetString("status_err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korisničko ime je zauzeto!.
+        /// </summary>
+        internal static string username_con {
+            get {
+                return ResourceManager.GetString("username_con", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uspješno ste dodali korisnika!.
         /// </summary>
         internal static string usr_succ {
             get {
                 return ResourceManager.GetString("usr_succ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Promjene uspješno spremljene!.
+        /// </summary>
+        internal static string usr_succ_upd {
+            get {
+                return ResourceManager.GetString("usr_succ_upd", resourceCulture);
             }
         }
     }

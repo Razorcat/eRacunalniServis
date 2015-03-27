@@ -1,9 +1,10 @@
-﻿using eProdaja_Service.Util;
+﻿using eRacunalniServis_Servis.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Core;
 
 namespace eRacunalniServis_Servis.Data
 {
@@ -25,11 +26,18 @@ namespace eRacunalniServis_Servis.Data
 
         public static void InsertKorisnik(Korisnici k, List<Uloge> uloge)
         {
-            Int32 korisnikID = Convert.ToInt32(Connection.dm.esp_Korisnici_Insert(k.Ime, k.Prezime, k.Email, k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash).First());
-
-            foreach (Uloge u in uloge)
+            try
             {
-                Connection.dm.esp_KorisniciUloge_Insert(korisnikID, u.UlogaID);
+                Int32 korisnikID = Convert.ToInt32(Connection.dm.esp_Korisnici_Insert(k.Ime, k.Prezime, k.Email, k.Telefon, k.KorisnickoIme, k.LozinkaSalt, k.LozinkaHash).First());
+
+                foreach (Uloge u in uloge)
+                {
+                    Connection.dm.esp_KorisniciUloge_Insert(korisnikID, u.UlogaID);
+                }
+            }
+            catch (EntityException e)
+            {
+                ExceptionHandler.HandleException(e);
             }
         }
 
@@ -45,5 +53,22 @@ namespace eRacunalniServis_Servis.Data
         {
             return (Korisnici)Connection.dm.esp_Korisnici_SelectById(korisnikID).First();
         }
+        public static void UpdateOsobnihPodataka(Korisnici korisnik) {
+            Connection.dm.esp_Korisnici_Update(korisnik.KorisnikID, korisnik.Ime, korisnik.Prezime, korisnik.Email, korisnik.Telefon);
+        }
+        public static void ResetPassword(Korisnici korisnik) {
+            Connection.dm.esp_Korisnici_ResetPass(korisnik.KorisnikID, korisnik.LozinkaSalt, korisnik.LozinkaHash);
+        }
+        public static void UpdateUloge(int korisnikId, List<Uloge> uloge) {
+            Connection.dm.esp_KorisniciUloge_Delete(korisnikId);
+
+            foreach (Uloge u in uloge)
+            {
+                Connection.dm.esp_KorisniciUloge_Insert(korisnikId, u.UlogaID);
+            }
+        }
+        public static List<Uloge> SelectUloge(int korisnikId) {
+            return Connection.dm.esp_KorisniciUloge_SelectByKorisnik(korisnikId).ToList();
+        }   
     }
 }

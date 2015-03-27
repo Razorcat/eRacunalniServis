@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace eProdaja.Forms
+namespace eRacunalniServis_Servis.Forms
 {
     public partial class frmMain : Form
     {
@@ -47,7 +47,7 @@ namespace eProdaja.Forms
             lblDobrodosli.Hide();
             if (ActiveMdiChild != null)
                 ActiveMdiChild.Close();
-            frmDodajKorisnika frmDK = new frmDodajKorisnika();
+            frmDodajKorisnika frmDK = new frmDodajKorisnika(null);
             frmDK.MdiParent = this;
             frmDK.WindowState = FormWindowState.Maximized;
             frmDK.Show();

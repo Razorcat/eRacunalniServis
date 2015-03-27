@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 using eRacunalniServis_Servis.Data;
 
-namespace eProdaja.Forms
+namespace eRacunalniServis_Servis.Forms
 {
     public partial class frmLogin : Form
     {

@@ -1,6 +1,6 @@
-﻿namespace eProdaja.Forms
+﻿namespace eRacunalniServis_Servis.Forms
 {
-    partial class frmDodajProizvod
+    partial class frmPretragaProizvoda
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblNaziv = new System.Windows.Forms.Label();
-            this.btnDodajProizvod = new System.Windows.Forms.Button();
+            this.lblNazivProizvoda = new System.Windows.Forms.Label();
+            this.txtbNazivProizvoda = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // lblNaziv
+            // lblNazivProizvoda
             // 
-            this.lblNaziv.AutoSize = true;
-            this.lblNaziv.Location = new System.Drawing.Point(13, 13);
-            this.lblNaziv.Name = "lblNaziv";
-            this.lblNaziv.Size = new System.Drawing.Size(34, 13);
-            this.lblNaziv.TabIndex = 0;
-            this.lblNaziv.Text = "Naziv";
+            this.lblNazivProizvoda.AutoSize = true;
+            this.lblNazivProizvoda.Location = new System.Drawing.Point(13, 13);
+            this.lblNazivProizvoda.Name = "lblNazivProizvoda";
+            this.lblNazivProizvoda.Size = new System.Drawing.Size(83, 13);
+            this.lblNazivProizvoda.TabIndex = 0;
+            this.lblNazivProizvoda.Text = "Naziv proizvoda";
             // 
-            // btnDodajProizvod
+            // txtbNazivProizvoda
             // 
-            this.btnDodajProizvod.Location = new System.Drawing.Point(87, 227);
-            this.btnDodajProizvod.Name = "btnDodajProizvod";
-            this.btnDodajProizvod.Size = new System.Drawing.Size(105, 23);
-            this.btnDodajProizvod.TabIndex = 1;
-            this.btnDodajProizvod.Text = "Dodaj proizvod";
-            this.btnDodajProizvod.UseVisualStyleBackColor = true;
+            this.txtbNazivProizvoda.Location = new System.Drawing.Point(102, 10);
+            this.txtbNazivProizvoda.Name = "txtbNazivProizvoda";
+            this.txtbNazivProizvoda.Size = new System.Drawing.Size(100, 20);
+            this.txtbNazivProizvoda.TabIndex = 1;
             // 
-            // frmDodajProizvod
+            // frmPretragaProizvoda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.btnDodajProizvod);
-            this.Controls.Add(this.lblNaziv);
-            this.Name = "frmDodajProizvod";
-            this.Text = "frmDodajProizvod";
+            this.Controls.Add(this.txtbNazivProizvoda);
+            this.Controls.Add(this.lblNazivProizvoda);
+            this.Name = "frmPretragaProizvoda";
+            this.Text = "frmPretragaProizvoda";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -66,7 +64,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblNaziv;
-        private System.Windows.Forms.Button btnDodajProizvod;
+        private System.Windows.Forms.Label lblNazivProizvoda;
+        private System.Windows.Forms.TextBox txtbNazivProizvoda;
     }
 }

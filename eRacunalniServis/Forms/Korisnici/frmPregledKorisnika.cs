@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using eRacunalniServis_Servis.Data;
+using eRacunalniServis.Forms.Korisnici;
 
-namespace eProdaja.Forms
+namespace eRacunalniServis_Servis.Forms
 {
     public partial class frmPregledKorisnika : Form
     {
@@ -54,13 +55,36 @@ namespace eProdaja.Forms
                         BindGrid();                       
                     }                    
                 }
-            }            
+            }
+            BindGrid(); 
         }
 
         private void dGVKorisnici_CellClick(object sender, DataGridViewCellEventArgs e)
         {            
             int korisnikID = Convert.ToInt32( dGVKorisnici.SelectedRows[0].Cells[0].Value);
             korisnik =  DAKorisnici.SelectByID(korisnikID);
+        }
+
+        private void osobniPodaciMenu_Click(object sender, EventArgs e)
+        {
+            if (korisnik != null)
+            {
+                frmDodajKorisnika updateForm = new frmDodajKorisnika(korisnik);
+                updateForm.MaximizeBox = false;
+                updateForm.ShowDialog();
+                BindGrid();
+            }
+        }
+
+        private void statusniPodaciMenu_Click(object sender, EventArgs e)
+        {
+            if (korisnik != null)
+            {
+                frmPristup pristupForm = new frmPristup(korisnik);
+                pristupForm.MaximizeBox = false;
+                pristupForm.ShowDialog();
+                BindGrid();
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace eProdaja.Forms
+﻿namespace eRacunalniServis_Servis.Forms
 {
     partial class frmMain
     {

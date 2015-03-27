@@ -1,4 +1,4 @@
-﻿namespace eProdaja.Forms
+﻿namespace eRacunalniServis_Servis.Forms
 {
     partial class frmPregledKorisnika
     {
@@ -36,8 +36,8 @@
             this.btnDeaktiviraj = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.osobniPodaciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusniPodaciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.osobniPodaciMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusniPodaciMenu = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dGVKorisnici)).BeginInit();
             this.toolStripIzbornik.SuspendLayout();
             this.SuspendLayout();
@@ -88,7 +88,7 @@
             this.toolStripDropDownButton1});
             this.toolStripIzbornik.Location = new System.Drawing.Point(15, 39);
             this.toolStripIzbornik.Name = "toolStripIzbornik";
-            this.toolStripIzbornik.Size = new System.Drawing.Size(96, 25);
+            this.toolStripIzbornik.Size = new System.Drawing.Size(127, 25);
             this.toolStripIzbornik.TabIndex = 3;
             this.toolStripIzbornik.Text = "Izbornik";
             // 
@@ -108,8 +108,8 @@
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator1,
-            this.osobniPodaciToolStripMenuItem,
-            this.statusniPodaciToolStripMenuItem});
+            this.osobniPodaciMenu,
+            this.statusniPodaciMenu});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -121,17 +121,19 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(152, 6);
             // 
-            // osobniPodaciToolStripMenuItem
+            // osobniPodaciMenu
             // 
-            this.osobniPodaciToolStripMenuItem.Name = "osobniPodaciToolStripMenuItem";
-            this.osobniPodaciToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.osobniPodaciToolStripMenuItem.Text = "Osobni podaci";
+            this.osobniPodaciMenu.Name = "osobniPodaciMenu";
+            this.osobniPodaciMenu.Size = new System.Drawing.Size(155, 22);
+            this.osobniPodaciMenu.Text = "Osobni podaci";
+            this.osobniPodaciMenu.Click += new System.EventHandler(this.osobniPodaciMenu_Click);
             // 
-            // statusniPodaciToolStripMenuItem
+            // statusniPodaciMenu
             // 
-            this.statusniPodaciToolStripMenuItem.Name = "statusniPodaciToolStripMenuItem";
-            this.statusniPodaciToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.statusniPodaciToolStripMenuItem.Text = "Statusni podaci";
+            this.statusniPodaciMenu.Name = "statusniPodaciMenu";
+            this.statusniPodaciMenu.Size = new System.Drawing.Size(155, 22);
+            this.statusniPodaciMenu.Text = "Statusni podaci";
+            this.statusniPodaciMenu.Click += new System.EventHandler(this.statusniPodaciMenu_Click);
             // 
             // frmPregledKorisnika
             // 
@@ -163,7 +165,7 @@
         private System.Windows.Forms.ToolStripButton btnDeaktiviraj;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem osobniPodaciToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statusniPodaciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem osobniPodaciMenu;
+        private System.Windows.Forms.ToolStripMenuItem statusniPodaciMenu;
     }
 }

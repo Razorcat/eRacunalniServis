@@ -470,6 +470,11 @@
           <Parameter Name="LozinkaSalt" Type="nvarchar" Mode="In" />
           <Parameter Name="LozinkaHash" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="esp_Korisnici_ResetPass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KorisnikID" Type="int" Mode="In" />
+          <Parameter Name="LozinkaSalt" Type="nvarchar" Mode="In" />
+          <Parameter Name="LozinkaHash" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="esp_Korisnici_SelectById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KorisnikID" Type="int" Mode="In" />
         </Function>
@@ -479,9 +484,19 @@
         <Function Name="esp_Korisnici_SelectByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Name" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="esp_Korisnici_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KorisnikID" Type="int" Mode="In" />
+          <Parameter Name="Ime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Prezime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Telefon" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="esp_Korisnici_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KorisnikID" Type="int" Mode="In" />
           <Parameter Name="Status" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="esp_KorisniciUloge_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KorisnikID" Type="int" Mode="In" />
         </Function>
         <Function Name="esp_KorisniciUloge_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KorisnikID" Type="int" Mode="In" />
@@ -1226,11 +1241,26 @@
           <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="esp_Korisnici_SelectById" EntitySet="Korisnici" ReturnType="Collection(eProdajaModel.Korisnici)">
-            <Parameter Name="KorisnikID" Mode="In" Type="Int32" />
+          <Parameter Name="KorisnikID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="esp_Korisnici_UpdateStatus">
             <Parameter Name="KorisnikID" Mode="In" Type="Int32" />
             <Parameter Name="Status" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Korisnici_ResetPass">
+            <Parameter Name="KorisnikID" Mode="In" Type="Int32" />
+            <Parameter Name="LozinkaSalt" Mode="In" Type="String" />
+            <Parameter Name="LozinkaHash" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Korisnici_Update">
+            <Parameter Name="KorisnikID" Mode="In" Type="Int32" />
+            <Parameter Name="Ime" Mode="In" Type="String" />
+            <Parameter Name="Prezime" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Telefon" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_KorisniciUloge_Delete">
+          <Parameter Name="KorisnikID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="esp_Korisnici_SelectByKorisnickoIme_Result">
@@ -1525,6 +1555,9 @@
           <FunctionImportMapping FunctionImportName="esp_Korisnici_SelectById" FunctionName="eProdajaModel.Store.esp_Korisnici_SelectById">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_Korisnici_UpdateStatus" FunctionName="eProdajaModel.Store.esp_Korisnici_UpdateStatus" />
+          <FunctionImportMapping FunctionImportName="esp_Korisnici_ResetPass" FunctionName="eProdajaModel.Store.esp_Korisnici_ResetPass" />
+          <FunctionImportMapping FunctionImportName="esp_Korisnici_Update" FunctionName="eProdajaModel.Store.esp_Korisnici_Update" />
+          <FunctionImportMapping FunctionImportName="esp_KorisniciUloge_Delete" FunctionName="eProdajaModel.Store.esp_KorisniciUloge_Delete" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

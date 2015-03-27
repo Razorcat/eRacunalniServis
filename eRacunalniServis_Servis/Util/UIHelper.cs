@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using System.Security.Cryptography;
 
-namespace eProdaja_Service.Util
+namespace eRacunalniServis_Servis.Util
 {
     public class UIHelper
     {

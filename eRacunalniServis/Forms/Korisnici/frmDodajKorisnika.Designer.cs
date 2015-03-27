@@ -1,4 +1,4 @@
-﻿namespace eProdaja.Forms
+﻿namespace eRacunalniServis_Servis.Forms
 {
     partial class frmDodajKorisnika
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDodajKorisnika));
             this.btnSpremi = new System.Windows.Forms.Button();
             this.lblIme = new System.Windows.Forms.Label();
@@ -45,7 +46,9 @@
             this.txtbKorisnickoIme = new System.Windows.Forms.TextBox();
             this.txtbLozinka = new System.Windows.Forms.TextBox();
             this.panelKorisnikPristupUloge = new System.Windows.Forms.Panel();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelKorisnikPristupUloge.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSpremi
@@ -53,7 +56,7 @@
             this.btnSpremi.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSpremi.Location = new System.Drawing.Point(0, 277);
             this.btnSpremi.Name = "btnSpremi";
-            this.btnSpremi.Size = new System.Drawing.Size(284, 23);
+            this.btnSpremi.Size = new System.Drawing.Size(295, 23);
             this.btnSpremi.TabIndex = 0;
             this.btnSpremi.Text = "Spremi";
             this.btnSpremi.UseVisualStyleBackColor = true;
@@ -83,6 +86,7 @@
             this.txtbIme.Name = "txtbIme";
             this.txtbIme.Size = new System.Drawing.Size(175, 20);
             this.txtbIme.TabIndex = 3;
+            this.txtbIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtbIme_Validating);
             // 
             // txtbPrezime
             // 
@@ -123,6 +127,7 @@
             this.txtbEmail.Name = "txtbEmail";
             this.txtbEmail.Size = new System.Drawing.Size(175, 20);
             this.txtbEmail.TabIndex = 8;
+            this.txtbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtbEmail_Validating);
             // 
             // lblTelefon
             // 
@@ -172,6 +177,7 @@
             this.txtbLozinka.Name = "txtbLozinka";
             this.txtbLozinka.Size = new System.Drawing.Size(175, 20);
             this.txtbLozinka.TabIndex = 14;
+            this.txtbLozinka.Validating += new System.ComponentModel.CancelEventHandler(this.txtbLozinka_Validating);
             // 
             // panelKorisnikPristupUloge
             // 
@@ -183,14 +189,18 @@
             this.panelKorisnikPristupUloge.Controls.Add(this.lblKorisnickoIme);
             this.panelKorisnikPristupUloge.Location = new System.Drawing.Point(12, 130);
             this.panelKorisnikPristupUloge.Name = "panelKorisnikPristupUloge";
-            this.panelKorisnikPristupUloge.Size = new System.Drawing.Size(271, 141);
+            this.panelKorisnikPristupUloge.Size = new System.Drawing.Size(283, 141);
             this.panelKorisnikPristupUloge.TabIndex = 15;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmDodajKorisnika
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 300);
+            this.ClientSize = new System.Drawing.Size(295, 300);
             this.Controls.Add(this.panelKorisnikPristupUloge);
             this.Controls.Add(this.mtxtbTelefon);
             this.Controls.Add(this.lblTelefon);
@@ -204,10 +214,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDodajKorisnika";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDodajKorisnika";
+            this.Text = "Dodavanje novog korisnika";
             this.Load += new System.EventHandler(this.frmDodajKorisnika_Load);
             this.panelKorisnikPristupUloge.ResumeLayout(false);
             this.panelKorisnikPristupUloge.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +242,6 @@
         private System.Windows.Forms.TextBox txtbKorisnickoIme;
         private System.Windows.Forms.TextBox txtbLozinka;
         private System.Windows.Forms.Panel panelKorisnikPristupUloge;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
