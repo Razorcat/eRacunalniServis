@@ -229,5 +229,206 @@ namespace eRacunalniServis_Servis.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_KorisniciUloge_Delete", korisnikIDParameter);
         }
+    
+        public virtual ObjectResult<esp_Dobavljaci_SelectById_Result> esp_Dobavljaci_SelectById(Nullable<int> dobavljacID)
+        {
+            var dobavljacIDParameter = dobavljacID.HasValue ?
+                new ObjectParameter("DobavljacID", dobavljacID) :
+                new ObjectParameter("DobavljacID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Dobavljaci_SelectById_Result>("esp_Dobavljaci_SelectById", dobavljacIDParameter);
+        }
+    
+        public virtual ObjectResult<esp_Dobavljaci_SelectByNaziv_Result> esp_Dobavljaci_SelectByNaziv(string naziv)
+        {
+            var nazivParameter = naziv != null ?
+                new ObjectParameter("Naziv", naziv) :
+                new ObjectParameter("Naziv", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Dobavljaci_SelectByNaziv_Result>("esp_Dobavljaci_SelectByNaziv", nazivParameter);
+        }
+    
+        public virtual int esp_Proizvodi_Insert(string naziv, string sifra, Nullable<decimal> cijena, Nullable<int> vrstaID, Nullable<int> jedinicaMjereID, byte[] slika, byte[] slikaThumb)
+        {
+            var nazivParameter = naziv != null ?
+                new ObjectParameter("Naziv", naziv) :
+                new ObjectParameter("Naziv", typeof(string));
+    
+            var sifraParameter = sifra != null ?
+                new ObjectParameter("Sifra", sifra) :
+                new ObjectParameter("Sifra", typeof(string));
+    
+            var cijenaParameter = cijena.HasValue ?
+                new ObjectParameter("Cijena", cijena) :
+                new ObjectParameter("Cijena", typeof(decimal));
+    
+            var vrstaIDParameter = vrstaID.HasValue ?
+                new ObjectParameter("VrstaID", vrstaID) :
+                new ObjectParameter("VrstaID", typeof(int));
+    
+            var jedinicaMjereIDParameter = jedinicaMjereID.HasValue ?
+                new ObjectParameter("JedinicaMjereID", jedinicaMjereID) :
+                new ObjectParameter("JedinicaMjereID", typeof(int));
+    
+            var slikaParameter = slika != null ?
+                new ObjectParameter("Slika", slika) :
+                new ObjectParameter("Slika", typeof(byte[]));
+    
+            var slikaThumbParameter = slikaThumb != null ?
+                new ObjectParameter("SlikaThumb", slikaThumb) :
+                new ObjectParameter("SlikaThumb", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Proizvodi_Insert", nazivParameter, sifraParameter, cijenaParameter, vrstaIDParameter, jedinicaMjereIDParameter, slikaParameter, slikaThumbParameter);
+        }
+    
+        public virtual ObjectResult<esp_Proizvodi_SelectById_Result> esp_Proizvodi_SelectById(Nullable<int> proizvodID)
+        {
+            var proizvodIDParameter = proizvodID.HasValue ?
+                new ObjectParameter("ProizvodID", proizvodID) :
+                new ObjectParameter("ProizvodID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Proizvodi_SelectById_Result>("esp_Proizvodi_SelectById", proizvodIDParameter);
+        }
+    
+        public virtual ObjectResult<esp_Proizvodi_SelectBySifraNaziv_Result> esp_Proizvodi_SelectBySifraNaziv(string sifra, string naziv)
+        {
+            var sifraParameter = sifra != null ?
+                new ObjectParameter("Sifra", sifra) :
+                new ObjectParameter("Sifra", typeof(string));
+    
+            var nazivParameter = naziv != null ?
+                new ObjectParameter("Naziv", naziv) :
+                new ObjectParameter("Naziv", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Proizvodi_SelectBySifraNaziv_Result>("esp_Proizvodi_SelectBySifraNaziv", sifraParameter, nazivParameter);
+        }
+    
+        public virtual ObjectResult<esp_Proizvodi_SelectByVrsta_Result> esp_Proizvodi_SelectByVrsta(Nullable<int> vrstaID)
+        {
+            var vrstaIDParameter = vrstaID.HasValue ?
+                new ObjectParameter("VrstaID", vrstaID) :
+                new ObjectParameter("VrstaID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Proizvodi_SelectByVrsta_Result>("esp_Proizvodi_SelectByVrsta", vrstaIDParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> esp_Ulazi_Insert(string brojFakture, Nullable<System.DateTime> datum, Nullable<decimal> iznosRacuna, Nullable<decimal> pDV, string napomena, Nullable<int> skladisteID, Nullable<int> korisnikID, Nullable<int> dobavljacID)
+        {
+            var brojFaktureParameter = brojFakture != null ?
+                new ObjectParameter("BrojFakture", brojFakture) :
+                new ObjectParameter("BrojFakture", typeof(string));
+    
+            var datumParameter = datum.HasValue ?
+                new ObjectParameter("Datum", datum) :
+                new ObjectParameter("Datum", typeof(System.DateTime));
+    
+            var iznosRacunaParameter = iznosRacuna.HasValue ?
+                new ObjectParameter("IznosRacuna", iznosRacuna) :
+                new ObjectParameter("IznosRacuna", typeof(decimal));
+    
+            var pDVParameter = pDV.HasValue ?
+                new ObjectParameter("PDV", pDV) :
+                new ObjectParameter("PDV", typeof(decimal));
+    
+            var napomenaParameter = napomena != null ?
+                new ObjectParameter("Napomena", napomena) :
+                new ObjectParameter("Napomena", typeof(string));
+    
+            var skladisteIDParameter = skladisteID.HasValue ?
+                new ObjectParameter("SkladisteID", skladisteID) :
+                new ObjectParameter("SkladisteID", typeof(int));
+    
+            var korisnikIDParameter = korisnikID.HasValue ?
+                new ObjectParameter("KorisnikID", korisnikID) :
+                new ObjectParameter("KorisnikID", typeof(int));
+    
+            var dobavljacIDParameter = dobavljacID.HasValue ?
+                new ObjectParameter("DobavljacID", dobavljacID) :
+                new ObjectParameter("DobavljacID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("esp_Ulazi_Insert", brojFaktureParameter, datumParameter, iznosRacunaParameter, pDVParameter, napomenaParameter, skladisteIDParameter, korisnikIDParameter, dobavljacIDParameter);
+        }
+    
+        public virtual int esp_UlazStavke_Insert(Nullable<int> ulazID, Nullable<int> proizvodID, Nullable<int> kolicina, Nullable<decimal> cijena)
+        {
+            var ulazIDParameter = ulazID.HasValue ?
+                new ObjectParameter("UlazID", ulazID) :
+                new ObjectParameter("UlazID", typeof(int));
+    
+            var proizvodIDParameter = proizvodID.HasValue ?
+                new ObjectParameter("ProizvodID", proizvodID) :
+                new ObjectParameter("ProizvodID", typeof(int));
+    
+            var kolicinaParameter = kolicina.HasValue ?
+                new ObjectParameter("Kolicina", kolicina) :
+                new ObjectParameter("Kolicina", typeof(int));
+    
+            var cijenaParameter = cijena.HasValue ?
+                new ObjectParameter("Cijena", cijena) :
+                new ObjectParameter("Cijena", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_UlazStavke_Insert", ulazIDParameter, proizvodIDParameter, kolicinaParameter, cijenaParameter);
+        }
+    
+        public virtual ObjectResult<VrsteProizvoda> esp_VrsteProizvoda_SelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VrsteProizvoda>("esp_VrsteProizvoda_SelectAll");
+        }
+    
+        public virtual ObjectResult<VrsteProizvoda> esp_VrsteProizvoda_SelectAll(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VrsteProizvoda>("esp_VrsteProizvoda_SelectAll", mergeOption);
+        }
+    
+        public virtual ObjectResult<JediniceMjere> esp_JediniceMjere_SelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<JediniceMjere>("esp_JediniceMjere_SelectAll");
+        }
+    
+        public virtual ObjectResult<JediniceMjere> esp_JediniceMjere_SelectAll(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<JediniceMjere>("esp_JediniceMjere_SelectAll", mergeOption);
+        }
+    
+        public virtual int esp_Dobavljaci_Insert(string naziv, string kontaktOsoba, string adresa, string telefon, string fax, string web, string email, string ziroRacun, string napomena)
+        {
+            var nazivParameter = naziv != null ?
+                new ObjectParameter("Naziv", naziv) :
+                new ObjectParameter("Naziv", typeof(string));
+    
+            var kontaktOsobaParameter = kontaktOsoba != null ?
+                new ObjectParameter("KontaktOsoba", kontaktOsoba) :
+                new ObjectParameter("KontaktOsoba", typeof(string));
+    
+            var adresaParameter = adresa != null ?
+                new ObjectParameter("Adresa", adresa) :
+                new ObjectParameter("Adresa", typeof(string));
+    
+            var telefonParameter = telefon != null ?
+                new ObjectParameter("Telefon", telefon) :
+                new ObjectParameter("Telefon", typeof(string));
+    
+            var faxParameter = fax != null ?
+                new ObjectParameter("Fax", fax) :
+                new ObjectParameter("Fax", typeof(string));
+    
+            var webParameter = web != null ?
+                new ObjectParameter("Web", web) :
+                new ObjectParameter("Web", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var ziroRacunParameter = ziroRacun != null ?
+                new ObjectParameter("ZiroRacun", ziroRacun) :
+                new ObjectParameter("ZiroRacun", typeof(string));
+    
+            var napomenaParameter = napomena != null ?
+                new ObjectParameter("Napomena", napomena) :
+                new ObjectParameter("Napomena", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Dobavljaci_Insert", nazivParameter, kontaktOsobaParameter, adresaParameter, telefonParameter, faxParameter, webParameter, emailParameter, ziroRacunParameter, napomenaParameter);
+        }
     }
 }

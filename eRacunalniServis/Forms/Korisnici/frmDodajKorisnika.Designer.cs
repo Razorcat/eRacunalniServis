@@ -67,18 +67,18 @@
             this.lblIme.AutoSize = true;
             this.lblIme.Location = new System.Drawing.Point(12, 9);
             this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(24, 13);
+            this.lblIme.Size = new System.Drawing.Size(30, 13);
             this.lblIme.TabIndex = 1;
-            this.lblIme.Text = "Ime";
+            this.lblIme.Text = "Ime :";
             // 
             // lblPrezime
             // 
             this.lblPrezime.AutoSize = true;
             this.lblPrezime.Location = new System.Drawing.Point(12, 36);
             this.lblPrezime.Name = "lblPrezime";
-            this.lblPrezime.Size = new System.Drawing.Size(44, 13);
+            this.lblPrezime.Size = new System.Drawing.Size(50, 13);
             this.lblPrezime.TabIndex = 2;
-            this.lblPrezime.Text = "Prezime";
+            this.lblPrezime.Text = "Prezime :";
             // 
             // txtbIme
             // 
@@ -94,6 +94,7 @@
             this.txtbPrezime.Name = "txtbPrezime";
             this.txtbPrezime.Size = new System.Drawing.Size(175, 20);
             this.txtbPrezime.TabIndex = 4;
+            this.txtbPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.txtbPrezime_Validating);
             // 
             // lblUloge
             // 
@@ -111,15 +112,16 @@
             this.ulogeList.Name = "ulogeList";
             this.ulogeList.Size = new System.Drawing.Size(175, 64);
             this.ulogeList.TabIndex = 6;
+            this.ulogeList.Validating += new System.ComponentModel.CancelEventHandler(this.ulogeList_Validating);
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Location = new System.Drawing.Point(12, 63);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(35, 13);
+            this.lblEmail.Size = new System.Drawing.Size(41, 13);
             this.lblEmail.TabIndex = 7;
-            this.lblEmail.Text = "E-mail";
+            this.lblEmail.Text = "E-mail :";
             // 
             // txtbEmail
             // 
@@ -134,9 +136,9 @@
             this.lblTelefon.AutoSize = true;
             this.lblTelefon.Location = new System.Drawing.Point(12, 90);
             this.lblTelefon.Name = "lblTelefon";
-            this.lblTelefon.Size = new System.Drawing.Size(43, 13);
+            this.lblTelefon.Size = new System.Drawing.Size(49, 13);
             this.lblTelefon.TabIndex = 9;
-            this.lblTelefon.Text = "Telefon";
+            this.lblTelefon.Text = "Telefon :";
             // 
             // mtxtbTelefon
             // 

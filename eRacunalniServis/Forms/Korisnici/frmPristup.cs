@@ -18,9 +18,11 @@ namespace eRacunalniServis.Forms.Korisnici
     public partial class frmPristup : Form
     {
         private eRacunalniServis_Servis.Data.Korisnici korisnik;
-        public frmPristup(eRacunalniServis_Servis.Data.Korisnici k)
+        public frmPristup(eRacunalniServis_Servis.Data.Korisnici k,Font font)
         {
+            this.Font = font;
             InitializeComponent();
+            this.AutoValidate = AutoValidate.Disable;
             if (k != null)
             {
                 korisnik = k;
@@ -46,34 +48,64 @@ namespace eRacunalniServis.Forms.Korisnici
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
-            bool err = false;
-            if (txtbLozinka.Text != "" && txtbPotvrdaLozinke.Text != "")
+            if (this.ValidateChildren(ValidationConstraints.Enabled))
             {
-                if (txtbLozinka.Text == txtbPotvrdaLozinke.Text)
+                bool err = false;
+                if (txtbLozinka.Text != "" && txtbPotvrdaLozinke.Text != "")
                 {
-                    korisnik.LozinkaSalt = UIHelper.GenerateSalt();
-                    korisnik.LozinkaHash = UIHelper.GenerateHash(txtbPotvrdaLozinke.Text, korisnik.LozinkaSalt);
-                    DAKorisnici.ResetPassword(korisnik);
+                    if (txtbLozinka.Text == txtbPotvrdaLozinke.Text)
+                    {
+                        korisnik.LozinkaSalt = UIHelper.GenerateSalt();
+                        korisnik.LozinkaHash = UIHelper.GenerateHash(txtbPotvrdaLozinke.Text, korisnik.LozinkaSalt);
+                        DAKorisnici.ResetPassword(korisnik);
+                    }
+                    else
+                    {
+                        err = true;
+                        MessageBox.Show(Global.GetString("err_pass_ns"), "Izmjene korisničkih podataka", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                else err = true;
+                DAKorisnici.UpdateUloge(korisnik.KorisnikID, UlogeList.CheckedItems.Cast<Uloge>().ToList());
+                if (err != true)
                 {
-                    err = true;
-                    MessageBox.Show(Global.GetString("err_pass_ns"), "Izmjene korisničkih podataka", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string Poruka = "";
+                    if (korisnik.KorisnikID == Global.prijavljeniKorisnik.KorisnikID && !chbAkitivan.Checked)
+                        Poruka = Global.GetString("status_err");
+                    else if (korisnik.Status != chbAkitivan.Checked)
+                    {
+                        DAKorisnici.UpdateStatus(korisnik.KorisnikID, chbAkitivan.Checked);
+                    }
+                    MessageBox.Show(Poruka + "\n" + Global.GetString("usr_succ_upd"), "Izmjene korisničkih podataka", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
             }
-            else err = true;
-            DAKorisnici.UpdateUloge(korisnik.KorisnikID, UlogeList.CheckedItems.Cast<Uloge>().ToList());
-            if (err != true)
+        }
+
+        private void txtbLozinka_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtbLozinka.Text.Trim() == "")
             {
-                string Poruka = "";
-                if (korisnik.KorisnikID == Global.prijavljeniKorisnik.KorisnikID && !chbAkitivan.Checked)
-                    Poruka = Global.GetString("status_err");
-                else if (korisnik.Status != chbAkitivan.Checked)
-                {
-                    DAKorisnici.UpdateStatus(korisnik.KorisnikID, chbAkitivan.Checked);
-                }
-                MessageBox.Show(Poruka + "/n" + Global.GetString("usr_succ_upd"), "Izmjene korisničkih podataka", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                e.Cancel = true;
+                errorProvider.SetError(txtbLozinka, Global.GetString("pass_err"));
+            }
+        }
+
+        private void txtbPotvrdaLozinke_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtbPotvrdaLozinke.Text.Trim() == "")
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtbPotvrdaLozinke, Global.GetString("pass_err"));
+            }
+        }
+
+        private void UlogeList_Validating(object sender, CancelEventArgs e)
+        {
+            if (UlogeList.CheckedItems.Count < 1)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(UlogeList, Global.GetString("uloge_req"));
             }
         }
     }

@@ -159,4 +159,10 @@
   <data name="username_con" xml:space="preserve">
     <value>Korisničko ime je zauzeto!</value>
   </data>
+  <data name="lastn_req" xml:space="preserve">
+    <value>Obavezno upišite prezime</value>
+  </data>
+  <data name="uloge_req" xml:space="preserve">
+    <value>Korisnik mora imati barem jednu ulogu!</value>
+  </data>
 </root>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using eRacunalniServis.Forms;
+using eRacunalniServis.Forms.Dobavljaci;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,8 +15,8 @@ namespace eRacunalniServis_Servis.Forms
     public partial class frmMain : Form
     {
         public frmMain()
-        {
-            InitializeComponent();
+        {            
+            InitializeComponent();            
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -47,10 +49,10 @@ namespace eRacunalniServis_Servis.Forms
             lblDobrodosli.Hide();
             if (ActiveMdiChild != null)
                 ActiveMdiChild.Close();
-            frmDodajKorisnika frmDK = new frmDodajKorisnika(null);
-            frmDK.MdiParent = this;
-            frmDK.WindowState = FormWindowState.Maximized;
+            frmDodajKorisnika frmDK = new frmDodajKorisnika(null,this.Font);
+            frmDK.MdiParent = this;            
             frmDK.Show();
+            frmDK.WindowState = FormWindowState.Maximized;
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -61,40 +63,7 @@ namespace eRacunalniServis_Servis.Forms
                 Application.Exit();
                 Application.Restart();
             }            
-        }
-
-        private void dodajProizvodToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            lblDobrodosli.Hide();
-            if (ActiveMdiChild != null)
-                ActiveMdiChild.Close();
-            frmDodajProizvod frmDP = new frmDodajProizvod();
-            frmDP.MdiParent = this;
-            frmDP.WindowState = FormWindowState.Maximized;
-            frmDP.Show();
-        }
-
-        private void pretragaProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            lblDobrodosli.Hide();
-            if (ActiveMdiChild != null)
-                ActiveMdiChild.Close();
-            frmPretragaProizvoda frmPP = new frmPretragaProizvoda();
-            frmPP.MdiParent = this;
-            frmPP.WindowState = FormWindowState.Maximized;
-            frmPP.Show();
-        }
-
-        private void prodajaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            lblDobrodosli.Hide();
-            if (ActiveMdiChild != null)
-                ActiveMdiChild.Close();
-            frmProdaja frmP = new frmProdaja();
-            frmP.MdiParent = this;
-            frmP.WindowState = FormWindowState.Maximized;
-            frmP.Show();
-        }
+        }  
 
         private void pregledKorisnikaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -102,9 +71,43 @@ namespace eRacunalniServis_Servis.Forms
             if (ActiveMdiChild != null)
                 ActiveMdiChild.Close();
             frmPregledKorisnika frmPK = new frmPregledKorisnika();
-            frmPK.MdiParent = this;
-            frmPK.WindowState = FormWindowState.Maximized;
+            frmPK.MdiParent = this;            
             frmPK.Show();
-        }        
+            frmPK.WindowState = FormWindowState.Maximized;
+        }
+
+        private void dodajProizvodToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmDodajProizvod frmDP = new frmDodajProizvod();
+            frmDP.MdiParent = this;            
+            frmDP.Show();
+            frmDP.WindowState = FormWindowState.Maximized;
+        }
+
+        private void promjeniFontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fontDialog.ShowDialog();
+            this.Font = fontDialog.Font;
+        }
+
+        private void oProgramuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmOProgramu frmInfo = new frmOProgramu();
+            frmInfo.ShowDialog();
+        }
+
+        private void dodajNovogDobavljačaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmNoviDobavljac frmDP = new frmNoviDobavljac();
+            frmDP.MdiParent = this;
+            frmDP.Show();
+            frmDP.WindowState = FormWindowState.Maximized;
+        }             
     }
 }

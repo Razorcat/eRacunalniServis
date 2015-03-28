@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>eRacunalniServis</RootNamespace>
     <AssemblyName>eRacunalniServis</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,6 +53,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Dobavljaci\DobavljaciForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dobavljaci\DobavljaciForm.designer.cs">
+      <DependentUpon>DobavljaciForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dobavljaci\frmNoviDobavljac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dobavljaci\frmNoviDobavljac.Designer.cs">
+      <DependentUpon>frmNoviDobavljac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dobavljaci\NabavkaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dobavljaci\NabavkaForm.designer.cs">
+      <DependentUpon>NabavkaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dobavljaci\ProizvodiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dobavljaci\ProizvodiForm.designer.cs">
+      <DependentUpon>ProizvodiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOProgramu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOProgramu.Designer.cs">
+      <DependentUpon>frmOProgramu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Korisnici\frmDodajKorisnika.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,12 +125,6 @@
     <Compile Include="Forms\Proizvodi\frmPretragaProizvoda.Designer.cs">
       <DependentUpon>frmPretragaProizvoda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmProdaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmProdaja.Designer.cs">
-      <DependentUpon>frmProdaja.cs</DependentUpon>
-    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Poruke.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -108,6 +133,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Dobavljaci\DobavljaciForm.resx">
+      <DependentUpon>DobavljaciForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dobavljaci\frmNoviDobavljac.resx">
+      <DependentUpon>frmNoviDobavljac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dobavljaci\NabavkaForm.resx">
+      <DependentUpon>NabavkaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dobavljaci\ProizvodiForm.resx">
+      <DependentUpon>ProizvodiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmOProgramu.resx">
+      <DependentUpon>frmOProgramu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Korisnici\frmDodajKorisnika.resx">
       <DependentUpon>frmDodajKorisnika.cs</DependentUpon>
     </EmbeddedResource>

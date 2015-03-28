@@ -69,7 +69,7 @@ namespace eRacunalniServis_Servis.Forms
         {
             if (korisnik != null)
             {
-                frmDodajKorisnika updateForm = new frmDodajKorisnika(korisnik);
+                frmDodajKorisnika updateForm = new frmDodajKorisnika(korisnik,this.Font);
                 updateForm.MaximizeBox = false;
                 updateForm.ShowDialog();
                 BindGrid();
@@ -80,7 +80,7 @@ namespace eRacunalniServis_Servis.Forms
         {
             if (korisnik != null)
             {
-                frmPristup pristupForm = new frmPristup(korisnik);
+                frmPristup pristupForm = new frmPristup(korisnik,this.Font);
                 pristupForm.MaximizeBox = false;
                 pristupForm.ShowDialog();
                 BindGrid();

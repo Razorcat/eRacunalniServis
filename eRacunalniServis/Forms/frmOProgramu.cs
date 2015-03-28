@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace eRacunalniServis_Servis.Forms
+namespace eRacunalniServis.Forms
 {
-    public partial class frmProdaja : Form
+    public partial class frmOProgramu : Form
     {
-        public frmProdaja()
+        public frmOProgramu()
         {
             InitializeComponent();
         }

@@ -1,0 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace eRacunalniServis_Servis.Data
+{
+    public class DAProizvodi
+    {
+        public static void Insert(Proizvodi p){
+            Connection.dm.esp_Proizvodi_Insert(p.Naziv,p.Sifra,p.Cijena,p.VrstaID,p.JedinicaMjereID,p.Slika,p.SlikaThumb);            
+        }
+        public static Object SelectByVrsta(int VrstaId) {
+            return Connection.dm.esp_Proizvodi_SelectByVrsta(VrstaId).ToList();
+        }
+        public static List<VrsteProizvoda> VrsteProizvodaSelectAll() {
+            List<VrsteProizvoda> vrste= Connection.dm.esp_VrsteProizvoda_SelectAll().ToList();
+            VrsteProizvoda emptyVP = new VrsteProizvoda();
+            emptyVP.VrstaID = 0;
+            emptyVP.Naziv = "";
+            vrste.Insert(0, emptyVP);
+            return vrste;
+        }
+        public static List<JediniceMjere> JediniceMjereSelectAll() {
+            List<JediniceMjere> jedinice= Connection.dm.esp_JediniceMjere_SelectAll().ToList();
+            JediniceMjere emptyJM = new JediniceMjere();
+            emptyJM.JedinicaMjereID = 0;
+            emptyJM.Naziv = "";
+            jedinice.Insert(0, emptyJM);
+            return jedinice;
+        }
+        public static Object SelectBySifraNaziv(string sifra, string naziv) {
+           return Connection.dm.esp_Proizvodi_SelectBySifraNaziv(sifra, naziv).ToList();
+        }
+    }
+}

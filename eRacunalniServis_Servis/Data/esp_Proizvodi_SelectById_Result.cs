@@ -10,21 +10,17 @@
 namespace eRacunalniServis_Servis.Data
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Servisi
+    public partial class esp_Proizvodi_SelectById_Result
     {
-        public Servisi()
-        {
-            this.ServisStanje = new HashSet<ServisStanje>();
-        }
-    
-        public int ServisID { get; set; }
-        public int KupacID { get; set; }
-        public System.DateTime Datum { get; set; }
-        public bool Popravljeno { get; set; }
-    
-        public virtual Kupci Kupci { get; set; }
-        public virtual ICollection<ServisStanje> ServisStanje { get; set; }
+        public int ProizvodID { get; set; }
+        public string Naziv { get; set; }
+        public string Sifra { get; set; }
+        public decimal Cijena { get; set; }
+        public int VrstaID { get; set; }
+        public int JedinicaMjereID { get; set; }
+        public byte[] Slika { get; set; }
+        public byte[] SlikaThumb { get; set; }
+        public bool Status { get; set; }
     }
 }

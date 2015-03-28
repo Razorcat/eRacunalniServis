@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPristup));
             this.txtbKorisnickoIme = new System.Windows.Forms.TextBox();
             this.lblKorisnickoIme = new System.Windows.Forms.Label();
@@ -39,6 +40,8 @@
             this.btnSpremi = new System.Windows.Forms.Button();
             this.txtbPotvrdaLozinke = new System.Windows.Forms.TextBox();
             this.lblPotvrdaL = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtbKorisnickoIme
@@ -66,12 +69,14 @@
             // 
             resources.ApplyResources(this.txtbLozinka, "txtbLozinka");
             this.txtbLozinka.Name = "txtbLozinka";
+            this.txtbLozinka.Validating += new System.ComponentModel.CancelEventHandler(this.txtbLozinka_Validating);
             // 
             // UlogeList
             // 
-            resources.ApplyResources(this.UlogeList, "UlogeList");
             this.UlogeList.FormattingEnabled = true;
+            resources.ApplyResources(this.UlogeList, "UlogeList");
             this.UlogeList.Name = "UlogeList";
+            this.UlogeList.Validating += new System.ComponentModel.CancelEventHandler(this.UlogeList_Validating);
             // 
             // chbAkitivan
             // 
@@ -90,11 +95,16 @@
             // 
             resources.ApplyResources(this.txtbPotvrdaLozinke, "txtbPotvrdaLozinke");
             this.txtbPotvrdaLozinke.Name = "txtbPotvrdaLozinke";
+            this.txtbPotvrdaLozinke.Validating += new System.ComponentModel.CancelEventHandler(this.txtbPotvrdaLozinke_Validating);
             // 
             // lblPotvrdaL
             // 
             resources.ApplyResources(this.lblPotvrdaL, "lblPotvrdaL");
             this.lblPotvrdaL.Name = "lblPotvrdaL";
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmPristup
             // 
@@ -111,6 +121,7 @@
             this.Controls.Add(this.lblKorisnickoIme);
             this.Controls.Add(this.txtbKorisnickoIme);
             this.Name = "frmPristup";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +139,6 @@
         private System.Windows.Forms.Button btnSpremi;
         private System.Windows.Forms.TextBox txtbPotvrdaLozinke;
         private System.Windows.Forms.Label lblPotvrdaL;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

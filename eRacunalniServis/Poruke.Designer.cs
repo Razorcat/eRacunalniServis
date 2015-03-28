@@ -88,6 +88,15 @@ namespace eRacunalniServis {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Obavezno upišite prezime.
+        /// </summary>
+        internal static string lastn_req {
+            get {
+                return ResourceManager.GetString("lastn_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pogrešni podaci!.
         /// </summary>
         internal static string log_err {
@@ -156,6 +165,15 @@ namespace eRacunalniServis {
         internal static string status_err {
             get {
                 return ResourceManager.GetString("status_err", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korisnik mora imati barem jednu ulogu!.
+        /// </summary>
+        internal static string uloge_req {
+            get {
+                return ResourceManager.GetString("uloge_req", resourceCulture);
             }
         }
         
