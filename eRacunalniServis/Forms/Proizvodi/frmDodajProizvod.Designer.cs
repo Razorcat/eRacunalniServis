@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDodajProizvod));
             this.lblNaziv = new System.Windows.Forms.Label();
             this.btnDodajProizvod = new System.Windows.Forms.Button();
             this.lblVrsta = new System.Windows.Forms.Label();
@@ -193,9 +194,11 @@
             // 
             // pictureBoxProizvod
             // 
+            this.pictureBoxProizvod.BackgroundImage = global::eRacunalniServis.Properties.Resources.pc;
+            this.pictureBoxProizvod.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxProizvod.Location = new System.Drawing.Point(313, 15);
             this.pictureBoxProizvod.Name = "pictureBoxProizvod";
-            this.pictureBoxProizvod.Size = new System.Drawing.Size(124, 96);
+            this.pictureBoxProizvod.Size = new System.Drawing.Size(124, 103);
             this.pictureBoxProizvod.TabIndex = 17;
             this.pictureBoxProizvod.TabStop = false;
             // 
@@ -220,6 +223,7 @@
             this.Controls.Add(this.lblVrsta);
             this.Controls.Add(this.btnDodajProizvod);
             this.Controls.Add(this.lblNaziv);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDodajProizvod";
             this.Text = "Dodaj proizvod";
             this.Load += new System.EventHandler(this.frmDodajProizvod_Load);

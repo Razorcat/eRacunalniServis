@@ -207,6 +207,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\pc.jpg" />
     <Content Include="Resources\user-512.ico" />
     <None Include="Resources\cancel.png" />
     <Content Include="Resources\Iconsmind-Outline-Computer-2.ico" />

@@ -23,7 +23,7 @@ namespace eRacunalniServis_Servis.Forms
         {
             base.OnFormClosing(e);
             if (PreClosingConfirmation() == System.Windows.Forms.DialogResult.Yes)
-            {
+            {                
                 Dispose(true);
                 Application.Exit();                
             }
@@ -35,7 +35,7 @@ namespace eRacunalniServis_Servis.Forms
 
         private DialogResult PreClosingConfirmation()
         {
-            DialogResult res = System.Windows.Forms.MessageBox.Show(Global.GetString("quit"), "Quit...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult res = System.Windows.Forms.MessageBox.Show(Global.GetString("quit"), "Izlazak?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             return res;
         }
         private DialogResult PreLogoutConfirmation()

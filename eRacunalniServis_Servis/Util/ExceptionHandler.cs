@@ -16,7 +16,7 @@ namespace eRacunalniServis_Servis.Util
             switch(greska.Number){
                 case 2627:
                     throw throwNewConstrainException(greska);
-                    break;
+                    break;                    
                 default:
                     throw new Exception(greska.Message);
             }
@@ -34,6 +34,8 @@ namespace eRacunalniServis_Servis.Util
                     newMessage = "username_con";
                 else if (csName == "CS_Email")
                     newMessage = "email_con";
+                else if(csName=="CS_Dobavljaci_Naziv")
+                    newMessage = "dobavljaci_con";
             }
             return new ConstraintException(newMessage);
         }

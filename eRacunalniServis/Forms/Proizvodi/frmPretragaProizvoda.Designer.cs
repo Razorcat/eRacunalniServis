@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPretragaProizvoda));
             this.lblNazivProizvoda = new System.Windows.Forms.Label();
             this.txtbNazivProizvoda = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -55,6 +56,7 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Controls.Add(this.txtbNazivProizvoda);
             this.Controls.Add(this.lblNazivProizvoda);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPretragaProizvoda";
             this.Text = "frmPretragaProizvoda";
             this.ResumeLayout(false);

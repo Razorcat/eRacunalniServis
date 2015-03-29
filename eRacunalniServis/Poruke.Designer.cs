@@ -61,6 +61,15 @@ namespace eRacunalniServis {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dobavljac već postoji u bazi!.
+        /// </summary>
+        internal static string dobavljaci_con {
+            get {
+                return ResourceManager.GetString("dobavljaci_con", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Neispravan format!.
         /// </summary>
         internal static string email_err {

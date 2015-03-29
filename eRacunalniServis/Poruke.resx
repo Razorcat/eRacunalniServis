@@ -159,6 +159,9 @@
   <data name="username_con" xml:space="preserve">
     <value>Korisničko ime je zauzeto!</value>
   </data>
+  <data name="dobavljaci_con" xml:space="preserve">
+    <value>Dobavljac već postoji u bazi!</value>
+  </data>
   <data name="lastn_req" xml:space="preserve">
     <value>Obavezno upišite prezime</value>
   </data>
