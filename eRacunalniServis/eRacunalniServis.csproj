@@ -53,11 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Dobavljaci\DobavljaciForm.cs">
+    <Compile Include="Forms\Dobavljaci\frmAdministracijaDobavljaca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dobavljaci\DobavljaciForm.designer.cs">
-      <DependentUpon>DobavljaciForm.cs</DependentUpon>
+    <Compile Include="Forms\Dobavljaci\frmAdministracijaDobavljaca.Designer.cs">
+      <DependentUpon>frmAdministracijaDobavljaca.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Dobavljaci\frmNoviDobavljac.cs">
       <SubType>Form</SubType>
@@ -65,17 +65,17 @@
     <Compile Include="Forms\Dobavljaci\frmNoviDobavljac.Designer.cs">
       <DependentUpon>frmNoviDobavljac.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Dobavljaci\frmPretragaDobavljaca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dobavljaci\frmPretragaDobavljaca.Designer.cs">
+      <DependentUpon>frmPretragaDobavljaca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Dobavljaci\NabavkaForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Dobavljaci\NabavkaForm.designer.cs">
       <DependentUpon>NabavkaForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Dobavljaci\ProizvodiForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Dobavljaci\ProizvodiForm.designer.cs">
-      <DependentUpon>ProizvodiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmOProgramu.cs">
       <SubType>Form</SubType>
@@ -133,17 +133,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Dobavljaci\DobavljaciForm.resx">
-      <DependentUpon>DobavljaciForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Dobavljaci\frmAdministracijaDobavljaca.resx">
+      <DependentUpon>frmAdministracijaDobavljaca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dobavljaci\frmNoviDobavljac.resx">
       <DependentUpon>frmNoviDobavljac.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dobavljaci\frmPretragaDobavljaca.resx">
+      <DependentUpon>frmPretragaDobavljaca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dobavljaci\NabavkaForm.resx">
       <DependentUpon>NabavkaForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dobavljaci\ProizvodiForm.resx">
-      <DependentUpon>ProizvodiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOProgramu.resx">
       <DependentUpon>frmOProgramu.cs</DependentUpon>

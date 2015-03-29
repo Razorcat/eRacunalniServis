@@ -230,22 +230,40 @@ namespace eRacunalniServis_Servis.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_KorisniciUloge_Delete", korisnikIDParameter);
         }
     
-        public virtual ObjectResult<esp_Dobavljaci_SelectById_Result> esp_Dobavljaci_SelectById(Nullable<int> dobavljacID)
+        public virtual ObjectResult<Dobavljaci> esp_Dobavljaci_SelectById(Nullable<int> dobavljacID)
         {
             var dobavljacIDParameter = dobavljacID.HasValue ?
                 new ObjectParameter("DobavljacID", dobavljacID) :
                 new ObjectParameter("DobavljacID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Dobavljaci_SelectById_Result>("esp_Dobavljaci_SelectById", dobavljacIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Dobavljaci>("esp_Dobavljaci_SelectById", dobavljacIDParameter);
         }
     
-        public virtual ObjectResult<esp_Dobavljaci_SelectByNaziv_Result> esp_Dobavljaci_SelectByNaziv(string naziv)
+        public virtual ObjectResult<Dobavljaci> esp_Dobavljaci_SelectById(Nullable<int> dobavljacID, MergeOption mergeOption)
+        {
+            var dobavljacIDParameter = dobavljacID.HasValue ?
+                new ObjectParameter("DobavljacID", dobavljacID) :
+                new ObjectParameter("DobavljacID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Dobavljaci>("esp_Dobavljaci_SelectById", mergeOption, dobavljacIDParameter);
+        }
+    
+        public virtual ObjectResult<Dobavljaci> esp_Dobavljaci_SelectByNaziv(string naziv)
         {
             var nazivParameter = naziv != null ?
                 new ObjectParameter("Naziv", naziv) :
                 new ObjectParameter("Naziv", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Dobavljaci_SelectByNaziv_Result>("esp_Dobavljaci_SelectByNaziv", nazivParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Dobavljaci>("esp_Dobavljaci_SelectByNaziv", nazivParameter);
+        }
+    
+        public virtual ObjectResult<Dobavljaci> esp_Dobavljaci_SelectByNaziv(string naziv, MergeOption mergeOption)
+        {
+            var nazivParameter = naziv != null ?
+                new ObjectParameter("Naziv", naziv) :
+                new ObjectParameter("Naziv", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Dobavljaci>("esp_Dobavljaci_SelectByNaziv", mergeOption, nazivParameter);
         }
     
         public virtual int esp_Proizvodi_Insert(string naziv, string sifra, Nullable<decimal> cijena, Nullable<int> vrstaID, Nullable<int> jedinicaMjereID, byte[] slika, byte[] slikaThumb)
@@ -429,6 +447,37 @@ namespace eRacunalniServis_Servis.Data
                 new ObjectParameter("Napomena", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Dobavljaci_Insert", nazivParameter, kontaktOsobaParameter, adresaParameter, telefonParameter, faxParameter, webParameter, emailParameter, ziroRacunParameter, napomenaParameter);
+        }
+    
+        public virtual ObjectResult<Dobavljaci> esp_Dobavljaci_SelectByNazivAll(string naziv)
+        {
+            var nazivParameter = naziv != null ?
+                new ObjectParameter("Naziv", naziv) :
+                new ObjectParameter("Naziv", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Dobavljaci>("esp_Dobavljaci_SelectByNazivAll", nazivParameter);
+        }
+    
+        public virtual ObjectResult<Dobavljaci> esp_Dobavljaci_SelectByNazivAll(string naziv, MergeOption mergeOption)
+        {
+            var nazivParameter = naziv != null ?
+                new ObjectParameter("Naziv", naziv) :
+                new ObjectParameter("Naziv", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Dobavljaci>("esp_Dobavljaci_SelectByNazivAll", mergeOption, nazivParameter);
+        }
+    
+        public virtual int esp_Dobavljaci_UpdateStatus(Nullable<int> dobavljacID, Nullable<bool> status)
+        {
+            var dobavljacIDParameter = dobavljacID.HasValue ?
+                new ObjectParameter("DobavljacID", dobavljacID) :
+                new ObjectParameter("DobavljacID", typeof(int));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Dobavljaci_UpdateStatus", dobavljacIDParameter, statusParameter);
         }
     }
 }

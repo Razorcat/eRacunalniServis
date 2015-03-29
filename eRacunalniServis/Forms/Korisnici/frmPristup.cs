@@ -18,9 +18,8 @@ namespace eRacunalniServis.Forms.Korisnici
     public partial class frmPristup : Form
     {
         private eRacunalniServis_Servis.Data.Korisnici korisnik;
-        public frmPristup(eRacunalniServis_Servis.Data.Korisnici k,Font font)
+        public frmPristup(eRacunalniServis_Servis.Data.Korisnici k)
         {
-            this.Font = font;
             InitializeComponent();
             this.AutoValidate = AutoValidate.Disable;
             if (k != null)

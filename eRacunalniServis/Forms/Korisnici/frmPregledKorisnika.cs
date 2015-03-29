@@ -46,12 +46,14 @@ namespace eRacunalniServis_Servis.Forms
                 {
                     if (korisnik.Status == true)
                     {
-                        DAKorisnici.UpdateStatus(korisnik.KorisnikID, false);                       
+                        DAKorisnici.UpdateStatus(korisnik.KorisnikID, false);
+                        korisnik.Status = false;
                         BindGrid();                       
                     }
                     else if (korisnik.Status == false)
                     {
-                        DAKorisnici.UpdateStatus(korisnik.KorisnikID, true);                       
+                        DAKorisnici.UpdateStatus(korisnik.KorisnikID, true);
+                        korisnik.Status = true;
                         BindGrid();                       
                     }                    
                 }
@@ -69,7 +71,7 @@ namespace eRacunalniServis_Servis.Forms
         {
             if (korisnik != null)
             {
-                frmDodajKorisnika updateForm = new frmDodajKorisnika(korisnik,this.Font);
+                frmDodajKorisnika updateForm = new frmDodajKorisnika(korisnik);
                 updateForm.MaximizeBox = false;
                 updateForm.ShowDialog();
                 BindGrid();
@@ -80,7 +82,7 @@ namespace eRacunalniServis_Servis.Forms
         {
             if (korisnik != null)
             {
-                frmPristup pristupForm = new frmPristup(korisnik,this.Font);
+                frmPristup pristupForm = new frmPristup(korisnik);
                 pristupForm.MaximizeBox = false;
                 pristupForm.ShowDialog();
                 BindGrid();

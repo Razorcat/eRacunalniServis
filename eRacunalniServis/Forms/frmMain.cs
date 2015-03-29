@@ -1,5 +1,6 @@
 ﻿using eRacunalniServis.Forms;
 using eRacunalniServis.Forms.Dobavljaci;
+using eRacunalniServis.Forms.Proizvodi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,7 +50,7 @@ namespace eRacunalniServis_Servis.Forms
             lblDobrodosli.Hide();
             if (ActiveMdiChild != null)
                 ActiveMdiChild.Close();
-            frmDodajKorisnika frmDK = new frmDodajKorisnika(null,this.Font);
+            frmDodajKorisnika frmDK = new frmDodajKorisnika(null);
             frmDK.MdiParent = this;            
             frmDK.Show();
             frmDK.WindowState = FormWindowState.Maximized;
@@ -108,6 +109,28 @@ namespace eRacunalniServis_Servis.Forms
             frmDP.MdiParent = this;
             frmDP.Show();
             frmDP.WindowState = FormWindowState.Maximized;
+        }
+
+        private void pretragaDobavljačaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmAdministracijaDobavljaca frmDP = new frmAdministracijaDobavljaca();
+            frmDP.MdiParent = this;
+            frmDP.Show();
+            frmDP.WindowState = FormWindowState.Maximized;
+        }
+
+        private void pretragaProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmPretragaProizvoda frmPP = new frmPretragaProizvoda();
+            frmPP.MdiParent = this;
+            frmPP.Show();
+            frmPP.WindowState = FormWindowState.Maximized;
         }             
     }
 }

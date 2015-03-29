@@ -32,7 +32,7 @@ namespace eProdaja_AdminUI.NabavkaProizvoda
 
         private void pretragaDButton_Click(object sender, EventArgs e)
         {
-            DobavljaciForm form = new DobavljaciForm();
+           /* DobavljaciForm form = new DobavljaciForm();
             form.ShowDialog();
 
             if (form.dobavljac != null)
@@ -41,7 +41,7 @@ namespace eProdaja_AdminUI.NabavkaProizvoda
                 nazivDInput.Text = dobavljac.Naziv;
                 kontaktDInput.Text = dobavljac.KontaktOsoba;
                 telefonDInput.Text = dobavljac.Telefon;
-            }
+            }*/
         }
 
         private void BindSkladista()

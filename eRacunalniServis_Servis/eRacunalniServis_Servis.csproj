@@ -56,6 +56,7 @@
     <Compile Include="Data\DADobavljaci.cs" />
     <Compile Include="Data\DAKorisnici.cs" />
     <Compile Include="Data\DAProizvodi.cs" />
+    <Compile Include="Data\DASkladista.cs" />
     <Compile Include="Data\DM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -75,6 +76,9 @@
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\esp_Dobavljaci_SelectById_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\esp_Dobavljaci_SelectByNazivAll_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\esp_Dobavljaci_SelectByNaziv_Result.cs">

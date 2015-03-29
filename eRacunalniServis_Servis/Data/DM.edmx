@@ -479,6 +479,13 @@
         <Function Name="esp_Dobavljaci_SelectByNaziv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="esp_Dobavljaci_SelectByNazivAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Dobavljaci_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DobavljacID" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="bit" Mode="In" />
+        </Function>
         <Function Name="esp_JediniceMjere_SelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="esp_Korisnici_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Ime" Type="nvarchar" Mode="In" />
@@ -1318,10 +1325,10 @@
           <FunctionImport Name="esp_KorisniciUloge_Delete">
           <Parameter Name="KorisnikID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="esp_Dobavljaci_SelectById" ReturnType="Collection(eProdajaModel.esp_Dobavljaci_SelectById_Result)">
+          <FunctionImport Name="esp_Dobavljaci_SelectById" EntitySet="Dobavljaci" ReturnType="Collection(eProdajaModel.Dobavljaci)">
           <Parameter Name="DobavljacID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="esp_Dobavljaci_SelectByNaziv" ReturnType="Collection(eProdajaModel.esp_Dobavljaci_SelectByNaziv_Result)">
+          <FunctionImport Name="esp_Dobavljaci_SelectByNaziv" EntitySet="Dobavljaci" ReturnType="Collection(eProdajaModel.Dobavljaci)">
           <Parameter Name="Naziv" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="esp_Proizvodi_Insert">
@@ -1371,6 +1378,13 @@
             <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="ZiroRacun" Mode="In" Type="String" />
             <Parameter Name="Napomena" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Dobavljaci_SelectByNazivAll" EntitySet="Dobavljaci" ReturnType="Collection(eProdajaModel.Dobavljaci)">
+          <Parameter Name="Naziv" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Dobavljaci_UpdateStatus">
+            <Parameter Name="DobavljacID" Mode="In" Type="Int32" />
+            <Parameter Name="Status" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="esp_Korisnici_SelectByKorisnickoIme_Result">
@@ -1473,6 +1487,19 @@
         <ComplexType Name="esp_JediniceMjere_SelectAll_Result">
           <Property Type="Int32" Name="JedinicaMjereID" Nullable="false" />
           <Property Type="String" Name="Naziv" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="esp_Dobavljaci_SelectByNazivAll_Result">
+          <Property Type="Int32" Name="DobavljacID" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="KontaktOsoba" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Adresa" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Telefon" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="Fax" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="Web" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ZiroRacuni" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="Napomena" Nullable="true" MaxLength="500" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1731,38 +1758,8 @@
           <FunctionImportMapping FunctionImportName="esp_Korisnici_Update" FunctionName="eProdajaModel.Store.esp_Korisnici_Update" />
           <FunctionImportMapping FunctionImportName="esp_KorisniciUloge_Delete" FunctionName="eProdajaModel.Store.esp_KorisniciUloge_Delete" />
           <FunctionImportMapping FunctionImportName="esp_Dobavljaci_SelectById" FunctionName="eProdajaModel.Store.esp_Dobavljaci_SelectById">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="eProdajaModel.esp_Dobavljaci_SelectById_Result">
-                <ScalarProperty Name="DobavljacID" ColumnName="DobavljacID" />
-                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
-                <ScalarProperty Name="KontaktOsoba" ColumnName="KontaktOsoba" />
-                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
-                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="Web" ColumnName="Web" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="ZiroRacuni" ColumnName="ZiroRacuni" />
-                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </ComplexTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_Dobavljaci_SelectByNaziv" FunctionName="eProdajaModel.Store.esp_Dobavljaci_SelectByNaziv">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="eProdajaModel.esp_Dobavljaci_SelectByNaziv_Result">
-                <ScalarProperty Name="DobavljacID" ColumnName="DobavljacID" />
-                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
-                <ScalarProperty Name="KontaktOsoba" ColumnName="KontaktOsoba" />
-                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
-                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="Web" ColumnName="Web" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="ZiroRacuni" ColumnName="ZiroRacuni" />
-                <ScalarProperty Name="Napomena" ColumnName="Napomena" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </ComplexTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_Proizvodi_Insert" FunctionName="eProdajaModel.Store.esp_Proizvodi_Insert" />
           <FunctionImportMapping FunctionImportName="esp_Proizvodi_SelectById" FunctionName="eProdajaModel.Store.esp_Proizvodi_SelectById">
@@ -1811,6 +1808,9 @@
           <FunctionImportMapping FunctionImportName="esp_JediniceMjere_SelectAll" FunctionName="eProdajaModel.Store.esp_JediniceMjere_SelectAll">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_Dobavljaci_Insert" FunctionName="eProdajaModel.Store.esp_Dobavljaci_Insert" />
+          <FunctionImportMapping FunctionImportName="esp_Dobavljaci_SelectByNazivAll" FunctionName="eProdajaModel.Store.esp_Dobavljaci_SelectByNazivAll">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Dobavljaci_UpdateStatus" FunctionName="eProdajaModel.Store.esp_Dobavljaci_UpdateStatus" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

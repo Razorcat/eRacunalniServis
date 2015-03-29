@@ -33,5 +33,21 @@ namespace eRacunalniServis_Servis.Data
         public static Object SelectBySifraNaziv(string sifra, string naziv) {
            return Connection.dm.esp_Proizvodi_SelectBySifraNaziv(sifra, naziv).ToList();
         }
+
+
+
+        #region Nabavka
+        public static void InsertNabavka(Ulazi ulaz, List<UlazStavke> stavke)
+        {
+            int ulazId = Convert.ToInt32(Connection.dm.esp_Ulazi_Insert(ulaz.BrojFakture, ulaz.Datum, ulaz.IznosRacuna, ulaz.PDV,
+                                           ulaz.Napomena, ulaz.SkladisteID, ulaz.KorisnikID, ulaz.DobavljacID).First());
+
+            foreach (UlazStavke s in stavke)
+            {
+                Connection.dm.esp_UlazStavke_Insert(ulazId, s.ProizvodID, s.Kolicina, s.Cijena);
+            }
+        }
+
+        #endregion
     }
 }

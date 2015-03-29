@@ -21,5 +21,19 @@ namespace eRacunalniServis_Servis.Data
                 ExceptionHandler.HandleException(e);
             }
         }
+        public static List<Dobavljaci> SelectByNaziv(String naziv) {
+            return Connection.dm.esp_Dobavljaci_SelectByNaziv(naziv).ToList();
+        }
+        public static Dobavljaci SelectById(int DobavljacId)
+        {
+            return Connection.dm.esp_Dobavljaci_SelectById(DobavljacId).First();
+        }
+        public static List<Dobavljaci> SelectByNazivAll(String naziv)
+        {
+            return Connection.dm.esp_Dobavljaci_SelectByNazivAll(naziv).ToList();
+        }
+        public static void UpdateStatus(int DobavljacId, bool status) {
+            Connection.dm.esp_Dobavljaci_UpdateStatus(DobavljacId, status);
+        }
     }
 }
