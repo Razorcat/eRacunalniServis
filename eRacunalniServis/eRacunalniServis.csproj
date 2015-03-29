@@ -119,6 +119,12 @@
     <Compile Include="Forms\Korisnici\frmPregledKorisnika.designer.cs">
       <DependentUpon>frmPregledKorisnika.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Proizvodi\frmNabavaProizvoda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Proizvodi\frmNabavaProizvoda.Designer.cs">
+      <DependentUpon>frmNabavaProizvoda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Proizvodi\frmPretragaProizvoda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Korisnici\frmPregledKorisnika.resx">
       <DependentUpon>frmPregledKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Proizvodi\frmNabavaProizvoda.resx">
+      <DependentUpon>frmNabavaProizvoda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Proizvodi\frmPretragaProizvoda.resx">
       <DependentUpon>frmPretragaProizvoda.cs</DependentUpon>

@@ -12,8 +12,8 @@ using System.Windows.Forms;
 namespace eRacunalniServis.Forms.Dobavljaci
 {
     public partial class frmPretragaDobavljaca : Form
-    {
-        eRacunalniServis_Servis.Data.Dobavljaci dobavljac { get; set; }
+    {        
+        public eRacunalniServis_Servis.Data.Dobavljaci dobavljac { get; set; }
         public frmPretragaDobavljaca()
         {           
             InitializeComponent();

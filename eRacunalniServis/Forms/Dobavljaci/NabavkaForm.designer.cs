@@ -100,7 +100,6 @@
             // 
             // zakljuciButton
             // 
-//            this.zakljuciButton.Image = global::eProdaja_AdminUI.Properties.Resources.save_2_32;
             this.zakljuciButton.Location = new System.Drawing.Point(454, 184);
             this.zakljuciButton.Name = "zakljuciButton";
             this.zakljuciButton.Size = new System.Drawing.Size(100, 47);
@@ -365,7 +364,6 @@
             // 
             // pretragaDButton
             // 
-//            this.pretragaDButton.Image = global::eProdaja_AdminUI.Properties.Resources.search32;
             this.pretragaDButton.Location = new System.Drawing.Point(336, 51);
             this.pretragaDButton.Name = "pretragaDButton";
             this.pretragaDButton.Size = new System.Drawing.Size(100, 47);

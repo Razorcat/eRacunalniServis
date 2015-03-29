@@ -45,6 +45,7 @@
             this.pretragaDobavljačaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblDobrodosli = new System.Windows.Forms.Label();
             this.fontDialog = new System.Windows.Forms.FontDialog();
+            this.nabavaProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.glavniMeni.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,7 +122,8 @@
             this.proizvodiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dodajProizvodToolStripMenuItem,
             this.pretragaProizvodaToolStripMenuItem,
-            this.dobavljačiToolStripMenuItem});
+            this.dobavljačiToolStripMenuItem,
+            this.nabavaProizvodaToolStripMenuItem});
             this.proizvodiToolStripMenuItem.Name = "proizvodiToolStripMenuItem";
             this.proizvodiToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.proizvodiToolStripMenuItem.Text = "Proizvodi";
@@ -172,6 +174,13 @@
             this.lblDobrodosli.TabIndex = 2;
             this.lblDobrodosli.Text = "Dobrodošli!";
             // 
+            // nabavaProizvodaToolStripMenuItem
+            // 
+            this.nabavaProizvodaToolStripMenuItem.Name = "nabavaProizvodaToolStripMenuItem";
+            this.nabavaProizvodaToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.nabavaProizvodaToolStripMenuItem.Text = "Nabava proizvoda";
+            this.nabavaProizvodaToolStripMenuItem.Click += new System.EventHandler(this.nabavaProizvodaToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -213,5 +222,6 @@
         private System.Windows.Forms.ToolStripMenuItem dobavljačiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajNovogDobavljačaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pretragaDobavljačaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nabavaProizvodaToolStripMenuItem;
     }
 }

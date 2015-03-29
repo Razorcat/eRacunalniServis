@@ -131,6 +131,17 @@ namespace eRacunalniServis_Servis.Forms
             frmPP.MdiParent = this;
             frmPP.Show();
             frmPP.WindowState = FormWindowState.Maximized;
+        }
+
+        private void nabavaProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmNabavaProizvoda frmNP = new frmNabavaProizvoda();
+            frmNP.MdiParent = this;
+            frmNP.Show();
+            frmNP.WindowState = FormWindowState.Maximized;
         }             
     }
 }
