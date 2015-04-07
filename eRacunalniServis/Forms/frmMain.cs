@@ -135,7 +135,7 @@ namespace eRacunalniServis_Servis.Forms
 
         private void nabavaProizvodaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            lblDobrodosli.Hide();
+            lblDobrodosli.Hide();            
             if (ActiveMdiChild != null)
                 ActiveMdiChild.Close();
             frmNabavaProizvoda frmNP = new frmNabavaProizvoda();

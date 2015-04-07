@@ -299,13 +299,22 @@ namespace eRacunalniServis_Servis.Data
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Proizvodi_Insert", nazivParameter, sifraParameter, cijenaParameter, vrstaIDParameter, jedinicaMjereIDParameter, slikaParameter, slikaThumbParameter);
         }
     
-        public virtual ObjectResult<esp_Proizvodi_SelectById_Result> esp_Proizvodi_SelectById(Nullable<int> proizvodID)
+        public virtual ObjectResult<Proizvodi> esp_Proizvodi_SelectById(Nullable<int> proizvodID)
         {
             var proizvodIDParameter = proizvodID.HasValue ?
                 new ObjectParameter("ProizvodID", proizvodID) :
                 new ObjectParameter("ProizvodID", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Proizvodi_SelectById_Result>("esp_Proizvodi_SelectById", proizvodIDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proizvodi>("esp_Proizvodi_SelectById", proizvodIDParameter);
+        }
+    
+        public virtual ObjectResult<Proizvodi> esp_Proizvodi_SelectById(Nullable<int> proizvodID, MergeOption mergeOption)
+        {
+            var proizvodIDParameter = proizvodID.HasValue ?
+                new ObjectParameter("ProizvodID", proizvodID) :
+                new ObjectParameter("ProizvodID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Proizvodi>("esp_Proizvodi_SelectById", mergeOption, proizvodIDParameter);
         }
     
         public virtual ObjectResult<esp_Proizvodi_SelectBySifraNaziv_Result> esp_Proizvodi_SelectBySifraNaziv(string sifra, string naziv)

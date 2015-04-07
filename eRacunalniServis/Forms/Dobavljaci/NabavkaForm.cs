@@ -116,7 +116,7 @@ namespace eProdaja_AdminUI.NabavkaProizvoda
                 ulaz.IznosRacuna = iznos + pdv;
                 ulaz.PDV = pdv;
 
-               // DAProizvodi.InsertNabavka(ulaz, stavke);
+                DAProizvodi.InsertNabavka(ulaz, stavke);
                 MessageBox.Show(Global.GetString("ulaz_succ"), "Nabavka robe", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }

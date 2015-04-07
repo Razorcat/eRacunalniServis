@@ -34,6 +34,14 @@ namespace eRacunalniServis_Servis.Data
            return Connection.dm.esp_Proizvodi_SelectBySifraNaziv(sifra, naziv).ToList();
         }
 
+        public static List<esp_Proizvodi_SelectBySifraNaziv_Result> SelectBySifraNazivList(string sifra, string naziv)
+        {
+            return Connection.dm.esp_Proizvodi_SelectBySifraNaziv(sifra, naziv).ToList();
+        }
+        public static Proizvodi SelectById(int proizvodId) {
+            return Connection.dm.esp_Proizvodi_SelectById(proizvodId).First();
+        }
+
 
 
         #region Nabavka

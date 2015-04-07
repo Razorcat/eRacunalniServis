@@ -12,10 +12,10 @@ namespace eRacunalniServis_Servis.Data
         {
             List<Skladista> skladista = Connection.dm.Skladista.OrderBy(x => x.Naziv).ToList();
 
-           /* Skladista empty = new Skladista();
+            Skladista empty = new Skladista();
             empty.SkladisteID = 0;
             empty.Naziv = "";
-            skladista.Insert(0, empty); */
+            skladista.Insert(0, empty);
 
             return skladista;
         }

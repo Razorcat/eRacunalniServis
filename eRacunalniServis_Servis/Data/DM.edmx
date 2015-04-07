@@ -1340,7 +1340,7 @@
             <Parameter Name="Slika" Mode="In" Type="Binary" />
             <Parameter Name="SlikaThumb" Mode="In" Type="Binary" />
           </FunctionImport>
-          <FunctionImport Name="esp_Proizvodi_SelectById" ReturnType="Collection(eProdajaModel.esp_Proizvodi_SelectById_Result)">
+          <FunctionImport Name="esp_Proizvodi_SelectById" EntitySet="Proizvodi" ReturnType="Collection(eProdajaModel.Proizvodi)">
           <Parameter Name="ProizvodID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="esp_Proizvodi_SelectBySifraNaziv" ReturnType="Collection(eProdajaModel.esp_Proizvodi_SelectBySifraNaziv_Result)">
@@ -1763,19 +1763,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_Proizvodi_Insert" FunctionName="eProdajaModel.Store.esp_Proizvodi_Insert" />
           <FunctionImportMapping FunctionImportName="esp_Proizvodi_SelectById" FunctionName="eProdajaModel.Store.esp_Proizvodi_SelectById">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="eProdajaModel.esp_Proizvodi_SelectById_Result">
-                <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
-                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
-                <ScalarProperty Name="Sifra" ColumnName="Sifra" />
-                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
-                <ScalarProperty Name="VrstaID" ColumnName="VrstaID" />
-                <ScalarProperty Name="JedinicaMjereID" ColumnName="JedinicaMjereID" />
-                <ScalarProperty Name="Slika" ColumnName="Slika" />
-                <ScalarProperty Name="SlikaThumb" ColumnName="SlikaThumb" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </ComplexTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_Proizvodi_SelectBySifraNaziv" FunctionName="eProdajaModel.Store.esp_Proizvodi_SelectBySifraNaziv">
             <ResultMapping>

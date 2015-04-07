@@ -144,6 +144,7 @@
     <Compile Include="Data\Proizvodi.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\ProizvodiExtension.cs" />
     <Compile Include="Data\Servisi.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>

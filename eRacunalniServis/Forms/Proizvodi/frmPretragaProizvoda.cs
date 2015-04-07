@@ -21,7 +21,7 @@ namespace eRacunalniServis.Forms.Proizvodi
         private void BindGrid()
         {
             dgvProizvodi.ClearSelection();
-            dgvProizvodi.DataSource = DAProizvodi.SelectBySifraNaziv(txtSifra.Text, txtNaziv.Text);
+            dgvProizvodi.DataSource = DAProizvodi.SelectBySifraNazivList(txtSifra.Text, txtNaziv.Text);
             dgvProizvodi.Columns[0].Visible = false;
             dgvProizvodi.ClearSelection();
         }
