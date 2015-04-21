@@ -95,6 +95,18 @@
     <Compile Include="Forms\Korisnici\frmPristup.Designer.cs">
       <DependentUpon>frmPristup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Prodaja\frmNarudzbe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Prodaja\frmNarudzbe.Designer.cs">
+      <DependentUpon>frmNarudzbe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Prodaja\frmNovaProdaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Prodaja\frmNovaProdaja.Designer.cs">
+      <DependentUpon>frmNovaProdaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Proizvodi\frmDodajProizvod.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +142,18 @@
     </Compile>
     <Compile Include="Forms\Proizvodi\frmPretragaProizvoda.Designer.cs">
       <DependentUpon>frmPretragaProizvoda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Servis\frmNoviServis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Servis\frmNoviServis.Designer.cs">
+      <DependentUpon>frmNoviServis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Servis\frmPregledServisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Servis\frmPregledServisa.Designer.cs">
+      <DependentUpon>frmPregledServisa.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Poruke.Designer.cs">
@@ -180,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Proizvodi\frmPretragaProizvoda.resx">
       <DependentUpon>frmPretragaProizvoda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Servis\frmNoviServis.resx">
+      <DependentUpon>frmNoviServis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Poruke.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.lblKorisnickoIme = new System.Windows.Forms.Label();
             this.lblLozinka = new System.Windows.Forms.Label();
@@ -35,6 +36,8 @@
             this.txtbLozinka = new System.Windows.Forms.TextBox();
             this.bntQuit = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.toolTipIzlaz = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipPrijava = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblKorisnickoIme
@@ -86,6 +89,7 @@
             this.bntQuit.Name = "bntQuit";
             this.bntQuit.Size = new System.Drawing.Size(41, 40);
             this.bntQuit.TabIndex = 5;
+            this.toolTipIzlaz.SetToolTip(this.bntQuit, "Izlaz");
             this.bntQuit.UseVisualStyleBackColor = true;
             // 
             // btnLogin
@@ -97,6 +101,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(51, 41);
             this.btnLogin.TabIndex = 2;
+            this.toolTipPrijava.SetToolTip(this.btnLogin, "Prijava na sistem");
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -132,5 +137,7 @@
         private System.Windows.Forms.TextBox txtbLozinka;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button bntQuit;
+        private System.Windows.Forms.ToolTip toolTipIzlaz;
+        private System.Windows.Forms.ToolTip toolTipPrijava;
     }
 }
