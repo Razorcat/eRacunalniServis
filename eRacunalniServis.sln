@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eRacunalniServis", "eRacuna
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eRacunalniServis_Servis", "eRacunalniServis_Servis\eRacunalniServis_Servis.csproj", "{9E61461B-3BB8-4F52-AF41-B7F8BD73E981}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eRacunalniServis_Web", "eRacunalniServis_Web\eRacunalniServis_Web.csproj", "{06319525-ABB2-4144-A4E5-2EC8674C5494}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9E61461B-3BB8-4F52-AF41-B7F8BD73E981}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E61461B-3BB8-4F52-AF41-B7F8BD73E981}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E61461B-3BB8-4F52-AF41-B7F8BD73E981}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06319525-ABB2-4144-A4E5-2EC8674C5494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06319525-ABB2-4144-A4E5-2EC8674C5494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06319525-ABB2-4144-A4E5-2EC8674C5494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06319525-ABB2-4144-A4E5-2EC8674C5494}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
