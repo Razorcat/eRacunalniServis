@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eRacunalniServis_Servis.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,14 @@ namespace eRacunalniServis.Forms.Servis
         public frmPregledServisa()
         {
             InitializeComponent();
+            BingGrid();
+        }
+
+        private void BingGrid()
+        {
+            dgvServisi.ClearSelection();
+            dgvServisi.DataSource = DAServisi.GetAll();
+            dgvServisi.Columns[0].Visible = false;   
         }
     }
 }

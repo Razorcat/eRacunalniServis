@@ -1,6 +1,8 @@
 ﻿using eRacunalniServis.Forms;
 using eRacunalniServis.Forms.Dobavljaci;
+using eRacunalniServis.Forms.Prodaja;
 using eRacunalniServis.Forms.Proizvodi;
+using eRacunalniServis.Forms.Servis;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -139,6 +141,39 @@ namespace eRacunalniServis_Servis.Forms
             if (ActiveMdiChild != null)
                 ActiveMdiChild.Close();
             frmNabavaProizvoda frmNP = new frmNabavaProizvoda();
+            frmNP.MdiParent = this;
+            frmNP.Show();
+            frmNP.WindowState = FormWindowState.Maximized;
+        }
+
+        private void noviServisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmNoviServis frmNP = new frmNoviServis();
+            frmNP.MdiParent = this;
+            frmNP.Show();
+            frmNP.WindowState = FormWindowState.Maximized;
+        }
+
+        private void pregledServisaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmPregledServisa frmPS = new frmPregledServisa();
+            frmPS.MdiParent = this;
+            frmPS.Show();
+            frmPS.WindowState = FormWindowState.Maximized;
+        }
+
+        private void novaProdajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmNovaProdaja frmNP = new frmNovaProdaja();
             frmNP.MdiParent = this;
             frmNP.Show();
             frmNP.WindowState = FormWindowState.Maximized;

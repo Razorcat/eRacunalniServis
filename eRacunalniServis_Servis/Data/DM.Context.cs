@@ -488,5 +488,86 @@ namespace eRacunalniServis_Servis.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Dobavljaci_UpdateStatus", dobavljacIDParameter, statusParameter);
         }
+    
+        public virtual ObjectResult<Nullable<int>> esp_Servisi_GetLastID()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("esp_Servisi_GetLastID");
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> esp_Servisi_Insert(string naziv, Nullable<int> kupacID, byte[] qRcode)
+        {
+            var nazivParameter = naziv != null ?
+                new ObjectParameter("Naziv", naziv) :
+                new ObjectParameter("Naziv", typeof(string));
+    
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            var qRcodeParameter = qRcode != null ?
+                new ObjectParameter("QRcode", qRcode) :
+                new ObjectParameter("QRcode", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("esp_Servisi_Insert", nazivParameter, kupacIDParameter, qRcodeParameter);
+        }
+    
+        public virtual ObjectResult<Kupci> esp_Kupci_SelectByName(string name)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Kupci>("esp_Kupci_SelectByName", nameParameter);
+        }
+    
+        public virtual ObjectResult<Kupci> esp_Kupci_SelectByName(string name, MergeOption mergeOption)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Kupci>("esp_Kupci_SelectByName", mergeOption, nameParameter);
+        }
+    
+        public virtual ObjectResult<Kupci> esp_Kupci_SelectById(Nullable<int> kupacID)
+        {
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Kupci>("esp_Kupci_SelectById", kupacIDParameter);
+        }
+    
+        public virtual ObjectResult<Kupci> esp_Kupci_SelectById(Nullable<int> kupacID, MergeOption mergeOption)
+        {
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Kupci>("esp_Kupci_SelectById", mergeOption, kupacIDParameter);
+        }
+    
+        public virtual int esp_ServisStanje_Insert(Nullable<int> servisID, string opis)
+        {
+            var servisIDParameter = servisID.HasValue ?
+                new ObjectParameter("ServisID", servisID) :
+                new ObjectParameter("ServisID", typeof(int));
+    
+            var opisParameter = opis != null ?
+                new ObjectParameter("Opis", opis) :
+                new ObjectParameter("Opis", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_ServisStanje_Insert", servisIDParameter, opisParameter);
+        }
+    
+        public virtual ObjectResult<Servisi> esp_Servisi_GetALL()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Servisi>("esp_Servisi_GetALL");
+        }
+    
+        public virtual ObjectResult<Servisi> esp_Servisi_GetALL(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Servisi>("esp_Servisi_GetALL", mergeOption);
+        }
     }
 }

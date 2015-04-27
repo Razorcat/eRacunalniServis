@@ -51,9 +51,9 @@
             this.prodajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.narudžbeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novaProdajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.povijestProdajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblDobrodosli = new System.Windows.Forms.Label();
             this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.povijestProdajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.glavniMeni.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,14 +202,16 @@
             // pregledServisaToolStripMenuItem
             // 
             this.pregledServisaToolStripMenuItem.Name = "pregledServisaToolStripMenuItem";
-            this.pregledServisaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.pregledServisaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.pregledServisaToolStripMenuItem.Text = "Pregled servisa";
+            this.pregledServisaToolStripMenuItem.Click += new System.EventHandler(this.pregledServisaToolStripMenuItem_Click);
             // 
             // noviServisToolStripMenuItem
             // 
             this.noviServisToolStripMenuItem.Name = "noviServisToolStripMenuItem";
-            this.noviServisToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.noviServisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.noviServisToolStripMenuItem.Text = "Novi servis";
+            this.noviServisToolStripMenuItem.Click += new System.EventHandler(this.noviServisToolStripMenuItem_Click);
             // 
             // prodajaToolStripMenuItem
             // 
@@ -232,6 +234,13 @@
             this.novaProdajaToolStripMenuItem.Name = "novaProdajaToolStripMenuItem";
             this.novaProdajaToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.novaProdajaToolStripMenuItem.Text = "Nova prodaja";
+            this.novaProdajaToolStripMenuItem.Click += new System.EventHandler(this.novaProdajaToolStripMenuItem_Click);
+            // 
+            // povijestProdajeToolStripMenuItem
+            // 
+            this.povijestProdajeToolStripMenuItem.Name = "povijestProdajeToolStripMenuItem";
+            this.povijestProdajeToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.povijestProdajeToolStripMenuItem.Text = "Povijest prodaje";
             // 
             // lblDobrodosli
             // 
@@ -241,12 +250,6 @@
             this.lblDobrodosli.Size = new System.Drawing.Size(78, 16);
             this.lblDobrodosli.TabIndex = 2;
             this.lblDobrodosli.Text = "Dobrodošli!";
-            // 
-            // povijestProdajeToolStripMenuItem
-            // 
-            this.povijestProdajeToolStripMenuItem.Name = "povijestProdajeToolStripMenuItem";
-            this.povijestProdajeToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.povijestProdajeToolStripMenuItem.Text = "Povijest prodaje";
             // 
             // frmMain
             // 

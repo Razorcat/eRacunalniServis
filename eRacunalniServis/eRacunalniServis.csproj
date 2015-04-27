@@ -71,12 +71,6 @@
     <Compile Include="Forms\Dobavljaci\frmPretragaDobavljaca.Designer.cs">
       <DependentUpon>frmPretragaDobavljaca.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Dobavljaci\NabavkaForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Dobavljaci\NabavkaForm.designer.cs">
-      <DependentUpon>NabavkaForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmOProgramu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +143,12 @@
     <Compile Include="Forms\Servis\frmNoviServis.Designer.cs">
       <DependentUpon>frmNoviServis.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Servis\frmPregledKupaca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Servis\frmPregledKupaca.Designer.cs">
+      <DependentUpon>frmPregledKupaca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Servis\frmPregledServisa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,9 +172,6 @@
     <EmbeddedResource Include="Forms\Dobavljaci\frmPretragaDobavljaca.resx">
       <DependentUpon>frmPretragaDobavljaca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Dobavljaci\NabavkaForm.resx">
-      <DependentUpon>NabavkaForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmOProgramu.resx">
       <DependentUpon>frmOProgramu.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +183,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Korisnici\frmPristup.resx">
       <DependentUpon>frmPristup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Prodaja\frmNarudzbe.resx">
+      <DependentUpon>frmNarudzbe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Prodaja\frmNovaProdaja.resx">
+      <DependentUpon>frmNovaProdaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Proizvodi\frmDodajProizvod.resx">
       <DependentUpon>frmDodajProizvod.cs</DependentUpon>
@@ -207,6 +210,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Servis\frmNoviServis.resx">
       <DependentUpon>frmNoviServis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Servis\frmPregledKupaca.resx">
+      <DependentUpon>frmPregledKupaca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Servis\frmPregledServisa.resx">
+      <DependentUpon>frmPregledServisa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Poruke.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -250,6 +259,9 @@
     <None Include="Resources\login.png" />
     <None Include="Resources\pc_repair.jpg" />
     <Content Include="Resources\Shutdown.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
