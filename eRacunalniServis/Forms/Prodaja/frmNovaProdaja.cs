@@ -14,7 +14,7 @@ namespace eRacunalniServis.Forms.Prodaja
 {
     public partial class frmNovaProdaja : Form
     {
-        Kupci kupac;
+        eRacunalniServis_Servis.Data.Kupci kupac;
         public frmNovaProdaja()
         {
             InitializeComponent();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPregledKupaca));
             this.lblIP = new System.Windows.Forms.Label();
             this.txtbNaziv = new System.Windows.Forms.TextBox();
             this.dgvKupci = new System.Windows.Forms.DataGridView();
@@ -76,8 +77,9 @@
             this.Controls.Add(this.dgvKupci);
             this.Controls.Add(this.txtbNaziv);
             this.Controls.Add(this.lblIP);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPregledKupaca";
-            this.Text = "frmPregledKupaca";
+            this.Text = "Odabir kupca";
             ((System.ComponentModel.ISupportInitialize)(this.dgvKupci)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

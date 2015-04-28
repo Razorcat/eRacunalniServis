@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPregledServisa));
             this.dgvServisiStanja = new System.Windows.Forms.DataGridView();
             this.dgvServisi = new System.Windows.Forms.DataGridView();
             this.btnPromjeniStanje = new System.Windows.Forms.Button();
@@ -38,37 +39,50 @@
             // 
             // dgvServisiStanja
             // 
+            this.dgvServisiStanja.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvServisiStanja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvServisiStanja.Location = new System.Drawing.Point(13, 189);
             this.dgvServisiStanja.Name = "dgvServisiStanja";
+            this.dgvServisiStanja.ReadOnly = true;
             this.dgvServisiStanja.Size = new System.Drawing.Size(516, 159);
             this.dgvServisiStanja.TabIndex = 0;
             // 
             // dgvServisi
             // 
+            this.dgvServisi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvServisi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvServisi.Location = new System.Drawing.Point(12, 13);
             this.dgvServisi.Name = "dgvServisi";
+            this.dgvServisi.ReadOnly = true;
+            this.dgvServisi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServisi.Size = new System.Drawing.Size(517, 170);
             this.dgvServisi.TabIndex = 1;
+            this.dgvServisi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvServisi_CellClick);
             // 
             // btnPromjeniStanje
             // 
+            this.btnPromjeniStanje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPromjeniStanje.Location = new System.Drawing.Point(535, 13);
             this.btnPromjeniStanje.Name = "btnPromjeniStanje";
             this.btnPromjeniStanje.Size = new System.Drawing.Size(100, 67);
             this.btnPromjeniStanje.TabIndex = 2;
             this.btnPromjeniStanje.Text = "Promjeni stanje na popravljeno";
             this.btnPromjeniStanje.UseVisualStyleBackColor = true;
+            this.btnPromjeniStanje.Click += new System.EventHandler(this.btnPromjeniStanje_Click);
             // 
             // BtnDodajNoviZapis
             // 
+            this.BtnDodajNoviZapis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnDodajNoviZapis.Location = new System.Drawing.Point(535, 189);
             this.BtnDodajNoviZapis.Name = "BtnDodajNoviZapis";
             this.BtnDodajNoviZapis.Size = new System.Drawing.Size(100, 69);
             this.BtnDodajNoviZapis.TabIndex = 3;
             this.BtnDodajNoviZapis.Text = "Nova bilješka o popravku";
             this.BtnDodajNoviZapis.UseVisualStyleBackColor = true;
+            this.BtnDodajNoviZapis.Click += new System.EventHandler(this.BtnDodajNoviZapis_Click);
             // 
             // frmPregledServisa
             // 
@@ -79,8 +93,9 @@
             this.Controls.Add(this.btnPromjeniStanje);
             this.Controls.Add(this.dgvServisi);
             this.Controls.Add(this.dgvServisiStanja);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPregledServisa";
-            this.Text = "frmPregledServisa";
+            this.Text = "Pregled servisa";
             ((System.ComponentModel.ISupportInitialize)(this.dgvServisiStanja)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServisi)).EndInit();
             this.ResumeLayout(false);

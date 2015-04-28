@@ -533,11 +533,33 @@
         <Function Name="esp_KorisniciUloge_SelectByKorisnik" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KorisnikID" Type="int" Mode="In" />
         </Function>
+        <Function Name="esp_Kupci_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Prezime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="KorisnickoIme" Type="nvarchar" Mode="In" />
+          <Parameter Name="LozinkaHash" Type="nvarchar" Mode="In" />
+          <Parameter Name="LozinkaSalt" Type="nvarchar" Mode="In" />
+          <Parameter Name="Status" Type="bit" Mode="In" />
+        </Function>
         <Function Name="esp_Kupci_SelectById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KupacID" Type="int" Mode="In" />
         </Function>
         <Function Name="esp_Kupci_SelectByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Kupci_UpdatePodatke" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KupacID" Type="int" Mode="In" />
+          <Parameter Name="Ime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Prezime" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="KorisnickoIme" Type="nvarchar" Mode="In" />
+          <Parameter Name="LozinkaHash" Type="nvarchar" Mode="In" />
+          <Parameter Name="LozinkaSalt" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="esp_Kupci_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KupacID" Type="int" Mode="In" />
+          <Parameter Name="Status" Type="bit" Mode="In" />
         </Function>
         <Function Name="esp_Proizvodi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
@@ -558,12 +580,22 @@
         <Function Name="esp_Proizvodi_SelectByVrsta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="VrstaID" Type="int" Mode="In" />
         </Function>
+        <Function Name="esp_Servis_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ServisID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Servis_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ServisID" Type="int" Mode="In" />
+          <Parameter Name="Popravljeno" Type="bit" Mode="In" />
+        </Function>
         <Function Name="esp_Servisi_GetALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="esp_Servisi_GetLastID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="esp_Servisi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
           <Parameter Name="KupacID" Type="int" Mode="In" />
           <Parameter Name="QRcode" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="esp_ServisStanje_GetAllById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ServisID" Type="int" Mode="In" />
         </Function>
         <Function Name="esp_ServisStanje_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ServisID" Type="int" Mode="In" />
@@ -1424,6 +1456,38 @@
             <Parameter Name="Opis" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="esp_Servisi_GetALL" EntitySet="Servisi" ReturnType="Collection(eProdajaModel.Servisi)" />
+          <FunctionImport Name="esp_Kupci_Insert">
+            <Parameter Name="Ime" Mode="In" Type="String" />
+            <Parameter Name="Prezime" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="KorisnickoIme" Mode="In" Type="String" />
+            <Parameter Name="LozinkaHash" Mode="In" Type="String" />
+            <Parameter Name="LozinkaSalt" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Kupci_UpdateStatus">
+            <Parameter Name="KupacID" Mode="In" Type="Int32" />
+            <Parameter Name="Status" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Kupci_UpdatePodatke">
+            <Parameter Name="KupacID" Mode="In" Type="Int32" />
+            <Parameter Name="Ime" Mode="In" Type="String" />
+            <Parameter Name="Prezime" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="KorisnickoIme" Mode="In" Type="String" />
+            <Parameter Name="LozinkaHash" Mode="In" Type="String" />
+            <Parameter Name="LozinkaSalt" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="esp_ServisStanje_GetAllById" EntitySet="ServisStanje" ReturnType="Collection(eProdajaModel.ServisStanje)">
+          <Parameter Name="ServisID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Servis_GetById" EntitySet="Servisi" ReturnType="Collection(eProdajaModel.Servisi)">
+          <Parameter Name="ServisID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Servis_UpdateStatus">
+            <Parameter Name="ServisID" Mode="In" Type="Int32" />
+            <Parameter Name="Popravljeno" Mode="In" Type="Boolean" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="esp_Korisnici_SelectByKorisnickoIme_Result">
           <Property Type="Int32" Name="KorisnikID" Nullable="false" />
@@ -1562,6 +1626,20 @@
           <Property Type="Boolean" Name="Status" Nullable="false" />
         </ComplexType>
         <ComplexType Name="esp_Servisi_GetALL_Result">
+          <Property Type="Int32" Name="ServisID" Nullable="false" />
+          <Property Type="Int32" Name="KupacID" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="Boolean" Name="Popravljeno" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="50" />
+          <Property Type="Binary" Name="QRcode" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="esp_ServisStanje_GetAllById_Result">
+          <Property Type="Int32" Name="ServisStanjeID" Nullable="false" />
+          <Property Type="Int32" Name="ServisID" Nullable="false" />
+          <Property Type="String" Name="Opis" Nullable="false" MaxLength="255" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="esp_Servis_GetById_Result">
           <Property Type="Int32" Name="ServisID" Nullable="false" />
           <Property Type="Int32" Name="KupacID" Nullable="false" />
           <Property Type="DateTime" Name="Datum" Nullable="false" />
@@ -1877,6 +1955,14 @@
           <FunctionImportMapping FunctionImportName="esp_ServisStanje_Insert" FunctionName="eProdajaModel.Store.esp_ServisStanje_Insert" />
           <FunctionImportMapping FunctionImportName="esp_Servisi_GetALL" FunctionName="eProdajaModel.Store.esp_Servisi_GetALL">
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Kupci_Insert" FunctionName="eProdajaModel.Store.esp_Kupci_Insert" />
+          <FunctionImportMapping FunctionImportName="esp_Kupci_UpdateStatus" FunctionName="eProdajaModel.Store.esp_Kupci_UpdateStatus" />
+          <FunctionImportMapping FunctionImportName="esp_Kupci_UpdatePodatke" FunctionName="eProdajaModel.Store.esp_Kupci_UpdatePodatke" />
+          <FunctionImportMapping FunctionImportName="esp_ServisStanje_GetAllById" FunctionName="eProdajaModel.Store.esp_ServisStanje_GetAllById">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Servis_GetById" FunctionName="eProdajaModel.Store.esp_Servis_GetById">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Servis_UpdateStatus" FunctionName="eProdajaModel.Store.esp_Servis_UpdateStatus" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

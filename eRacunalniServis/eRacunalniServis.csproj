@@ -89,6 +89,24 @@
     <Compile Include="Forms\Korisnici\frmPristup.Designer.cs">
       <DependentUpon>frmPristup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Kupci\frmAdministracijaKupaca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Kupci\frmAdministracijaKupaca.Designer.cs">
+      <DependentUpon>frmAdministracijaKupaca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kupci\frmDodajKupca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Kupci\frmDodajKupca.Designer.cs">
+      <DependentUpon>frmDodajKupca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kupci\frmKupciIzmjene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Kupci\frmKupciIzmjene.Designer.cs">
+      <DependentUpon>frmKupciIzmjene.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Prodaja\frmNarudzbe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +161,12 @@
     <Compile Include="Forms\Servis\frmNoviServis.Designer.cs">
       <DependentUpon>frmNoviServis.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Servis\frmNoviServisStanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Servis\frmNoviServisStanje.Designer.cs">
+      <DependentUpon>frmNoviServisStanje.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Servis\frmPregledKupaca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +208,15 @@
     <EmbeddedResource Include="Forms\Korisnici\frmPristup.resx">
       <DependentUpon>frmPristup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Kupci\frmAdministracijaKupaca.resx">
+      <DependentUpon>frmAdministracijaKupaca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Kupci\frmDodajKupca.resx">
+      <DependentUpon>frmDodajKupca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Kupci\frmKupciIzmjene.resx">
+      <DependentUpon>frmKupciIzmjene.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Prodaja\frmNarudzbe.resx">
       <DependentUpon>frmNarudzbe.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Servis\frmNoviServis.resx">
       <DependentUpon>frmNoviServis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Servis\frmNoviServisStanje.resx">
+      <DependentUpon>frmNoviServisStanje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Servis\frmPregledKupaca.resx">
       <DependentUpon>frmPregledKupaca.cs</DependentUpon>

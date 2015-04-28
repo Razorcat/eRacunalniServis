@@ -13,17 +13,47 @@ namespace eRacunalniServis.Forms.Servis
 {
     public partial class frmPregledServisa : Form
     {
+        private int servisID;
         public frmPregledServisa()
         {
             InitializeComponent();
-            BingGrid();
+            BingGridS();
         }
 
-        private void BingGrid()
+        private void BingGridS()
         {
             dgvServisi.ClearSelection();
             dgvServisi.DataSource = DAServisi.GetAll();
-            dgvServisi.Columns[0].Visible = false;   
+            dgvServisi.Columns[0].Visible = false;
+            dgvServisi.Columns[1].Visible = false;
+            dgvServisi.Columns[7].Visible = false;   
+        }
+       private void BingGridSS(int id){
+            dgvServisiStanja.ClearSelection();
+            dgvServisiStanja.DataSource = DAServisStanje.GetAllById(id);
+            dgvServisiStanja.Columns[0].Visible = false;
+            dgvServisiStanja.Columns[1].Visible = false;
+            dgvServisiStanja.Columns[4].Visible = false;  
+        }
+
+        private void dgvServisi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            servisID = Convert.ToInt32(dgvServisi.SelectedRows[0].Cells[0].Value);            
+            BingGridSS(servisID);
+        }
+
+        private void BtnDodajNoviZapis_Click(object sender, EventArgs e)
+        {
+            frmNoviServisStanje NSS = new frmNoviServisStanje(servisID);
+            NSS.ShowDialog();
+        }
+
+        private void btnPromjeniStanje_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.OK==MessageBox.Show("Da li želite stavi popravljeno?", "Popravljeno?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)) {
+                DAServisi.UpdatePopravljeno(servisID,true);
+                BingGridS();
+            }
         }
     }
 }

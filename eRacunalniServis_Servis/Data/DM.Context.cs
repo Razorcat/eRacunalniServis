@@ -569,5 +569,133 @@ namespace eRacunalniServis_Servis.Data
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Servisi>("esp_Servisi_GetALL", mergeOption);
         }
+    
+        public virtual int esp_Kupci_Insert(string ime, string prezime, string email, string korisnickoIme, string lozinkaHash, string lozinkaSalt, Nullable<bool> status)
+        {
+            var imeParameter = ime != null ?
+                new ObjectParameter("Ime", ime) :
+                new ObjectParameter("Ime", typeof(string));
+    
+            var prezimeParameter = prezime != null ?
+                new ObjectParameter("Prezime", prezime) :
+                new ObjectParameter("Prezime", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var korisnickoImeParameter = korisnickoIme != null ?
+                new ObjectParameter("KorisnickoIme", korisnickoIme) :
+                new ObjectParameter("KorisnickoIme", typeof(string));
+    
+            var lozinkaHashParameter = lozinkaHash != null ?
+                new ObjectParameter("LozinkaHash", lozinkaHash) :
+                new ObjectParameter("LozinkaHash", typeof(string));
+    
+            var lozinkaSaltParameter = lozinkaSalt != null ?
+                new ObjectParameter("LozinkaSalt", lozinkaSalt) :
+                new ObjectParameter("LozinkaSalt", typeof(string));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Kupci_Insert", imeParameter, prezimeParameter, emailParameter, korisnickoImeParameter, lozinkaHashParameter, lozinkaSaltParameter, statusParameter);
+        }
+    
+        public virtual int esp_Kupci_UpdateStatus(Nullable<int> kupacID, Nullable<bool> status)
+        {
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Kupci_UpdateStatus", kupacIDParameter, statusParameter);
+        }
+    
+        public virtual int esp_Kupci_UpdatePodatke(Nullable<int> kupacID, string ime, string prezime, string email, string korisnickoIme, string lozinkaHash, string lozinkaSalt)
+        {
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            var imeParameter = ime != null ?
+                new ObjectParameter("Ime", ime) :
+                new ObjectParameter("Ime", typeof(string));
+    
+            var prezimeParameter = prezime != null ?
+                new ObjectParameter("Prezime", prezime) :
+                new ObjectParameter("Prezime", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("Email", email) :
+                new ObjectParameter("Email", typeof(string));
+    
+            var korisnickoImeParameter = korisnickoIme != null ?
+                new ObjectParameter("KorisnickoIme", korisnickoIme) :
+                new ObjectParameter("KorisnickoIme", typeof(string));
+    
+            var lozinkaHashParameter = lozinkaHash != null ?
+                new ObjectParameter("LozinkaHash", lozinkaHash) :
+                new ObjectParameter("LozinkaHash", typeof(string));
+    
+            var lozinkaSaltParameter = lozinkaSalt != null ?
+                new ObjectParameter("LozinkaSalt", lozinkaSalt) :
+                new ObjectParameter("LozinkaSalt", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Kupci_UpdatePodatke", kupacIDParameter, imeParameter, prezimeParameter, emailParameter, korisnickoImeParameter, lozinkaHashParameter, lozinkaSaltParameter);
+        }
+    
+        public virtual ObjectResult<ServisStanje> esp_ServisStanje_GetAllById(Nullable<int> servisID)
+        {
+            var servisIDParameter = servisID.HasValue ?
+                new ObjectParameter("ServisID", servisID) :
+                new ObjectParameter("ServisID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ServisStanje>("esp_ServisStanje_GetAllById", servisIDParameter);
+        }
+    
+        public virtual ObjectResult<ServisStanje> esp_ServisStanje_GetAllById(Nullable<int> servisID, MergeOption mergeOption)
+        {
+            var servisIDParameter = servisID.HasValue ?
+                new ObjectParameter("ServisID", servisID) :
+                new ObjectParameter("ServisID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ServisStanje>("esp_ServisStanje_GetAllById", mergeOption, servisIDParameter);
+        }
+    
+        public virtual ObjectResult<Servisi> esp_Servis_GetById(Nullable<int> servisID)
+        {
+            var servisIDParameter = servisID.HasValue ?
+                new ObjectParameter("ServisID", servisID) :
+                new ObjectParameter("ServisID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Servisi>("esp_Servis_GetById", servisIDParameter);
+        }
+    
+        public virtual ObjectResult<Servisi> esp_Servis_GetById(Nullable<int> servisID, MergeOption mergeOption)
+        {
+            var servisIDParameter = servisID.HasValue ?
+                new ObjectParameter("ServisID", servisID) :
+                new ObjectParameter("ServisID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Servisi>("esp_Servis_GetById", mergeOption, servisIDParameter);
+        }
+    
+        public virtual int esp_Servis_UpdateStatus(Nullable<int> servisID, Nullable<bool> popravljeno)
+        {
+            var servisIDParameter = servisID.HasValue ?
+                new ObjectParameter("ServisID", servisID) :
+                new ObjectParameter("ServisID", typeof(int));
+    
+            var popravljenoParameter = popravljeno.HasValue ?
+                new ObjectParameter("Popravljeno", popravljeno) :
+                new ObjectParameter("Popravljeno", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Servis_UpdateStatus", servisIDParameter, popravljenoParameter);
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace eRacunalniServis.Forms.Servis
 {
     public partial class frmPregledKupaca : Form
     {
-        public Kupci kupac;
+        public eRacunalniServis_Servis.Data.Kupci kupac;
         public frmPregledKupaca()
         {
             InitializeComponent();

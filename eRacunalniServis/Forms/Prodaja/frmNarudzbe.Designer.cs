@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNarudzbe));
             this.dgvNarudzbe = new System.Windows.Forms.DataGridView();
             this.btnPromjeniStatus = new System.Windows.Forms.Button();
             this.btnZatvoriProzor = new System.Windows.Forms.Button();
@@ -77,8 +78,9 @@
             this.Controls.Add(this.btnZatvoriProzor);
             this.Controls.Add(this.btnPromjeniStatus);
             this.Controls.Add(this.dgvNarudzbe);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNarudzbe";
-            this.Text = "frmNarudzbe";
+            this.Text = "Narudžbe";
             ((System.ComponentModel.ISupportInitialize)(this.dgvNarudzbe)).EndInit();
             this.ResumeLayout(false);
 

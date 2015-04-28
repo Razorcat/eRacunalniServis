@@ -11,5 +11,8 @@ namespace eRacunalniServis_Servis.Data
         public static void Insert(int ServisId, string Opis) {
             Connection.dm.esp_ServisStanje_Insert(ServisId, Opis);
         }
+        public static List<ServisStanje> GetAllById(int ServisId) {
+            return Connection.dm.esp_ServisStanje_GetAllById(ServisId).ToList();
+        }
     }
 }

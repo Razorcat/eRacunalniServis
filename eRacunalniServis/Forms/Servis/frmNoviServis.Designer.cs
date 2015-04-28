@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNoviServis));
             this.pbQRcode = new System.Windows.Forms.PictureBox();
             this.lblNaziv = new System.Windows.Forms.Label();
             this.lblKupac = new System.Windows.Forms.Label();
@@ -39,6 +40,8 @@
             this.btnOdaberiKupca = new System.Windows.Forms.Button();
             this.toolTipNaziv = new System.Windows.Forms.ToolTip(this.components);
             this.btnSpremi = new System.Windows.Forms.Button();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbQRcode)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,11 +136,33 @@
             this.btnSpremi.UseVisualStyleBackColor = true;
             this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
             // 
+            // printPreviewDialog
+            // 
+            this.printPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog.Enabled = true;
+            this.printPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog.Icon")));
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            this.printPreviewDialog.Visible = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrint.Location = new System.Drawing.Point(254, 199);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(134, 23);
+            this.btnPrint.TabIndex = 11;
+            this.btnPrint.Text = "Ispis QR koda";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // frmNoviServis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 251);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnSpremi);
             this.Controls.Add(this.btnOdaberiKupca);
             this.Controls.Add(this.rtxbOpis);
@@ -147,8 +172,9 @@
             this.Controls.Add(this.lblKupac);
             this.Controls.Add(this.lblNaziv);
             this.Controls.Add(this.pbQRcode);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNoviServis";
-            this.Text = "frmNoviServis";
+            this.Text = "Servis";
             ((System.ComponentModel.ISupportInitialize)(this.pbQRcode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -167,5 +193,7 @@
         private System.Windows.Forms.Button btnOdaberiKupca;
         private System.Windows.Forms.ToolTip toolTipNaziv;
         private System.Windows.Forms.Button btnSpremi;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

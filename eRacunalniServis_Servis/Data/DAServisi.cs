@@ -18,6 +18,12 @@ namespace eRacunalniServis_Servis.Data
          public static List<Servisi> GetAll() {
              return Connection.dm.esp_Servisi_GetALL().ToList();
          }
+         public static Servisi GetById(int ServisId) {
+             return Connection.dm.esp_Servis_GetById(ServisId).First();
+         }
+         public static void UpdatePopravljeno(int servisID, bool popravljeno) {
+             Connection.dm.esp_Servis_UpdateStatus(servisID, popravljeno);
+         }
         
     }
 }

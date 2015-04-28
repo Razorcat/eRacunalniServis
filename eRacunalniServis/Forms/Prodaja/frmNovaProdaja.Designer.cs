@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNovaProdaja));
             this.grpbKupac = new System.Windows.Forms.GroupBox();
             this.txtbPrezime = new System.Windows.Forms.TextBox();
             this.txtbIme = new System.Windows.Forms.TextBox();
@@ -119,8 +120,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 324);
             this.Controls.Add(this.grpbKupac);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNovaProdaja";
-            this.Text = "frmNovaProdaja";
+            this.Text = "Prodaja";
             this.grpbKupac.ResumeLayout(false);
             this.grpbKupac.PerformLayout();
             this.ResumeLayout(false);
