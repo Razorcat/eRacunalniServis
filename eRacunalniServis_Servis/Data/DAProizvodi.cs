@@ -8,6 +8,7 @@ namespace eRacunalniServis_Servis.Data
 {
     public class DAProizvodi
     {
+        public static int TotalRows;
         public static void Insert(Proizvodi p){
             Connection.dm.esp_Proizvodi_Insert(p.Naziv,p.Sifra,p.Cijena,p.VrstaID,p.JedinicaMjereID,p.Slika,p.SlikaThumb);            
         }
@@ -39,7 +40,7 @@ namespace eRacunalniServis_Servis.Data
             return Connection.dm.esp_Proizvodi_SelectBySifraNaziv(sifra, naziv).ToList();
         }
         public static Proizvodi SelectById(int proizvodId) {
-            return Connection.dm.esp_Proizvodi_SelectById(proizvodId).First();
+            return Connection.dm.esp_Proizvodi_SelectById(proizvodId).FirstOrDefault();
         }
 
 
@@ -57,5 +58,11 @@ namespace eRacunalniServis_Servis.Data
         }
 
         #endregion
+        public static List<esp_Proizvodi_SelectByVrstaNaziv_Result> SelectByVrstaNaziv(int VrstaId,string Naziv,int Offset,int MaxRows){
+            System.Data.Entity.Core.Objects.ObjectParameter Total = new System.Data.Entity.Core.Objects.ObjectParameter("TotalRows",0);
+            List<esp_Proizvodi_SelectByVrstaNaziv_Result> proizvodi= Connection.dm.esp_Proizvodi_SelectByVrstaNaziv(VrstaId, Naziv, Offset, MaxRows, Total).ToList();
+            TotalRows = Convert.ToInt32(Total.Value);
+            return proizvodi;
+        }
     }
 }

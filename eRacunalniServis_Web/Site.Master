@@ -48,7 +48,7 @@
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul>
-                                <li><a id="registerLink" runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a id="registerLink" runat="server" href="~/Account/Register">Registriraj se</a></li>
                                 <li><a id="loginLink" runat="server" href="~/Account/Login">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
@@ -63,9 +63,12 @@
                 </section>
                 <nav>
                     <ul id="menu">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/">Početna</a></li>
+                        <li><a runat="server" href="~/About">O nama</a></li>
+                        <li><a runat="server" href="~/Contact">Kontakt</a></li>
+                        <li>
+                            <asp:HyperLink ID="hlOrder" runat="server" NavigateUrl="/Orders/Order.aspx">Moja košarica</asp:HyperLink>
+                        </li>
                     </ul>
                 </nav>
             </div>

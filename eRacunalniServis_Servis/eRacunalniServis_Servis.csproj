@@ -105,6 +105,9 @@
     <Compile Include="Data\esp_Kupci_SelectById_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\esp_Kupci_SelectByKorisnickoIme_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\esp_Kupci_SelectByName_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
@@ -112,6 +115,9 @@
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\esp_Proizvodi_SelectBySifraNaziv_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\esp_Proizvodi_SelectByVrstaNaziv_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\esp_Proizvodi_SelectByVrsta_Result.cs">

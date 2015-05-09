@@ -3,32 +3,32 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
         <h1><%: Title %>.</h1>
-        <h2>Your app description page.</h2>
+        <h2>eRačunalni Servis</h2>
     </hgroup>
 
     <article>
         <p>        
-            Use this area to provide additional information.
+            PEP
         </p>
 
         <p>        
-            Use this area to provide additional information.
+            3059
         </p>
 
         <p>        
-            Use this area to provide additional information.
+            Seminarski rad
         </p>
     </article>
 
     <aside>
-        <h3>Aside Title</h3>
+        <h3>Izbornik</h3>
         <p>        
-            Use this area to provide additional information.
+            Navigacija
         </p>
         <ul>
-            <li><a runat="server" href="~/">Home</a></li>
-            <li><a runat="server" href="~/About">About</a></li>
-            <li><a runat="server" href="~/Contact">Contact</a></li>
+            <li><a runat="server" href="~/">Početna stranica</a></li>
+            <li><a runat="server" href="~/About">O nama</a></li>
+            <li><a runat="server" href="~/Contact">Kontakt</a></li>
         </ul>
     </aside>
 </asp:Content>

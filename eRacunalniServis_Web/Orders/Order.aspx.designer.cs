@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace eRacunalniServis_Web.Account {
+namespace eRacunalniServis_Web.Orders {
     
     
-    public partial class Login {
+    public partial class Order {
         
         /// <summary>
-        /// loginBox control.
+        /// gvNarudzba control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Login loginBox;
+        protected global::System.Web.UI.WebControls.GridView gvNarudzba;
         
         /// <summary>
-        /// RegisterHyperLink control.
+        /// btnZakljuciSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
+        protected global::System.Web.UI.WebControls.Button btnZakljuciSubmit;
     }
 }

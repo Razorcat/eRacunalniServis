@@ -7,29 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace eRacunalniServis_Web.Account
-{
-
-
-    public partial class Register
-    {
-
+namespace eRacunalniServis_Web.Account {
+    
+    
+    public partial class Register {
+        
         /// <summary>
-        /// RegisterUser control.
+        /// ErrorMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizard RegisterUser;
-
+        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
+        
         /// <summary>
-        /// RegisterUserWizardStep control.
+        /// txtbIme control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizardStep RegisterUserWizardStep;
+        protected global::System.Web.UI.WebControls.TextBox txtbIme;
+        
+        /// <summary>
+        /// txtbPrezime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbPrezime;
+        
+        /// <summary>
+        /// txtbEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbEmail;
+        
+        /// <summary>
+        /// txtbKorisnickoIme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbKorisnickoIme;
+        
+        /// <summary>
+        /// txtbLozinka control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbLozinka;
+        
+        /// <summary>
+        /// txtbLozinkaPotvrda control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbLozinkaPotvrda;
     }
 }

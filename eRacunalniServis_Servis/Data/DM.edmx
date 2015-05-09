@@ -545,6 +545,9 @@
         <Function Name="esp_Kupci_SelectById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="KupacID" Type="int" Mode="In" />
         </Function>
+        <Function Name="esp_Kupci_SelectByKorisnickoIme" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KorisnickoIme" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="esp_Kupci_SelectByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Name" Type="nvarchar" Mode="In" />
         </Function>
@@ -579,6 +582,13 @@
         </Function>
         <Function Name="esp_Proizvodi_SelectByVrsta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="VrstaID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="esp_Proizvodi_SelectByVrstaNaziv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VrstaID" Type="int" Mode="In" />
+          <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
+          <Parameter Name="Offset" Type="int" Mode="In" />
+          <Parameter Name="MaxRows" Type="int" Mode="In" />
+          <Parameter Name="TotalRows" Type="int" Mode="InOut" />
         </Function>
         <Function Name="esp_Servis_GetById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ServisID" Type="int" Mode="In" />
@@ -1488,6 +1498,16 @@
             <Parameter Name="ServisID" Mode="In" Type="Int32" />
             <Parameter Name="Popravljeno" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="esp_Proizvodi_SelectByVrstaNaziv" ReturnType="Collection(eProdajaModel.esp_Proizvodi_SelectByVrstaNaziv_Result)">
+            <Parameter Name="VrstaID" Mode="In" Type="Int32" />
+            <Parameter Name="Naziv" Mode="In" Type="String" />
+            <Parameter Name="Offset" Mode="In" Type="Int32" />
+            <Parameter Name="MaxRows" Mode="In" Type="Int32" />
+            <Parameter Name="TotalRows" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Kupci_SelectByKorisnickoIme" EntitySet="Kupci" ReturnType="Collection(eProdajaModel.Kupci)">
+            <Parameter Name="KorisnickoIme" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="esp_Korisnici_SelectByKorisnickoIme_Result">
           <Property Type="Int32" Name="KorisnikID" Nullable="false" />
@@ -1646,6 +1666,23 @@
           <Property Type="Boolean" Name="Popravljeno" Nullable="false" />
           <Property Type="String" Name="Naziv" Nullable="false" MaxLength="50" />
           <Property Type="Binary" Name="QRcode" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="esp_Proizvodi_SelectByVrstaNaziv_Result">
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Sifra" Nullable="false" MaxLength="20" />
+          <Property Type="Decimal" Name="Cijena" Nullable="false" Precision="5" Scale="2" />
+          <Property Type="Int32" Name="ProizvodID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="esp_Kupci_SelectByKorisnickoIme_Result">
+          <Property Type="Int32" Name="KupacID" Nullable="false" />
+          <Property Type="String" Name="Ime" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Prezime" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="DatumRegistracije" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="KorisnickoIme" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LozinkaHash" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LozinkaSalt" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1963,6 +2000,18 @@
           <FunctionImportMapping FunctionImportName="esp_Servis_GetById" FunctionName="eProdajaModel.Store.esp_Servis_GetById">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_Servis_UpdateStatus" FunctionName="eProdajaModel.Store.esp_Servis_UpdateStatus" />
+          <FunctionImportMapping FunctionImportName="esp_Proizvodi_SelectByVrstaNaziv" FunctionName="eProdajaModel.Store.esp_Proizvodi_SelectByVrstaNaziv" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eProdajaModel.esp_Proizvodi_SelectByVrstaNaziv_Result">
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+                <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Kupci_SelectByKorisnickoIme" FunctionName="eProdajaModel.Store.esp_Kupci_SelectByKorisnickoIme">
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

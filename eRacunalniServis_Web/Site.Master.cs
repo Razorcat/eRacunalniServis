@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eRacunalniServis_Servis.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,12 @@ namespace eRacunalniServis_Web
 {
     public partial class SiteMaster : MasterPage
     {
+        public Narudzbe narudzba
+        {
+            get { return (Narudzbe)Session["narudzba"]; }
+            set { Session["narudzba"] = value; }
+        }
+
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
@@ -66,8 +73,9 @@ namespace eRacunalniServis_Web
         }
 
         protected void Page_Load(object sender, EventArgs e)
-        {
-
+        {   
+            if (narudzba!=null)                
+                hlOrder.Text = string.Format("Moja košarica ({0})", narudzba.NarudzbaStavke.Count);
         }
     }
 }

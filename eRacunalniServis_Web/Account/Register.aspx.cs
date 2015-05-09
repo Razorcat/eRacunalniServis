@@ -6,6 +6,8 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Membership.OpenAuth;
+using eRacunalniServis_Servis.Data;
+using eRacunalniServis_Servis.Util;
 
 namespace eRacunalniServis_Web.Account
 {
@@ -13,19 +15,40 @@ namespace eRacunalniServis_Web.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
+            
         }
+        
 
-        protected void RegisterUser_CreatedUser(object sender, EventArgs e)
+        protected void on_btnRegistriraj_Click(object sender, EventArgs e)
         {
-            FormsAuthentication.SetAuthCookie(RegisterUser.UserName, createPersistentCookie: false);
-
-            string continueUrl = RegisterUser.ContinueDestinationPageUrl;
-            if (!OpenAuth.IsLocalUrl(continueUrl))
+            if (txtbLozinka.Text.Length > 5)
             {
-                continueUrl = "~/";
+                Kupci kupac = new Kupci();
+                kupac.Ime = txtbIme.Text.Trim();
+                kupac.Prezime = txtbPrezime.Text.Trim();
+                kupac.Email = txtbEmail.Text;
+                kupac.KorisnickoIme = txtbKorisnickoIme.Text.Trim();
+
+                kupac.LozinkaSalt = UIHelper.GenerateSalt();
+                kupac.LozinkaHash = UIHelper.GenerateHash(txtbLozinka.Text.Trim(), kupac.LozinkaSalt);
+
+                kupac.Status = true;
+
+                DAKupci.Insert(kupac);
+                OcistiPolja();
             }
-            Response.Redirect(continueUrl);
         }
+
+        private void OcistiPolja()
+        {
+            txtbIme.Text = "";
+            txtbPrezime.Text = "";
+            txtbEmail.Text = "";
+            txtbKorisnickoIme.Text = "";
+            txtbLozinka.Text = "";
+            txtbLozinkaPotvrda.Text = "";
+        }
+
+        
     }
 }

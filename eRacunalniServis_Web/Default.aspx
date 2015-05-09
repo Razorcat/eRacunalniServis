@@ -17,23 +17,46 @@
     </section>
 </asp:Content>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h3>We suggest the following:</h3>
-    <ol class="round">
-        <li class="one">
-            <h5>Getting Started</h5>
-            ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            <a href="http://go.microsoft.com/fwlink/?LinkId=245146">Learn more…</a>
-        </li>
-        <li class="two">
-            <h5>Add NuGet packages and jump-start your coding</h5>
-            NuGet makes it easy to install and update free libraries and tools.
-            <a href="http://go.microsoft.com/fwlink/?LinkId=245147">Learn more…</a>
-        </li>
-        <li class="three">
-            <h5>Find Web Hosting</h5>
-            You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            <a href="http://go.microsoft.com/fwlink/?LinkId=245143">Learn more…</a>
-        </li>
-    </ol>
+    <h3>Katalog proizvoda</h3>
+    <table>
+        <tr>
+            <td>
+                <asp:Label ID="Label1" runat="server" Text="Vrsta"></asp:Label>
+            </td>
+            <td>
+                <asp:Label ID="Label2" runat="server" Text="Naziv"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:DropDownList ID="ddlVrstaList" runat="server" DataTextField="Naziv" DataValueField="VrstaID"></asp:DropDownList>
+            </td>
+            <td>
+                <asp:TextBox ID="txtbNazivInput" runat="server"></asp:TextBox>
+            </td>
+            <td>
+                <asp:Button ID="btnTraziSubmit" runat="server" Text="Traži" OnClick="btnTraziSubmit_Click" />
+            </td>
+        </tr>
+    </table>
+    <asp:DataGrid ID="dgProizvodi" runat="server" AllowPaging="true" AllowCustomPaging="true" AutoGenerateColumns="false" PageSize="2" OnPageIndexChanged="dgProizvodi_PageIndexChanged" OnItemDataBound="dgProizvodi_ItemDataBound" DataKeyField="ProizvodID" OnItemCommand="dgProizvodi_ItemCommand">
+        <PagerStyle Mode="NumericPages" />
+        <Columns>
+            <asp:TemplateColumn>
+                <ItemTemplate>
+                    <asp:Image ID="imgSlikaThumb" runat="server" BackColor="#FF9999" BorderColor="#9933FF" BorderStyle="Solid" />
+                </ItemTemplate>
+            </asp:TemplateColumn>
+            <asp:BoundColumn DataField="Naziv" HeaderText="Naziv "> </asp:BoundColumn>
+            <asp:BoundColumn DataField="Sifra" HeaderText="Šifra "> </asp:BoundColumn>
+            <asp:BoundColumn DataField="Cijena" HeaderText="Cijena "> </asp:BoundColumn>
+            <asp:TemplateColumn>
+                <ItemTemplate>
+                    <asp:TextBox ID="txtbKolicina" runat="server" Width="20px" Text="1"></asp:TextBox>
+                    <asp:LinkButton ID="lbtnDodajUKosaricu" runat="server" CommandName="DodajUKopruCmd">Dodaj u košarici</asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateColumn>
+        </Columns>
+
+    </asp:DataGrid>
 </asp:Content>

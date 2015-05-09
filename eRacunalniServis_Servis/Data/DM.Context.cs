@@ -697,5 +697,44 @@ namespace eRacunalniServis_Servis.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Servis_UpdateStatus", servisIDParameter, popravljenoParameter);
         }
+    
+        public virtual ObjectResult<esp_Proizvodi_SelectByVrstaNaziv_Result> esp_Proizvodi_SelectByVrstaNaziv(Nullable<int> vrstaID, string naziv, Nullable<int> offset, Nullable<int> maxRows, ObjectParameter totalRows)
+        {
+            var vrstaIDParameter = vrstaID.HasValue ?
+                new ObjectParameter("VrstaID", vrstaID) :
+                new ObjectParameter("VrstaID", typeof(int));
+    
+            var nazivParameter = naziv != null ?
+                new ObjectParameter("Naziv", naziv) :
+                new ObjectParameter("Naziv", typeof(string));
+    
+            var offsetParameter = offset.HasValue ?
+                new ObjectParameter("Offset", offset) :
+                new ObjectParameter("Offset", typeof(int));
+    
+            var maxRowsParameter = maxRows.HasValue ?
+                new ObjectParameter("MaxRows", maxRows) :
+                new ObjectParameter("MaxRows", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Proizvodi_SelectByVrstaNaziv_Result>("esp_Proizvodi_SelectByVrstaNaziv", vrstaIDParameter, nazivParameter, offsetParameter, maxRowsParameter, totalRows);
+        }
+    
+        public virtual ObjectResult<Kupci> esp_Kupci_SelectByKorisnickoIme(string korisnickoIme)
+        {
+            var korisnickoImeParameter = korisnickoIme != null ?
+                new ObjectParameter("KorisnickoIme", korisnickoIme) :
+                new ObjectParameter("KorisnickoIme", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Kupci>("esp_Kupci_SelectByKorisnickoIme", korisnickoImeParameter);
+        }
+    
+        public virtual ObjectResult<Kupci> esp_Kupci_SelectByKorisnickoIme(string korisnickoIme, MergeOption mergeOption)
+        {
+            var korisnickoImeParameter = korisnickoIme != null ?
+                new ObjectParameter("KorisnickoIme", korisnickoIme) :
+                new ObjectParameter("KorisnickoIme", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Kupci>("esp_Kupci_SelectByKorisnickoIme", mergeOption, korisnickoImeParameter);
+        }
     }
 }
