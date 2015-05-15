@@ -213,7 +213,7 @@
             this.pregledServisaToolStripMenuItem,
             this.noviServisToolStripMenuItem});
             this.servisToolStripMenuItem.Name = "servisToolStripMenuItem";
-            this.servisToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.servisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.servisToolStripMenuItem.Text = "Servis";
             // 
             // pregledServisaToolStripMenuItem
@@ -237,7 +237,7 @@
             this.novaProdajaToolStripMenuItem,
             this.povijestProdajeToolStripMenuItem});
             this.prodajaToolStripMenuItem.Name = "prodajaToolStripMenuItem";
-            this.prodajaToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.prodajaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.prodajaToolStripMenuItem.Text = "Prodaja";
             // 
             // narudžbeToolStripMenuItem
@@ -259,6 +259,7 @@
             this.povijestProdajeToolStripMenuItem.Name = "povijestProdajeToolStripMenuItem";
             this.povijestProdajeToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.povijestProdajeToolStripMenuItem.Text = "Povijest prodaje";
+            this.povijestProdajeToolStripMenuItem.Click += new System.EventHandler(this.povijestProdajeToolStripMenuItem_Click);
             // 
             // kupciToolStripMenuItem
             // 

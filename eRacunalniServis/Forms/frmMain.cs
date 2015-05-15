@@ -246,6 +246,17 @@ namespace eRacunalniServis_Servis.Forms
             frmRPBD.Show();
             frmRPBD.WindowState = FormWindowState.Maximized;
         }
+
+        private void povijestProdajeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmPregledProdaje frmPP = new frmPregledProdaje();
+            frmPP.MdiParent = this;
+            frmPP.Show();
+            frmPP.WindowState = FormWindowState.Maximized;
+        }
        
     }
 }

@@ -35,5 +35,6 @@ namespace eRacunalniServis_Servis.Data
         public virtual ICollection<KorisniciUloge> KorisniciUloge { get; set; }
         public virtual ICollection<Ulazi> Ulazi { get; set; }
         public List<Uloge> Uloge { get; set; }
+
         }
 }

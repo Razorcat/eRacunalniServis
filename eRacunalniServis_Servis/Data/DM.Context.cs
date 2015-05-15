@@ -861,5 +861,10 @@ namespace eRacunalniServis_Servis.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Narudzbe_UpdateStatus", narudzbaIDParameter, statusParameter);
         }
+    
+        public virtual ObjectResult<esp_Izlazi_GetPovijestProdaje_Result> esp_Izlazi_GetPovijestProdaje()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Izlazi_GetPovijestProdaje_Result>("esp_Izlazi_GetPovijestProdaje");
+        }
     }
 }

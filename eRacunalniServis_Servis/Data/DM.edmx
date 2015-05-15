@@ -492,6 +492,7 @@
           <Parameter Name="DatumOd" Type="datetime" Mode="In" />
           <Parameter Name="DatumDo" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="esp_Izlazi_GetPovijestProdaje" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="esp_Izlazi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="BrojRacuna" Type="varchar" Mode="In" />
           <Parameter Name="KorisnikID" Type="int" Mode="In" />
@@ -1580,6 +1581,7 @@
             <Parameter Name="NarudzbaID" Mode="In" Type="Int32" />
             <Parameter Name="Status" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="esp_Izlazi_GetPovijestProdaje" ReturnType="Collection(eProdajaModel.esp_Izlazi_GetPovijestProdaje_Result)" />
         </EntityContainer>
         <ComplexType Name="esp_Korisnici_SelectByKorisnickoIme_Result">
           <Property Type="Int32" Name="KorisnikID" Nullable="false" />
@@ -1785,6 +1787,14 @@
           <Property Type="String" Name="Kupac" Nullable="false" MaxLength="101" />
           <Property Type="Decimal" Name="Iznos" Nullable="true" Precision="38" Scale="2" />
           <Property Type="Boolean" Name="Status" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="esp_Izlazi_GetPovijestProdaje_Result">
+          <Property Type="String" Name="BrojRacuna" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="IznosBezPDV" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="IznosSaPDV" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Kolicina" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2165,6 +2175,18 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_Narudzbe_UpdateStatus" FunctionName="eProdajaModel.Store.esp_Narudzbe_UpdateStatus" />
+          <FunctionImportMapping FunctionImportName="esp_Izlazi_GetPovijestProdaje" FunctionName="eProdajaModel.Store.esp_Izlazi_GetPovijestProdaje">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eProdajaModel.esp_Izlazi_GetPovijestProdaje_Result">
+                <ScalarProperty Name="BrojRacuna" ColumnName="BrojRacuna" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="IznosBezPDV" ColumnName="IznosBezPDV" />
+                <ScalarProperty Name="IznosSaPDV" ColumnName="IznosSaPDV" />
+                <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

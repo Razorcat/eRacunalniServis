@@ -137,6 +137,12 @@
     <Compile Include="Forms\Prodaja\frmNovaProdaja.Designer.cs">
       <DependentUpon>frmNovaProdaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Prodaja\frmPregledProdaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Prodaja\frmPregledProdaje.Designer.cs">
+      <DependentUpon>frmPregledProdaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Proizvodi\frmDodajProizvod.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Prodaja\frmNovaProdaja.resx">
       <DependentUpon>frmNovaProdaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Prodaja\frmPregledProdaje.resx">
+      <DependentUpon>frmPregledProdaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Proizvodi\frmDodajProizvod.resx">
       <DependentUpon>frmDodajProizvod.cs</DependentUpon>

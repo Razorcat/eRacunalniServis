@@ -1,0 +1,26 @@
+﻿using eRacunalniServis_Servis.Data;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace eRacunalniServis.Forms.Prodaja
+{
+    public partial class frmPregledProdaje : Form
+    {
+        public frmPregledProdaje()
+        {
+            InitializeComponent();
+        }
+
+        private void frmPregledProdaje_Load(object sender, EventArgs e)
+        {
+            dgvProdaja.DataSource = DAIzlazi.GetPovijestProdaje();
+        }
+    }
+}
