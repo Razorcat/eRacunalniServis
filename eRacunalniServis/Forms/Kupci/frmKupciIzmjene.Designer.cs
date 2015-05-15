@@ -179,6 +179,7 @@
             this.Controls.Add(this.lblIme);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmKupciIzmjene";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Promjene podataka o kupcu";
             this.ResumeLayout(false);
             this.PerformLayout();

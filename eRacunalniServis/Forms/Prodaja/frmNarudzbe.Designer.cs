@@ -47,8 +47,10 @@
             this.dgvNarudzbe.Location = new System.Drawing.Point(13, 13);
             this.dgvNarudzbe.Name = "dgvNarudzbe";
             this.dgvNarudzbe.ReadOnly = true;
+            this.dgvNarudzbe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNarudzbe.Size = new System.Drawing.Size(406, 189);
             this.dgvNarudzbe.TabIndex = 0;
+            this.dgvNarudzbe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNarudzbe_CellClick);
             // 
             // btnPromjeniStatus
             // 
@@ -59,6 +61,7 @@
             this.btnPromjeniStatus.TabIndex = 1;
             this.btnPromjeniStatus.Text = "Promjeni status";
             this.btnPromjeniStatus.UseVisualStyleBackColor = true;
+            this.btnPromjeniStatus.Click += new System.EventHandler(this.btnPromjeniStatus_Click);
             // 
             // btnZatvoriProzor
             // 
@@ -67,8 +70,9 @@
             this.btnZatvoriProzor.Name = "btnZatvoriProzor";
             this.btnZatvoriProzor.Size = new System.Drawing.Size(75, 38);
             this.btnZatvoriProzor.TabIndex = 2;
-            this.btnZatvoriProzor.Text = "Zatvori ptozor";
+            this.btnZatvoriProzor.Text = "Zatvori prozor";
             this.btnZatvoriProzor.UseVisualStyleBackColor = true;
+            this.btnZatvoriProzor.Click += new System.EventHandler(this.btnZatvoriProzor_Click);
             // 
             // frmNarudzbe
             // 
@@ -81,6 +85,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNarudzbe";
             this.Text = "Narudžbe";
+            this.Load += new System.EventHandler(this.frmNarudzbe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNarudzbe)).EndInit();
             this.ResumeLayout(false);
 

@@ -22,6 +22,7 @@ namespace eRacunalniServis_Web
         {
             if(!IsPostBack)
                 BindVrste();
+            BindGrid();
         }
 
         private void BindVrste()
@@ -60,8 +61,8 @@ namespace eRacunalniServis_Web
         {
             if (e.Item.ItemIndex != -1) // ne radi!!!!!
             {
-               // Image img = (Image)e.Item.FindControl("imgSlikaThumb");
-              //  img.ImageUrl = "ImageHandler.ashx?proizvodId=" + proizvodi[e.Item.ItemIndex].ProizvodID;
+                Image img = (Image)e.Item.FindControl("imgSlikaThumb");
+                img.ImageUrl = "~/ImageHandler.ashx?proizvodId=" + proizvodi[e.Item.ItemIndex].ProizvodID;
             }
 
         }

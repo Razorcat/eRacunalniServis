@@ -28,16 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNovaProdaja));
-            this.grpbKupac = new System.Windows.Forms.GroupBox();
-            this.txtbPrezime = new System.Windows.Forms.TextBox();
-            this.txtbIme = new System.Windows.Forms.TextBox();
-            this.lblPrezime = new System.Windows.Forms.Label();
-            this.btnNoviKupac = new System.Windows.Forms.Button();
-            this.lblIme = new System.Windows.Forms.Label();
-            this.btnOdaberiKupca = new System.Windows.Forms.Button();
             this.grbProizvodi = new System.Windows.Forms.GroupBox();
+            this.lblDostupno = new System.Windows.Forms.Label();
+            this.txtStanjeNaSkladistu = new System.Windows.Forms.TextBox();
             this.lblP = new System.Windows.Forms.Label();
             this.lblPopust = new System.Windows.Forms.Label();
             this.ntxtbPopust = new System.Windows.Forms.NumericUpDown();
@@ -50,102 +44,35 @@
             this.lblSifra = new System.Windows.Forms.Label();
             this.dgvProizvodi = new System.Windows.Forms.DataGridView();
             this.grbProdaja = new System.Windows.Forms.GroupBox();
-            this.txtbIznos = new System.Windows.Forms.TextBox();
-            this.lblIznos = new System.Windows.Forms.Label();
+            this.cmbSkladisteList = new System.Windows.Forms.ComboBox();
+            this.lblSkladiste = new System.Windows.Forms.Label();
+            this.txtbBrRacuna = new System.Windows.Forms.TextBox();
+            this.txtbIznosSaPDV = new System.Windows.Forms.TextBox();
+            this.lblIznosSaPDV = new System.Windows.Forms.Label();
+            this.lblBrojRacuna = new System.Windows.Forms.Label();
+            this.txtbIznosBezPDV = new System.Windows.Forms.TextBox();
+            this.lblIznosbezPDV = new System.Windows.Forms.Label();
             this.dgvProdaja = new System.Windows.Forms.DataGridView();
             this.btnBrisiStavku = new System.Windows.Forms.Button();
             this.btnZakljuciProdaju = new System.Windows.Forms.Button();
-            this.espProizvodiSelectBySifraNazivResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.grpbKupac.SuspendLayout();
+            this.lblCijena = new System.Windows.Forms.Label();
+            this.mtxtbCijena = new System.Windows.Forms.MaskedTextBox();
             this.grbProizvodi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtbPopust)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtbKolicina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProizvodi)).BeginInit();
             this.grbProdaja.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdaja)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.espProizvodiSelectBySifraNazivResultBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // grpbKupac
-            // 
-            this.grpbKupac.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpbKupac.Controls.Add(this.txtbPrezime);
-            this.grpbKupac.Controls.Add(this.txtbIme);
-            this.grpbKupac.Controls.Add(this.lblPrezime);
-            this.grpbKupac.Controls.Add(this.btnNoviKupac);
-            this.grpbKupac.Controls.Add(this.lblIme);
-            this.grpbKupac.Controls.Add(this.btnOdaberiKupca);
-            this.grpbKupac.Location = new System.Drawing.Point(13, 13);
-            this.grpbKupac.Name = "grpbKupac";
-            this.grpbKupac.Size = new System.Drawing.Size(500, 68);
-            this.grpbKupac.TabIndex = 0;
-            this.grpbKupac.TabStop = false;
-            this.grpbKupac.Text = "Kupac";
-            // 
-            // txtbPrezime
-            // 
-            this.txtbPrezime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbPrezime.Location = new System.Drawing.Point(60, 39);
-            this.txtbPrezime.Name = "txtbPrezime";
-            this.txtbPrezime.ReadOnly = true;
-            this.txtbPrezime.Size = new System.Drawing.Size(272, 20);
-            this.txtbPrezime.TabIndex = 5;
-            // 
-            // txtbIme
-            // 
-            this.txtbIme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtbIme.Location = new System.Drawing.Point(60, 13);
-            this.txtbIme.Name = "txtbIme";
-            this.txtbIme.ReadOnly = true;
-            this.txtbIme.Size = new System.Drawing.Size(272, 20);
-            this.txtbIme.TabIndex = 4;
-            // 
-            // lblPrezime
-            // 
-            this.lblPrezime.AutoSize = true;
-            this.lblPrezime.Location = new System.Drawing.Point(7, 42);
-            this.lblPrezime.Name = "lblPrezime";
-            this.lblPrezime.Size = new System.Drawing.Size(47, 13);
-            this.lblPrezime.TabIndex = 3;
-            this.lblPrezime.Text = "Prezime:";
-            // 
-            // btnNoviKupac
-            // 
-            this.btnNoviKupac.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnNoviKupac.Location = new System.Drawing.Point(419, 13);
-            this.btnNoviKupac.Name = "btnNoviKupac";
-            this.btnNoviKupac.Size = new System.Drawing.Size(75, 46);
-            this.btnNoviKupac.TabIndex = 2;
-            this.btnNoviKupac.Text = "Novi kupac";
-            this.btnNoviKupac.UseVisualStyleBackColor = true;
-            this.btnNoviKupac.Click += new System.EventHandler(this.btnNoviKupac_Click);
-            // 
-            // lblIme
-            // 
-            this.lblIme.AutoSize = true;
-            this.lblIme.Location = new System.Drawing.Point(7, 16);
-            this.lblIme.Name = "lblIme";
-            this.lblIme.Size = new System.Drawing.Size(27, 13);
-            this.lblIme.TabIndex = 1;
-            this.lblIme.Text = "Ime:";
-            // 
-            // btnOdaberiKupca
-            // 
-            this.btnOdaberiKupca.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnOdaberiKupca.Location = new System.Drawing.Point(338, 13);
-            this.btnOdaberiKupca.Name = "btnOdaberiKupca";
-            this.btnOdaberiKupca.Size = new System.Drawing.Size(75, 46);
-            this.btnOdaberiKupca.TabIndex = 0;
-            this.btnOdaberiKupca.Text = "Odaberi kupca";
-            this.btnOdaberiKupca.UseVisualStyleBackColor = true;
-            this.btnOdaberiKupca.Click += new System.EventHandler(this.btnOdaberiKupca_Click);
             // 
             // grbProizvodi
             // 
             this.grbProizvodi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbProizvodi.Controls.Add(this.mtxtbCijena);
+            this.grbProizvodi.Controls.Add(this.lblCijena);
+            this.grbProizvodi.Controls.Add(this.lblDostupno);
+            this.grbProizvodi.Controls.Add(this.txtStanjeNaSkladistu);
             this.grbProizvodi.Controls.Add(this.lblP);
             this.grbProizvodi.Controls.Add(this.lblPopust);
             this.grbProizvodi.Controls.Add(this.ntxtbPopust);
@@ -157,17 +84,38 @@
             this.grbProizvodi.Controls.Add(this.txtbSifra);
             this.grbProizvodi.Controls.Add(this.lblSifra);
             this.grbProizvodi.Controls.Add(this.dgvProizvodi);
-            this.grbProizvodi.Location = new System.Drawing.Point(13, 88);
+            this.grbProizvodi.Location = new System.Drawing.Point(13, 12);
             this.grbProizvodi.Name = "grbProizvodi";
-            this.grbProizvodi.Size = new System.Drawing.Size(500, 146);
+            this.grbProizvodi.Size = new System.Drawing.Size(492, 186);
             this.grbProizvodi.TabIndex = 1;
             this.grbProizvodi.TabStop = false;
             this.grbProizvodi.Text = "Proizvodi";
             // 
+            // lblDostupno
+            // 
+            this.lblDostupno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDostupno.AutoSize = true;
+            this.lblDostupno.Location = new System.Drawing.Point(424, 52);
+            this.lblDostupno.Name = "lblDostupno";
+            this.lblDostupno.Size = new System.Drawing.Size(56, 13);
+            this.lblDostupno.TabIndex = 16;
+            this.lblDostupno.Text = "Dostupno:";
+            // 
+            // txtStanjeNaSkladistu
+            // 
+            this.txtStanjeNaSkladistu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtStanjeNaSkladistu.Location = new System.Drawing.Point(414, 68);
+            this.txtStanjeNaSkladistu.MaxLength = 55;
+            this.txtStanjeNaSkladistu.Name = "txtStanjeNaSkladistu";
+            this.txtStanjeNaSkladistu.ReadOnly = true;
+            this.txtStanjeNaSkladistu.Size = new System.Drawing.Size(72, 20);
+            this.txtStanjeNaSkladistu.TabIndex = 15;
+            // 
             // lblP
             // 
+            this.lblP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblP.AutoSize = true;
-            this.lblP.Location = new System.Drawing.Point(473, 23);
+            this.lblP.Location = new System.Drawing.Point(389, 162);
             this.lblP.Name = "lblP";
             this.lblP.Size = new System.Drawing.Size(15, 13);
             this.lblP.TabIndex = 11;
@@ -175,8 +123,9 @@
             // 
             // lblPopust
             // 
+            this.lblPopust.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPopust.AutoSize = true;
-            this.lblPopust.Location = new System.Drawing.Point(369, 23);
+            this.lblPopust.Location = new System.Drawing.Point(285, 162);
             this.lblPopust.Name = "lblPopust";
             this.lblPopust.Size = new System.Drawing.Size(43, 13);
             this.lblPopust.TabIndex = 10;
@@ -184,14 +133,16 @@
             // 
             // ntxtbPopust
             // 
-            this.ntxtbPopust.Location = new System.Drawing.Point(418, 20);
+            this.ntxtbPopust.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ntxtbPopust.Location = new System.Drawing.Point(334, 160);
             this.ntxtbPopust.Name = "ntxtbPopust";
             this.ntxtbPopust.Size = new System.Drawing.Size(49, 20);
             this.ntxtbPopust.TabIndex = 9;
             // 
             // ntxtbKolicina
             // 
-            this.ntxtbKolicina.Location = new System.Drawing.Point(316, 19);
+            this.ntxtbKolicina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ntxtbKolicina.Location = new System.Drawing.Point(232, 160);
             this.ntxtbKolicina.Minimum = new decimal(new int[] {
             1,
             0,
@@ -208,8 +159,9 @@
             // 
             // lblKolicina
             // 
+            this.lblKolicina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblKolicina.AutoSize = true;
-            this.lblKolicina.Location = new System.Drawing.Point(263, 21);
+            this.lblKolicina.Location = new System.Drawing.Point(179, 162);
             this.lblKolicina.Name = "lblKolicina";
             this.lblKolicina.Size = new System.Drawing.Size(47, 13);
             this.lblKolicina.TabIndex = 6;
@@ -218,7 +170,7 @@
             // btnDodajP
             // 
             this.btnDodajP.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnDodajP.Location = new System.Drawing.Point(419, 94);
+            this.btnDodajP.Location = new System.Drawing.Point(411, 131);
             this.btnDodajP.Name = "btnDodajP";
             this.btnDodajP.Size = new System.Drawing.Size(75, 46);
             this.btnDodajP.TabIndex = 5;
@@ -245,7 +197,7 @@
             // 
             // txtbSifra
             // 
-            this.txtbSifra.Location = new System.Drawing.Point(96, 19);
+            this.txtbSifra.Location = new System.Drawing.Point(93, 20);
             this.txtbSifra.MaxLength = 55;
             this.txtbSifra.Name = "txtbSifra";
             this.txtbSifra.Size = new System.Drawing.Size(52, 20);
@@ -255,7 +207,7 @@
             // lblSifra
             // 
             this.lblSifra.AutoSize = true;
-            this.lblSifra.Location = new System.Drawing.Point(10, 22);
+            this.lblSifra.Location = new System.Drawing.Point(7, 22);
             this.lblSifra.Name = "lblSifra";
             this.lblSifra.Size = new System.Drawing.Size(80, 13);
             this.lblSifra.TabIndex = 1;
@@ -268,11 +220,11 @@
             this.dgvProizvodi.AllowUserToOrderColumns = true;
             this.dgvProizvodi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProizvodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProizvodi.Location = new System.Drawing.Point(7, 46);
+            this.dgvProizvodi.Location = new System.Drawing.Point(7, 45);
             this.dgvProizvodi.Name = "dgvProizvodi";
             this.dgvProizvodi.ReadOnly = true;
             this.dgvProizvodi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProizvodi.Size = new System.Drawing.Size(406, 94);
+            this.dgvProizvodi.Size = new System.Drawing.Size(398, 103);
             this.dgvProizvodi.TabIndex = 0;
             this.dgvProizvodi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProizvodi_CellClick);
             // 
@@ -281,36 +233,99 @@
             this.grbProdaja.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grbProdaja.Controls.Add(this.txtbIznos);
-            this.grbProdaja.Controls.Add(this.lblIznos);
+            this.grbProdaja.Controls.Add(this.cmbSkladisteList);
+            this.grbProdaja.Controls.Add(this.lblSkladiste);
+            this.grbProdaja.Controls.Add(this.txtbBrRacuna);
+            this.grbProdaja.Controls.Add(this.txtbIznosSaPDV);
+            this.grbProdaja.Controls.Add(this.lblIznosSaPDV);
+            this.grbProdaja.Controls.Add(this.lblBrojRacuna);
+            this.grbProdaja.Controls.Add(this.txtbIznosBezPDV);
+            this.grbProdaja.Controls.Add(this.lblIznosbezPDV);
             this.grbProdaja.Controls.Add(this.dgvProdaja);
             this.grbProdaja.Controls.Add(this.btnBrisiStavku);
             this.grbProdaja.Controls.Add(this.btnZakljuciProdaju);
-            this.grbProdaja.Location = new System.Drawing.Point(13, 241);
+            this.grbProdaja.Location = new System.Drawing.Point(13, 204);
             this.grbProdaja.Name = "grbProdaja";
-            this.grbProdaja.Size = new System.Drawing.Size(500, 158);
+            this.grbProdaja.Size = new System.Drawing.Size(492, 214);
             this.grbProdaja.TabIndex = 2;
             this.grbProdaja.TabStop = false;
             this.grbProdaja.Text = "Prodaja";
             // 
-            // txtbIznos
+            // cmbSkladisteList
             // 
-            this.txtbIznos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtbIznos.Location = new System.Drawing.Point(49, 130);
-            this.txtbIznos.Name = "txtbIznos";
-            this.txtbIznos.ReadOnly = true;
-            this.txtbIznos.Size = new System.Drawing.Size(100, 20);
-            this.txtbIznos.TabIndex = 10;
+            this.cmbSkladisteList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbSkladisteList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSkladisteList.FormattingEnabled = true;
+            this.cmbSkladisteList.Location = new System.Drawing.Point(264, 18);
+            this.cmbSkladisteList.Name = "cmbSkladisteList";
+            this.cmbSkladisteList.Size = new System.Drawing.Size(140, 21);
+            this.cmbSkladisteList.TabIndex = 24;
+            this.cmbSkladisteList.SelectedIndexChanged += new System.EventHandler(this.cmbSkladisteList_SelectedIndexChanged);
             // 
-            // lblIznos
+            // lblSkladiste
             // 
-            this.lblIznos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblIznos.AutoSize = true;
-            this.lblIznos.Location = new System.Drawing.Point(7, 133);
-            this.lblIznos.Name = "lblIznos";
-            this.lblIznos.Size = new System.Drawing.Size(35, 13);
-            this.lblIznos.TabIndex = 9;
-            this.lblIznos.Text = "Iznos:";
+            this.lblSkladiste.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSkladiste.AutoSize = true;
+            this.lblSkladiste.Location = new System.Drawing.Point(205, 21);
+            this.lblSkladiste.Name = "lblSkladiste";
+            this.lblSkladiste.Size = new System.Drawing.Size(53, 13);
+            this.lblSkladiste.TabIndex = 25;
+            this.lblSkladiste.Text = "Skladište:";
+            // 
+            // txtbBrRacuna
+            // 
+            this.txtbBrRacuna.Location = new System.Drawing.Point(76, 19);
+            this.txtbBrRacuna.MaxLength = 55;
+            this.txtbBrRacuna.Name = "txtbBrRacuna";
+            this.txtbBrRacuna.Size = new System.Drawing.Size(72, 20);
+            this.txtbBrRacuna.TabIndex = 14;
+            // 
+            // txtbIznosSaPDV
+            // 
+            this.txtbIznosSaPDV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtbIznosSaPDV.Location = new System.Drawing.Point(305, 186);
+            this.txtbIznosSaPDV.Name = "txtbIznosSaPDV";
+            this.txtbIznosSaPDV.ReadOnly = true;
+            this.txtbIznosSaPDV.Size = new System.Drawing.Size(100, 20);
+            this.txtbIznosSaPDV.TabIndex = 13;
+            // 
+            // lblIznosSaPDV
+            // 
+            this.lblIznosSaPDV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblIznosSaPDV.AutoSize = true;
+            this.lblIznosSaPDV.Location = new System.Drawing.Point(208, 189);
+            this.lblIznosSaPDV.Name = "lblIznosSaPDV";
+            this.lblIznosSaPDV.Size = new System.Drawing.Size(91, 13);
+            this.lblIznosSaPDV.TabIndex = 12;
+            this.lblIznosSaPDV.Text = "Iznos sa PDV-om:";
+            // 
+            // lblBrojRacuna
+            // 
+            this.lblBrojRacuna.AutoSize = true;
+            this.lblBrojRacuna.Location = new System.Drawing.Point(6, 22);
+            this.lblBrojRacuna.Name = "lblBrojRacuna";
+            this.lblBrojRacuna.Size = new System.Drawing.Size(64, 13);
+            this.lblBrojRacuna.TabIndex = 11;
+            this.lblBrojRacuna.Text = "Broj računa:";
+            // 
+            // txtbIznosBezPDV
+            // 
+            this.txtbIznosBezPDV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtbIznosBezPDV.Location = new System.Drawing.Point(102, 186);
+            this.txtbIznosBezPDV.Name = "txtbIznosBezPDV";
+            this.txtbIznosBezPDV.ReadOnly = true;
+            this.txtbIznosBezPDV.Size = new System.Drawing.Size(100, 20);
+            this.txtbIznosBezPDV.TabIndex = 10;
+            // 
+            // lblIznosbezPDV
+            // 
+            this.lblIznosbezPDV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblIznosbezPDV.AutoSize = true;
+            this.lblIznosbezPDV.Location = new System.Drawing.Point(7, 189);
+            this.lblIznosbezPDV.Name = "lblIznosbezPDV";
+            this.lblIznosbezPDV.Size = new System.Drawing.Size(89, 13);
+            this.lblIznosbezPDV.TabIndex = 9;
+            this.lblIznosbezPDV.Text = "Iznos bez PDV-a:";
             // 
             // dgvProdaja
             // 
@@ -321,16 +336,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProdaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdaja.Location = new System.Drawing.Point(7, 20);
+            this.dgvProdaja.Location = new System.Drawing.Point(7, 45);
             this.dgvProdaja.Name = "dgvProdaja";
             this.dgvProdaja.ReadOnly = true;
-            this.dgvProdaja.Size = new System.Drawing.Size(406, 99);
+            this.dgvProdaja.Size = new System.Drawing.Size(398, 130);
             this.dgvProdaja.TabIndex = 8;
+            this.dgvProdaja.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdaja_CellClick);
             // 
             // btnBrisiStavku
             // 
             this.btnBrisiStavku.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBrisiStavku.Location = new System.Drawing.Point(419, 19);
+            this.btnBrisiStavku.Location = new System.Drawing.Point(411, 19);
             this.btnBrisiStavku.Name = "btnBrisiStavku";
             this.btnBrisiStavku.Size = new System.Drawing.Size(75, 46);
             this.btnBrisiStavku.TabIndex = 7;
@@ -341,7 +357,7 @@
             // btnZakljuciProdaju
             // 
             this.btnZakljuciProdaju.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnZakljuciProdaju.Location = new System.Drawing.Point(419, 106);
+            this.btnZakljuciProdaju.Location = new System.Drawing.Point(411, 162);
             this.btnZakljuciProdaju.Name = "btnZakljuciProdaju";
             this.btnZakljuciProdaju.Size = new System.Drawing.Size(75, 46);
             this.btnZakljuciProdaju.TabIndex = 6;
@@ -349,23 +365,36 @@
             this.btnZakljuciProdaju.UseVisualStyleBackColor = true;
             this.btnZakljuciProdaju.Click += new System.EventHandler(this.btnZakljuciProdaju_Click);
             // 
-            // espProizvodiSelectBySifraNazivResultBindingSource
+            // lblCijena
             // 
-            this.espProizvodiSelectBySifraNazivResultBindingSource.DataSource = typeof(eRacunalniServis_Servis.Data.esp_Proizvodi_SelectBySifraNaziv_Result);
+            this.lblCijena.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblCijena.AutoSize = true;
+            this.lblCijena.Location = new System.Drawing.Point(7, 162);
+            this.lblCijena.Name = "lblCijena";
+            this.lblCijena.Size = new System.Drawing.Size(39, 13);
+            this.lblCijena.TabIndex = 17;
+            this.lblCijena.Text = "Cijena:";
+            // 
+            // mtxtbCijena
+            // 
+            this.mtxtbCijena.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.mtxtbCijena.Location = new System.Drawing.Point(52, 160);
+            this.mtxtbCijena.Mask = "0000.00";
+            this.mtxtbCijena.Name = "mtxtbCijena";
+            this.mtxtbCijena.Size = new System.Drawing.Size(110, 20);
+            this.mtxtbCijena.TabIndex = 18;
             // 
             // frmNovaProdaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 411);
+            this.ClientSize = new System.Drawing.Size(517, 430);
             this.Controls.Add(this.grbProdaja);
             this.Controls.Add(this.grbProizvodi);
-            this.Controls.Add(this.grpbKupac);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNovaProdaja";
             this.Text = "Prodaja";
-            this.grpbKupac.ResumeLayout(false);
-            this.grpbKupac.PerformLayout();
+            this.Load += new System.EventHandler(this.frmNovaProdaja_Load);
             this.grbProizvodi.ResumeLayout(false);
             this.grbProizvodi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtbPopust)).EndInit();
@@ -374,23 +403,14 @@
             this.grbProdaja.ResumeLayout(false);
             this.grbProdaja.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdaja)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.espProizvodiSelectBySifraNazivResultBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grpbKupac;
-        private System.Windows.Forms.TextBox txtbPrezime;
-        private System.Windows.Forms.TextBox txtbIme;
-        private System.Windows.Forms.Label lblPrezime;
-        private System.Windows.Forms.Button btnNoviKupac;
-        private System.Windows.Forms.Label lblIme;
-        private System.Windows.Forms.Button btnOdaberiKupca;
         private System.Windows.Forms.GroupBox grbProizvodi;
         private System.Windows.Forms.DataGridView dgvProizvodi;
-        private System.Windows.Forms.BindingSource espProizvodiSelectBySifraNazivResultBindingSource;
         private System.Windows.Forms.TextBox txtbSifra;
         private System.Windows.Forms.Label lblSifra;
         private System.Windows.Forms.TextBox txtbNaziv;
@@ -399,14 +419,24 @@
         private System.Windows.Forms.GroupBox grbProdaja;
         private System.Windows.Forms.NumericUpDown ntxtbKolicina;
         private System.Windows.Forms.Label lblKolicina;
-        private System.Windows.Forms.TextBox txtbIznos;
-        private System.Windows.Forms.Label lblIznos;
+        private System.Windows.Forms.TextBox txtbIznosBezPDV;
+        private System.Windows.Forms.Label lblIznosbezPDV;
         private System.Windows.Forms.DataGridView dgvProdaja;
         private System.Windows.Forms.Button btnBrisiStavku;
         private System.Windows.Forms.Button btnZakljuciProdaju;
         private System.Windows.Forms.NumericUpDown ntxtbPopust;
         private System.Windows.Forms.Label lblPopust;
         private System.Windows.Forms.Label lblP;
+        private System.Windows.Forms.Label lblBrojRacuna;
+        private System.Windows.Forms.Label lblIznosSaPDV;
+        private System.Windows.Forms.TextBox txtbIznosSaPDV;
+        private System.Windows.Forms.TextBox txtbBrRacuna;
+        private System.Windows.Forms.ComboBox cmbSkladisteList;
+        private System.Windows.Forms.Label lblSkladiste;
+        private System.Windows.Forms.TextBox txtStanjeNaSkladistu;
+        private System.Windows.Forms.Label lblDostupno;
+        private System.Windows.Forms.Label lblCijena;
+        private System.Windows.Forms.MaskedTextBox mtxtbCijena;
 
     }
 }

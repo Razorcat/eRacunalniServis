@@ -34,6 +34,7 @@
             this.txtSifra = new System.Windows.Forms.TextBox();
             this.txtNaziv = new System.Windows.Forms.TextBox();
             this.dgvProizvodi = new System.Windows.Forms.DataGridView();
+            this.btnUpdateStatus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProizvodi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             // lblNaziv
             // 
             this.lblNaziv.AutoSize = true;
-            this.lblNaziv.Location = new System.Drawing.Point(197, 15);
+            this.lblNaziv.Location = new System.Drawing.Point(156, 15);
             this.lblNaziv.Name = "lblNaziv";
             this.lblNaziv.Size = new System.Drawing.Size(40, 13);
             this.lblNaziv.TabIndex = 1;
@@ -59,15 +60,15 @@
             // 
             this.txtSifra.Location = new System.Drawing.Point(52, 12);
             this.txtSifra.Name = "txtSifra";
-            this.txtSifra.Size = new System.Drawing.Size(120, 20);
+            this.txtSifra.Size = new System.Drawing.Size(98, 20);
             this.txtSifra.TabIndex = 0;
             this.txtSifra.TextChanged += new System.EventHandler(this.txtSifra_TextChanged);
             // 
             // txtNaziv
             // 
-            this.txtNaziv.Location = new System.Drawing.Point(243, 12);
+            this.txtNaziv.Location = new System.Drawing.Point(202, 12);
             this.txtNaziv.Name = "txtNaziv";
-            this.txtNaziv.Size = new System.Drawing.Size(180, 20);
+            this.txtNaziv.Size = new System.Drawing.Size(126, 20);
             this.txtNaziv.TabIndex = 1;
             this.txtNaziv.TextChanged += new System.EventHandler(this.txtNaziv_TextChanged);
             // 
@@ -81,14 +82,28 @@
             this.dgvProizvodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProizvodi.Location = new System.Drawing.Point(13, 49);
             this.dgvProizvodi.Name = "dgvProizvodi";
+            this.dgvProizvodi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProizvodi.Size = new System.Drawing.Size(412, 257);
             this.dgvProizvodi.TabIndex = 2;
+            this.dgvProizvodi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProizvodi_CellClick);
+            // 
+            // btnUpdateStatus
+            // 
+            this.btnUpdateStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdateStatus.Location = new System.Drawing.Point(334, 12);
+            this.btnUpdateStatus.Name = "btnUpdateStatus";
+            this.btnUpdateStatus.Size = new System.Drawing.Size(91, 31);
+            this.btnUpdateStatus.TabIndex = 3;
+            this.btnUpdateStatus.Text = "Promijeni status";
+            this.btnUpdateStatus.UseVisualStyleBackColor = true;
+            this.btnUpdateStatus.Click += new System.EventHandler(this.btnUpdateStatus_Click);
             // 
             // frmPretragaProizvoda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(437, 318);
+            this.Controls.Add(this.btnUpdateStatus);
             this.Controls.Add(this.dgvProizvodi);
             this.Controls.Add(this.txtNaziv);
             this.Controls.Add(this.txtSifra);
@@ -111,5 +126,6 @@
         private System.Windows.Forms.TextBox txtSifra;
         private System.Windows.Forms.TextBox txtNaziv;
         private System.Windows.Forms.DataGridView dgvProizvodi;
+        private System.Windows.Forms.Button btnUpdateStatus;
     }
 }

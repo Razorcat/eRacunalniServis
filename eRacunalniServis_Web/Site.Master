@@ -69,6 +69,9 @@
                         <li>
                             <asp:HyperLink ID="hlOrder" runat="server" NavigateUrl="/Orders/Order.aspx">Moja košarica</asp:HyperLink>
                         </li>
+                        <li>
+                            <asp:HyperLink ID="hlMojServis" runat="server" NavigateUrl="/Account/MojServis.aspx">Moj Servis</asp:HyperLink>
+                        </li>
                     </ul>
                 </nav>
             </div>

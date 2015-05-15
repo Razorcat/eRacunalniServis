@@ -35,21 +35,25 @@ namespace eRacunalniServis.Forms.Kupci
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            if (kupacIzmjene != null) { 
-                kupacIzmjene.Ime = txtbIme.Text;
-                kupacIzmjene.Prezime = txtbPrezime.Text;
-                kupacIzmjene.Email = txtbEmail.Text;
-                kupacIzmjene.KorisnickoIme = txtbKorisnickoIme.Text;
+            if (kupacIzmjene != null) {
+                if (txtbLozinka.Text.Equals(txtbPotvrdaL.Text))
+                {
+                    kupacIzmjene.Ime = txtbIme.Text;
+                    kupacIzmjene.Prezime = txtbPrezime.Text;
+                    kupacIzmjene.Email = txtbEmail.Text;
+                    kupacIzmjene.KorisnickoIme = txtbKorisnickoIme.Text;
 
-                kupacIzmjene.LozinkaSalt = UIHelper.GenerateSalt();
-                kupacIzmjene.LozinkaHash = UIHelper.GenerateHash(txtbLozinka.Text, kupacIzmjene.LozinkaSalt);
+                    kupacIzmjene.LozinkaSalt = UIHelper.GenerateSalt();
+                    kupacIzmjene.LozinkaHash = UIHelper.GenerateHash(txtbLozinka.Text, kupacIzmjene.LozinkaSalt);
 
-                DAKupci.UpdatePodatke(kupacIzmjene);
+                    DAKupci.UpdatePodatke(kupacIzmjene);
 
-                MessageBox.Show("Uspješno ste izmjenili podatke kupcu!", "Uspjeh!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                    MessageBox.Show("Uspješno ste izmjenili podatke kupcu!", "Uspjeh!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else MessageBox.Show("Niste potvrdili lozinku!", "Greška!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }          
             
-            this.Close();
         }
 
     }

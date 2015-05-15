@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Iconsmind-Outline-Computer-2.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -40,9 +43,12 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +82,18 @@
     </Compile>
     <Compile Include="Forms\frmOProgramu.Designer.cs">
       <DependentUpon>frmOProgramu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Izvjestaji\frmReportProdajaByDatum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Izvjestaji\frmReportProdajaByDatum.Designer.cs">
+      <DependentUpon>frmReportProdajaByDatum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Izvjestaji\frmReportProizvodi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Izvjestaji\frmReportProizvodi.Designer.cs">
+      <DependentUpon>frmReportProizvodi.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Korisnici\frmDodajKorisnika.cs">
       <SubType>Form</SubType>
@@ -155,6 +173,12 @@
     <Compile Include="Forms\Proizvodi\frmPretragaProizvoda.Designer.cs">
       <DependentUpon>frmPretragaProizvoda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Proizvodi\frmStanjeSkladista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Proizvodi\frmStanjeSkladista.Designer.cs">
+      <DependentUpon>frmStanjeSkladista.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Servis\frmNoviServis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +223,14 @@
     <EmbeddedResource Include="Forms\frmOProgramu.resx">
       <DependentUpon>frmOProgramu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Izvjestaji\frmReportProdajaByDatum.resx">
+      <DependentUpon>frmReportProdajaByDatum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Izvjestaji\frmReportProizvodi.resx">
+      <DependentUpon>frmReportProizvodi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Izvjestaji\rptPopularniProizvodi.rdlc" />
+    <EmbeddedResource Include="Forms\Izvjestaji\rptProdajaDatum.rdlc" />
     <EmbeddedResource Include="Forms\Korisnici\frmDodajKorisnika.resx">
       <DependentUpon>frmDodajKorisnika.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +273,9 @@
     <EmbeddedResource Include="Forms\Proizvodi\frmPretragaProizvoda.resx">
       <DependentUpon>frmPretragaProizvoda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Proizvodi\frmStanjeSkladista.resx">
+      <DependentUpon>frmStanjeSkladista.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Servis\frmNoviServis.resx">
       <DependentUpon>frmNoviServis.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +298,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\eRacunalniServis_Servis.Data.esp_Izlaz_SelectByDatum_Result.datasource" />
+    <None Include="Properties\DataSources\eRacunalniServis_Servis.Data.esp_Proizvodi_GetPopularne_Result.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -289,6 +326,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pc.jpg" />
+    <Content Include="Iconsmind-Outline-Computer-2.ico" />
     <Content Include="Resources\user-512.ico" />
     <None Include="Resources\cancel.png" />
     <Content Include="Resources\Iconsmind-Outline-Computer-2.ico" />
@@ -296,6 +334,7 @@
     <None Include="Resources\pc_repair.jpg" />
     <Content Include="Resources\Shutdown.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

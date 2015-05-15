@@ -19,6 +19,9 @@ namespace eRacunalniServis_Servis.Data
 
             return skladista;
         }
+        public static Object GetStanjeSkladista(int skladisteId) {
+            return Connection.dm.esp_Skladista_GetStanjeById(skladisteId).ToList();
+        }
 
     }
 }

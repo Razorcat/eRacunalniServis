@@ -5,14 +5,10 @@
         <div class="content-wrapper">
             <hgroup class="title">
                 <h1><%: Title %>.</h1>
-                <h2>Modify this template to jump-start your ASP.NET application.</h2>
+                <h2>eProdaja 3059</h2>
             </hgroup>
             <p>
-                To learn more about ASP.NET, visit <a href="http://asp.net" title="ASP.NET Website">http://asp.net</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET.
-                If you have any questions about ASP.NET visit
-                <a href="http://forums.asp.net/18.aspx" title="ASP.NET Forum">our forums</a>.
-            </p>
+                3059</p>
         </div>
     </section>
 </asp:Content>
@@ -26,6 +22,7 @@
             <td>
                 <asp:Label ID="Label2" runat="server" Text="Naziv"></asp:Label>
             </td>
+            <td>            
         </tr>
         <tr>
             <td>
@@ -38,8 +35,13 @@
                 <asp:Button ID="btnTraziSubmit" runat="server" Text="Traži" OnClick="btnTraziSubmit_Click" />
             </td>
         </tr>
+        
     </table>
-    <asp:DataGrid ID="dgProizvodi" runat="server" AllowPaging="true" AllowCustomPaging="true" AutoGenerateColumns="false" PageSize="2" OnPageIndexChanged="dgProizvodi_PageIndexChanged" OnItemDataBound="dgProizvodi_ItemDataBound" DataKeyField="ProizvodID" OnItemCommand="dgProizvodi_ItemCommand">
+     
+     <table>
+         <tr>
+             <td>
+    <asp:DataGrid ID="dgProizvodi" runat="server" AllowPaging="True" AllowCustomPaging="True" AutoGenerateColumns="False" PageSize="3" OnPageIndexChanged="dgProizvodi_PageIndexChanged" OnItemDataBound="dgProizvodi_ItemDataBound" DataKeyField="ProizvodID" OnItemCommand="dgProizvodi_ItemCommand">
         <PagerStyle Mode="NumericPages" />
         <Columns>
             <asp:TemplateColumn>
@@ -57,6 +59,32 @@
                 </ItemTemplate>
             </asp:TemplateColumn>
         </Columns>
-
-    </asp:DataGrid>
+    </asp:DataGrid> 
+                </td> 
+             <td>
+                 <h4>Najpopularniji proizvodi</h4>      
+    <asp:GridView ID="gwPopularniProizvodi" runat="server" CellPadding="4" DataSourceID="SqlDataSourceEprodaja" ForeColor="#333333" GridLines="None" Width="247px" AutoGenerateColumns="False" AllowPaging="True">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:BoundField DataField="Naziv" HeaderText="Naziv" SortExpression="Naziv" />
+            <asp:BoundField DataField="Cijena" HeaderText="Cijena" SortExpression="Cijena" />
+            <asp:BoundField DataField="Ocjena" HeaderText="Ocjena" SortExpression="Ocjena" />
+            <asp:ImageField DataImageUrlField="SlikaThumb" DataImageUrlFormatString="jpeg" HeaderText="Slika">
+            </asp:ImageField>
+        </Columns>
+        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+        <SortedAscendingCellStyle BackColor="#FDF5AC" />
+        <SortedAscendingHeaderStyle BackColor="#4D0000" />
+        <SortedDescendingCellStyle BackColor="#FCF6C0" />
+        <SortedDescendingHeaderStyle BackColor="#820000" />
+    </asp:GridView>
+                 <asp:SqlDataSource ID="SqlDataSourceEprodaja" runat="server" ConnectionString="<%$ ConnectionStrings:eProdajaConnectionString %>" SelectCommand="esp_Proizvodi_GetPopularne" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+             </td>  
+         </tr>
+    </table> 
+        
 </asp:Content>

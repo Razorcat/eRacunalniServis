@@ -30,10 +30,10 @@ namespace eRacunalniServis_Servis.Data
         public string LozinkaHash { get; set; }
         public string LozinkaSalt { get; set; }
         public bool Status { get; set; }
-        public List<Uloge> Uloge { get; set; }
     
         public virtual ICollection<Izlazi> Izlazi { get; set; }
         public virtual ICollection<KorisniciUloge> KorisniciUloge { get; set; }
         public virtual ICollection<Ulazi> Ulazi { get; set; }
-    }
+        public List<Uloge> Uloge { get; set; }
+        }
 }

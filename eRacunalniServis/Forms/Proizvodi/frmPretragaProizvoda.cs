@@ -13,6 +13,7 @@ namespace eRacunalniServis.Forms.Proizvodi
 {
     public partial class frmPretragaProizvoda : Form
     {
+        eRacunalniServis_Servis.Data.Proizvodi proizvod;
         public frmPretragaProizvoda()
         {
             InitializeComponent();
@@ -39,6 +40,31 @@ namespace eRacunalniServis.Forms.Proizvodi
         private void txtNaziv_TextChanged(object sender, EventArgs e)
         {
             BindGrid();
+        }
+
+        private void btnUpdateStatus_Click(object sender, EventArgs e)
+        {
+            if (proizvod!=null)
+            {
+                if (proizvod.Status == true)
+                {
+                    DAProizvodi.UpdateStatus(proizvod.ProizvodID, false);
+                    proizvod.Status = false;
+                    BindGrid();
+                }
+                else if (proizvod.Status == false)
+                {
+                    DAProizvodi.UpdateStatus(proizvod.ProizvodID, true);
+                    proizvod.Status = true;
+                    BindGrid();
+                }
+            }
+        }
+
+        private void dgvProizvodi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           int proizvodID = Convert.ToInt32(dgvProizvodi.SelectedRows[0].Cells[0].Value);
+           proizvod = DAProizvodi.SelectById(proizvodID);
         }
     }
 }

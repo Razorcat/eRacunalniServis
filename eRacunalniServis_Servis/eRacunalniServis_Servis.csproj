@@ -54,8 +54,10 @@
   <ItemGroup>
     <Compile Include="Data\Connection.cs" />
     <Compile Include="Data\DADobavljaci.cs" />
+    <Compile Include="Data\DAIzlazi.cs" />
     <Compile Include="Data\DAKorisnici.cs" />
     <Compile Include="Data\DAKupci.cs" />
+    <Compile Include="Data\DANarudzbe.cs" />
     <Compile Include="Data\DAProizvodi.cs" />
     <Compile Include="Data\DAServisi.cs" />
     <Compile Include="Data\DAServisStanje.cs" />
@@ -87,6 +89,9 @@
     <Compile Include="Data\esp_Dobavljaci_SelectByNaziv_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\esp_Izlaz_SelectByDatum_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\esp_JediniceMjere_SelectAll_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
@@ -111,6 +116,12 @@
     <Compile Include="Data\esp_Kupci_SelectByName_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\esp_Narudzbe_SelectAktivne_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\esp_Proizvodi_GetPopularne_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\esp_Proizvodi_SelectById_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
@@ -130,6 +141,9 @@
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\esp_Servis_GetById_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\esp_Skladista_GetStanjeById_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\esp_Uloge_SelectAll_Result.cs">

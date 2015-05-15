@@ -736,5 +736,130 @@ namespace eRacunalniServis_Servis.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Kupci>("esp_Kupci_SelectByKorisnickoIme", mergeOption, korisnickoImeParameter);
         }
+    
+        public virtual int esp_Proizvodi_UpdateStatus(Nullable<int> proizvodID, Nullable<bool> status)
+        {
+            var proizvodIDParameter = proizvodID.HasValue ?
+                new ObjectParameter("ProizvodID", proizvodID) :
+                new ObjectParameter("ProizvodID", typeof(int));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Proizvodi_UpdateStatus", proizvodIDParameter, statusParameter);
+        }
+    
+        public virtual ObjectResult<esp_Skladista_GetStanjeById_Result> esp_Skladista_GetStanjeById(Nullable<int> skladisteID)
+        {
+            var skladisteIDParameter = skladisteID.HasValue ?
+                new ObjectParameter("SkladisteID", skladisteID) :
+                new ObjectParameter("SkladisteID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Skladista_GetStanjeById_Result>("esp_Skladista_GetStanjeById", skladisteIDParameter);
+        }
+    
+        public virtual ObjectResult<esp_Proizvodi_GetPopularne_Result> esp_Proizvodi_GetPopularne()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Proizvodi_GetPopularne_Result>("esp_Proizvodi_GetPopularne");
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> esp_Izlazi_Insert(string brojRacuna, Nullable<int> korisnikID, Nullable<bool> zakljucen, Nullable<decimal> iznosBezPDV, Nullable<decimal> iznosSaPDV, Nullable<int> skladisteID)
+        {
+            var brojRacunaParameter = brojRacuna != null ?
+                new ObjectParameter("BrojRacuna", brojRacuna) :
+                new ObjectParameter("BrojRacuna", typeof(string));
+    
+            var korisnikIDParameter = korisnikID.HasValue ?
+                new ObjectParameter("KorisnikID", korisnikID) :
+                new ObjectParameter("KorisnikID", typeof(int));
+    
+            var zakljucenParameter = zakljucen.HasValue ?
+                new ObjectParameter("Zakljucen", zakljucen) :
+                new ObjectParameter("Zakljucen", typeof(bool));
+    
+            var iznosBezPDVParameter = iznosBezPDV.HasValue ?
+                new ObjectParameter("IznosBezPDV", iznosBezPDV) :
+                new ObjectParameter("IznosBezPDV", typeof(decimal));
+    
+            var iznosSaPDVParameter = iznosSaPDV.HasValue ?
+                new ObjectParameter("IznosSaPDV", iznosSaPDV) :
+                new ObjectParameter("IznosSaPDV", typeof(decimal));
+    
+            var skladisteIDParameter = skladisteID.HasValue ?
+                new ObjectParameter("SkladisteID", skladisteID) :
+                new ObjectParameter("SkladisteID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("esp_Izlazi_Insert", brojRacunaParameter, korisnikIDParameter, zakljucenParameter, iznosBezPDVParameter, iznosSaPDVParameter, skladisteIDParameter);
+        }
+    
+        public virtual int esp_Izlazi_UpdateZakljucen(Nullable<int> izlazID, Nullable<bool> zakljucen)
+        {
+            var izlazIDParameter = izlazID.HasValue ?
+                new ObjectParameter("IzlazID", izlazID) :
+                new ObjectParameter("IzlazID", typeof(int));
+    
+            var zakljucenParameter = zakljucen.HasValue ?
+                new ObjectParameter("Zakljucen", zakljucen) :
+                new ObjectParameter("Zakljucen", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Izlazi_UpdateZakljucen", izlazIDParameter, zakljucenParameter);
+        }
+    
+        public virtual int esp_IzlazStavke_Insert(Nullable<int> izlazID, Nullable<int> proizvodID, Nullable<int> kolicina, Nullable<decimal> cijena, Nullable<decimal> popust)
+        {
+            var izlazIDParameter = izlazID.HasValue ?
+                new ObjectParameter("IzlazID", izlazID) :
+                new ObjectParameter("IzlazID", typeof(int));
+    
+            var proizvodIDParameter = proizvodID.HasValue ?
+                new ObjectParameter("ProizvodID", proizvodID) :
+                new ObjectParameter("ProizvodID", typeof(int));
+    
+            var kolicinaParameter = kolicina.HasValue ?
+                new ObjectParameter("Kolicina", kolicina) :
+                new ObjectParameter("Kolicina", typeof(int));
+    
+            var cijenaParameter = cijena.HasValue ?
+                new ObjectParameter("Cijena", cijena) :
+                new ObjectParameter("Cijena", typeof(decimal));
+    
+            var popustParameter = popust.HasValue ?
+                new ObjectParameter("Popust", popust) :
+                new ObjectParameter("Popust", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_IzlazStavke_Insert", izlazIDParameter, proizvodIDParameter, kolicinaParameter, cijenaParameter, popustParameter);
+        }
+    
+        public virtual ObjectResult<esp_Izlaz_SelectByDatum_Result> esp_Izlaz_SelectByDatum(Nullable<System.DateTime> datumOd, Nullable<System.DateTime> datumDo)
+        {
+            var datumOdParameter = datumOd.HasValue ?
+                new ObjectParameter("DatumOd", datumOd) :
+                new ObjectParameter("DatumOd", typeof(System.DateTime));
+    
+            var datumDoParameter = datumDo.HasValue ?
+                new ObjectParameter("DatumDo", datumDo) :
+                new ObjectParameter("DatumDo", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Izlaz_SelectByDatum_Result>("esp_Izlaz_SelectByDatum", datumOdParameter, datumDoParameter);
+        }
+    
+        public virtual ObjectResult<esp_Narudzbe_SelectAktivne_Result> esp_Narudzbe_SelectAktivne()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Narudzbe_SelectAktivne_Result>("esp_Narudzbe_SelectAktivne");
+        }
+    
+        public virtual int esp_Narudzbe_UpdateStatus(Nullable<int> narudzbaID, Nullable<bool> status)
+        {
+            var narudzbaIDParameter = narudzbaID.HasValue ?
+                new ObjectParameter("NarudzbaID", narudzbaID) :
+                new ObjectParameter("NarudzbaID", typeof(int));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Narudzbe_UpdateStatus", narudzbaIDParameter, statusParameter);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using eRacunalniServis.Forms;
 using eRacunalniServis.Forms.Dobavljaci;
+using eRacunalniServis.Forms.Izvjestaji;
 using eRacunalniServis.Forms.Kupci;
 using eRacunalniServis.Forms.Prodaja;
 using eRacunalniServis.Forms.Proizvodi;
@@ -211,6 +212,40 @@ namespace eRacunalniServis_Servis.Forms
             frmN.MdiParent = this;
             frmN.Show();
             frmN.WindowState = FormWindowState.Maximized;
-        }             
+        }
+
+        private void stanjeSkladištaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmStanjeSkladista frmSS = new frmStanjeSkladista();
+            frmSS.MdiParent = this;
+            frmSS.Show();
+            frmSS.WindowState = FormWindowState.Maximized;
+        }
+
+        private void stanjeSkladištaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmReportProizvodi frmRSS = new frmReportProizvodi();
+            frmRSS.MdiParent = this;
+            frmRSS.Show();
+            frmRSS.WindowState = FormWindowState.Maximized;
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmReportProdajaByDatum frmRPBD = new frmReportProdajaByDatum();
+            frmRPBD.MdiParent = this;
+            frmRPBD.Show();
+            frmRPBD.WindowState = FormWindowState.Maximized;
+        }
+       
     }
 }

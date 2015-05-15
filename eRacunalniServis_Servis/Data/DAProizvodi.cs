@@ -1,5 +1,9 @@
-﻿using System;
+﻿using eRacunalniServis_Servis.Util;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity.Core;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,7 +44,16 @@ namespace eRacunalniServis_Servis.Data
             return Connection.dm.esp_Proizvodi_SelectBySifraNaziv(sifra, naziv).ToList();
         }
         public static Proizvodi SelectById(int proizvodId) {
-            return Connection.dm.esp_Proizvodi_SelectById(proizvodId).FirstOrDefault();
+
+            try
+            {
+                return Connection.dm.esp_Proizvodi_SelectById(proizvodId).First();
+            }
+            catch (Exception)
+            {
+                
+                throw new Exception("Greška");
+            }
         }
 
 
@@ -64,5 +77,59 @@ namespace eRacunalniServis_Servis.Data
             TotalRows = Convert.ToInt32(Total.Value);
             return proizvodi;
         }
+        public static void UpdateStatus(int proizvodId, bool status) {
+            Connection.dm.esp_Proizvodi_UpdateStatus(proizvodId, status);
+        }
+
+        public static DataRow SelectById2(int proizvodId)
+        {
+            var type = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
+            SqlConnection con = new SqlConnection(Connection.dm.Database.Connection.ConnectionString);
+            con.Open();
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("esp_Proizvodi_SelectById", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("ProizvodID", SqlDbType.Int).Value = proizvodId;
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                adapter.Fill(dt);
+
+                return dt.Rows[0];
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+        #region Prodaja
+        public static void InsertProdaju(Izlazi i, List<IzlazStavke> izlazStavke)
+        {
+            try
+            {
+                Int32 izlazID = Convert.ToInt32(Connection.dm.esp_Izlazi_Insert(i.BrojRacuna,i.KorisnikID,i.Zakljucen,i.IznosBezPDV,i.IznosSaPDV,i.SkladisteID).First());
+
+                foreach (IzlazStavke IzS in izlazStavke)
+                {
+                    Connection.dm.esp_IzlazStavke_Insert(izlazID, IzS.ProizvodID, IzS.Kolicina, IzS.Cijena, IzS.Popust);
+                }
+            }
+            catch (EntityException e)
+            {
+                ExceptionHandler.HandleException(e);
+            }
+        }
+
+        #endregion
+
+        public static List<esp_Proizvodi_GetPopularne_Result> GetPopularneProizvode(){
+            return Connection.dm.esp_Proizvodi_GetPopularne().ToList();
+         }
     }
 }
