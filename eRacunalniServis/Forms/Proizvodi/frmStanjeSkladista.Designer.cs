@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStanjeSkladista));
             this.dgvSkladisteProizvodi = new System.Windows.Forms.DataGridView();
             this.cmbSkladisteList = new System.Windows.Forms.ComboBox();
             this.lblSkladiste = new System.Windows.Forms.Label();
@@ -73,8 +74,9 @@
             this.Controls.Add(this.dgvSkladisteProizvodi);
             this.Controls.Add(this.cmbSkladisteList);
             this.Controls.Add(this.lblSkladiste);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmStanjeSkladista";
-            this.Text = "frmStanjeSkladista";
+            this.Text = "Stanje skladista";
             this.Load += new System.EventHandler(this.frmStanjeSkladista_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSkladisteProizvodi)).EndInit();
             this.ResumeLayout(false);
