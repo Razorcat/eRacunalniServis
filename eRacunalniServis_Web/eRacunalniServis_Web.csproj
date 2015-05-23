@@ -208,6 +208,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Orders\MojeNarudzbe.aspx" />
     <Content Include="Orders\Order.aspx" />
     <Content Include="packages.config" />
     <Content Include="ImageHandler.ashx" />
@@ -325,6 +326,13 @@
     </Compile>
     <Compile Include="ImageHandler.ashx.cs">
       <DependentUpon>ImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\MojeNarudzbe.aspx.cs">
+      <DependentUpon>MojeNarudzbe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Orders\MojeNarudzbe.aspx.designer.cs">
+      <DependentUpon>MojeNarudzbe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Orders\Order.aspx.cs">
       <DependentUpon>Order.aspx</DependentUpon>

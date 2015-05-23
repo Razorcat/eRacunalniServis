@@ -26,7 +26,8 @@ namespace eRacunalniServis.Forms.Servis
             dgvServisi.DataSource = DAServisi.GetAll();
             dgvServisi.Columns[0].Visible = false;
             dgvServisi.Columns[1].Visible = false;
-            dgvServisi.Columns[7].Visible = false;   
+            dgvServisi.Columns[7].Visible = false;
+            dgvServisi.Columns[6].Visible = false;  
         }
        private void BingGridSS(int id){
             dgvServisiStanja.ClearSelection();

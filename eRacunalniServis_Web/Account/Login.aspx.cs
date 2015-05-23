@@ -10,6 +10,11 @@ namespace eRacunalniServis_Web.Account
 {
     public partial class Login : Page
     {
+        public Kupci kupac
+        {
+            get { return (Kupci)Session["kupac"]; }
+            set { Session["kupac"] = value; }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";            
@@ -31,7 +36,12 @@ namespace eRacunalniServis_Web.Account
                     loginBox.FailureText = "Neispravni podaci ili račun neaktivan!";
                     e.Authenticated = false;
                 }
-                else e.Authenticated = true;
+                else
+                {
+                    e.Authenticated = true;
+                    kupac = k;
+                    Session.Add("kupac", kupac);
+                }
             }
             catch (Exception ex)
             {

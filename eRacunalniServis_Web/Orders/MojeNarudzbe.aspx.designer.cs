@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace eRacunalniServis_Web.Account {
+namespace eRacunalniServis_Web.Orders {
     
     
-    public partial class MojServis {
+    public partial class MojeNarudzbe {
         
         /// <summary>
-        /// dgMojiServis control.
+        /// dgNarudzbe control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid dgMojiServis;
+        protected global::System.Web.UI.WebControls.DataGrid dgNarudzbe;
     }
 }

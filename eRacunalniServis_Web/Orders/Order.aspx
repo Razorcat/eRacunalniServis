@@ -8,9 +8,12 @@
         <Columns>
             <asp:BoundField DataField="Proizvodi" HeaderText="Proizvodi" />
             <asp:BoundField DataField="Kolicina" HeaderText="Količina" />
+            <asp:BoundField DataField="Proizvodi.Cijena" HeaderText="Cijena" />
         </Columns>
     </asp:GridView>
+    <br />    
+    <asp:Label ID="lblCijena" runat="server" Text="Ukupna cijena:" >
+    </asp:Label><asp:TextBox ID="txtbCijena" runat="server" ReadOnly="True" ></asp:TextBox>        
     <br />
-    <asp:Button ID="btnZakljuciSubmit" runat="server" Text="Zaključi" />
-    
-</asp:Content>
+    <asp:Button ID="btnZakljuciSubmit" runat="server" Text="Zaključi" OnClick="btnZakljuciSubmit_Click" />
+    </asp:Content>

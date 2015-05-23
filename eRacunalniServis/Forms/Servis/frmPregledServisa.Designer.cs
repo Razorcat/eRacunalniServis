@@ -50,6 +50,9 @@
             // 
             // dgvServisi
             // 
+            this.dgvServisi.AllowUserToAddRows = false;
+            this.dgvServisi.AllowUserToDeleteRows = false;
+            this.dgvServisi.AllowUserToOrderColumns = true;
             this.dgvServisi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));

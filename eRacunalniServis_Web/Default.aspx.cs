@@ -17,12 +17,17 @@ namespace eRacunalniServis_Web
             get { return (Narudzbe)Session["narudzba"]; }
             set { Session["narudzba"] = value; }
         }
+        public Kupci kupac
+        {
+            get { return (Kupci)Session["kupac"]; }
+            set { Session["kupac"] = value; }
+        }        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
                 BindVrste();
-            BindGrid();
+            BindGrid();           
         }
 
         private void BindVrste()
@@ -59,7 +64,7 @@ namespace eRacunalniServis_Web
 
         protected void dgProizvodi_ItemDataBound(object sender, DataGridItemEventArgs e)
         {
-            if (e.Item.ItemIndex != -1) // ne radi!!!!!
+            if (e.Item.ItemIndex != -1) ///
             {
                 Image img = (Image)e.Item.FindControl("imgSlikaThumb");
                 img.ImageUrl = "~/ImageHandler.ashx?proizvodId=" + proizvodi[e.Item.ItemIndex].ProizvodID;
@@ -69,31 +74,36 @@ namespace eRacunalniServis_Web
 
         protected void dgProizvodi_ItemCommand(object source, DataGridCommandEventArgs e)
         {
-            if (e.CommandName == "DodajUKopruCmd") {
+            if (e.CommandName == "DodajUKopruCmd" && kupac!=null) {
                 int proizvodId = Convert.ToInt32(dgProizvodi.DataKeys[e.Item.ItemIndex]);
-                TextBox kolicinaInput =(TextBox) e.Item.FindControl("txtbKolicina");
+                TextBox kolicinaInput = (TextBox)e.Item.FindControl("txtbKolicina");
                 int kolicina =Convert.ToInt32(kolicinaInput.Text);
-
+                
                 if (narudzba == null) {
                     narudzba = new Narudzbe();
                     narudzba.Datum = DateTime.Now;
                     narudzba.BrojNarudzbe = "1/2013";
+                    narudzba.KupacID = kupac.KupacID;
+                    narudzba.Status = false;
                 }
                 foreach (NarudzbaStavke s in narudzba.NarudzbaStavke) {
                     if (s.ProizvodID == proizvodId)
+                    {
                         s.Kolicina += kolicina;
+                        return;
+                    }
                 }
                 NarudzbaStavke stavka = new NarudzbaStavke();
                 stavka.ProizvodID = proizvodId;
                 stavka.Proizvodi = DAProizvodi.SelectById(proizvodId);
                 stavka.Kolicina = kolicina;
 
-                narudzba.NarudzbaStavke.Add(stavka);
+                narudzba.NarudzbaStavke.Add(stavka);             
                 if (narudzba.NarudzbaStavke.Count > 0)
-                {
-                    HyperLink Kosarica = (HyperLink)this.Master.FindControl("hlOrder");
-                    Kosarica.Text = string.Format("Moja košarica ({0})", narudzba.NarudzbaStavke.Count);
-                }
+                    {
+                        HyperLink Kosarica = (HyperLink)this.Master.FindControl("hlOrder");
+                        Kosarica.Text = string.Format("Moja košarica ({0})", narudzba.NarudzbaStavke.Count);
+                    }                                   
             }
         }
         

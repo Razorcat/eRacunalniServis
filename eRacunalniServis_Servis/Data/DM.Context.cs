@@ -866,5 +866,65 @@ namespace eRacunalniServis_Servis.Data
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Izlazi_GetPovijestProdaje_Result>("esp_Izlazi_GetPovijestProdaje");
         }
+    
+        public virtual ObjectResult<Nullable<decimal>> esp_Narudzbe_Insert(string brojNarudzbe, Nullable<int> kupacID, Nullable<System.DateTime> datum, Nullable<bool> status)
+        {
+            var brojNarudzbeParameter = brojNarudzbe != null ?
+                new ObjectParameter("BrojNarudzbe", brojNarudzbe) :
+                new ObjectParameter("BrojNarudzbe", typeof(string));
+    
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            var datumParameter = datum.HasValue ?
+                new ObjectParameter("Datum", datum) :
+                new ObjectParameter("Datum", typeof(System.DateTime));
+    
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("esp_Narudzbe_Insert", brojNarudzbeParameter, kupacIDParameter, datumParameter, statusParameter);
+        }
+    
+        public virtual int esp_NarudzbeStavke_Insert(Nullable<int> narudzbaID, Nullable<int> proizvodID, Nullable<int> kolicina)
+        {
+            var narudzbaIDParameter = narudzbaID.HasValue ?
+                new ObjectParameter("NarudzbaID", narudzbaID) :
+                new ObjectParameter("NarudzbaID", typeof(int));
+    
+            var proizvodIDParameter = proizvodID.HasValue ?
+                new ObjectParameter("ProizvodID", proizvodID) :
+                new ObjectParameter("ProizvodID", typeof(int));
+    
+            var kolicinaParameter = kolicina.HasValue ?
+                new ObjectParameter("Kolicina", kolicina) :
+                new ObjectParameter("Kolicina", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_NarudzbeStavke_Insert", narudzbaIDParameter, proizvodIDParameter, kolicinaParameter);
+        }
+    
+        public virtual ObjectResult<esp_Narudzbe_SelectAktivneByKupacID_Result> esp_Narudzbe_SelectAktivneByKupacID(Nullable<int> kupacID)
+        {
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Narudzbe_SelectAktivneByKupacID_Result>("esp_Narudzbe_SelectAktivneByKupacID", kupacIDParameter);
+        }
+    
+        public virtual int esp_Narudzbe_Otkazi(Nullable<int> narudzbaID, Nullable<bool> otkazano)
+        {
+            var narudzbaIDParameter = narudzbaID.HasValue ?
+                new ObjectParameter("NarudzbaID", narudzbaID) :
+                new ObjectParameter("NarudzbaID", typeof(int));
+    
+            var otkazanoParameter = otkazano.HasValue ?
+                new ObjectParameter("Otkazano", otkazano) :
+                new ObjectParameter("Otkazano", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Narudzbe_Otkazi", narudzbaIDParameter, otkazanoParameter);
+        }
     }
 }

@@ -22,6 +22,24 @@ namespace eRacunalniServis_Web.Orders {
         protected global::System.Web.UI.WebControls.GridView gvNarudzba;
         
         /// <summary>
+        /// lblCijena control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCijena;
+        
+        /// <summary>
+        /// txtbCijena control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbCijena;
+        
+        /// <summary>
         /// btnZakljuciSubmit control.
         /// </summary>
         /// <remarks>

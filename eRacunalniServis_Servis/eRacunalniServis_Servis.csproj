@@ -119,6 +119,9 @@
     <Compile Include="Data\esp_Kupci_SelectByName_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\esp_Narudzbe_SelectAktivneByKupacID_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\esp_Narudzbe_SelectAktivne_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
@@ -167,6 +170,7 @@
     <Compile Include="Data\Korisnici.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\KorisniciExtension.cs" />
     <Compile Include="Data\KorisniciUloge.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
