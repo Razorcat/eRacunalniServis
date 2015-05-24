@@ -33,6 +33,8 @@
             this.dgvServisi = new System.Windows.Forms.DataGridView();
             this.btnPromjeniStanje = new System.Windows.Forms.Button();
             this.BtnDodajNoviZapis = new System.Windows.Forms.Button();
+            this.lblKupac = new System.Windows.Forms.Label();
+            this.txtbKupac = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServisiStanja)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServisi)).BeginInit();
             this.SuspendLayout();
@@ -67,8 +69,8 @@
             // 
             // btnPromjeniStanje
             // 
-            this.btnPromjeniStanje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPromjeniStanje.Location = new System.Drawing.Point(535, 13);
+            this.btnPromjeniStanje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPromjeniStanje.Location = new System.Drawing.Point(535, 116);
             this.btnPromjeniStanje.Name = "btnPromjeniStanje";
             this.btnPromjeniStanje.Size = new System.Drawing.Size(100, 67);
             this.btnPromjeniStanje.TabIndex = 2;
@@ -87,11 +89,32 @@
             this.BtnDodajNoviZapis.UseVisualStyleBackColor = true;
             this.BtnDodajNoviZapis.Click += new System.EventHandler(this.BtnDodajNoviZapis_Click);
             // 
+            // lblKupac
+            // 
+            this.lblKupac.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblKupac.AutoSize = true;
+            this.lblKupac.Location = new System.Drawing.Point(536, 13);
+            this.lblKupac.Name = "lblKupac";
+            this.lblKupac.Size = new System.Drawing.Size(41, 13);
+            this.lblKupac.TabIndex = 4;
+            this.lblKupac.Text = "Kupac:";
+            // 
+            // txtbKupac
+            // 
+            this.txtbKupac.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtbKupac.Location = new System.Drawing.Point(539, 30);
+            this.txtbKupac.Name = "txtbKupac";
+            this.txtbKupac.ReadOnly = true;
+            this.txtbKupac.Size = new System.Drawing.Size(100, 20);
+            this.txtbKupac.TabIndex = 5;
+            // 
             // frmPregledServisa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(647, 360);
+            this.Controls.Add(this.txtbKupac);
+            this.Controls.Add(this.lblKupac);
             this.Controls.Add(this.BtnDodajNoviZapis);
             this.Controls.Add(this.btnPromjeniStanje);
             this.Controls.Add(this.dgvServisi);
@@ -102,6 +125,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvServisiStanja)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServisi)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -111,5 +135,7 @@
         private System.Windows.Forms.DataGridView dgvServisi;
         private System.Windows.Forms.Button btnPromjeniStanje;
         private System.Windows.Forms.Button BtnDodajNoviZapis;
+        private System.Windows.Forms.Label lblKupac;
+        private System.Windows.Forms.TextBox txtbKupac;
     }
 }

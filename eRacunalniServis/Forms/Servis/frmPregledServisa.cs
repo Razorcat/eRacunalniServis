@@ -14,6 +14,7 @@ namespace eRacunalniServis.Forms.Servis
     public partial class frmPregledServisa : Form
     {
         private int servisID;
+        private eRacunalniServis_Servis.Data.Kupci kupac;
         public frmPregledServisa()
         {
             InitializeComponent();
@@ -39,7 +40,12 @@ namespace eRacunalniServis.Forms.Servis
 
         private void dgvServisi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            servisID = Convert.ToInt32(dgvServisi.SelectedRows[0].Cells[0].Value);            
+            servisID = Convert.ToInt32(dgvServisi.SelectedRows[0].Cells[0].Value);
+            if (Convert.ToInt32(dgvServisi.SelectedRows[0].Cells[1].Value) > 0)
+            {
+                kupac = DAKupci.SelectById(Convert.ToInt32(dgvServisi.SelectedRows[0].Cells[1].Value));
+                txtbKupac.Text = kupac.Ime + " " + kupac.Prezime;
+            }
             BingGridSS(servisID);
         }
 
