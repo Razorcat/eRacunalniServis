@@ -14,5 +14,9 @@ namespace eRacunalniServis_Servis.Data
         public static List<ServisStanje> GetAllById(int ServisId) {
             return Connection.dm.esp_ServisStanje_GetAllById(ServisId).ToList();
         }
+        public static List<ServisStanje> GetTopFive(int ServisId)
+        {
+            return Connection.dm.esp_ServisiStanje_GetTopFiveByServisId(ServisId).ToList();
+        }
     }
 }

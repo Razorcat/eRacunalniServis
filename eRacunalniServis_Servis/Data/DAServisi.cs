@@ -24,6 +24,9 @@ namespace eRacunalniServis_Servis.Data
          public static void UpdatePopravljeno(int servisID, bool popravljeno) {
              Connection.dm.esp_Servis_UpdateStatus(servisID, popravljeno);
          }
+         public static List<Servisi> GetTopFive(int KupacId) {
+             return Connection.dm.esp_Servisi_GetTopFiveByKupacId(KupacId).ToList();
+         }
         
     }
 }

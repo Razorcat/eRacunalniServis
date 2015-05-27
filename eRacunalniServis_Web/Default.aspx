@@ -53,8 +53,8 @@
             <asp:BoundColumn DataField="Sifra" HeaderText="Šifra "> </asp:BoundColumn>
             <asp:BoundColumn DataField="Cijena" HeaderText="Cijena "> </asp:BoundColumn>
             <asp:TemplateColumn>
-                <ItemTemplate>                     
-                        <select id="slctOcjena" name="selectOcjena" >
+                <ItemTemplate>                                         
+                        <select id="selectOcjena" name="selectOcjena" runat="server">
                           <option value=1>1</option>
                           <option value=2>2</option>
                           <option value=3>3</option>
@@ -66,7 +66,7 @@
                           <option value=9>9</option>
                           <option value=10>10</option>
                         </select> 
-                    <asp:LinkButton ID="LinkButton1" runat="server" CommandName="cmdOcjeniProizvod">Ocjeni</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnOcjeni" runat="server" CommandName="cmdOcjeniProizvod">Ocjeni</asp:LinkButton>
                     <asp:TextBox ID="txtbKolicina" runat="server" Width="40px" Text="2" TextMode="Number" ></asp:TextBox>
                     <asp:LinkButton ID="lbtnDodajUKosaricu" runat="server" CommandName="DodajUKopruCmd">Dodaj u košarici</asp:LinkButton>
                 </ItemTemplate>

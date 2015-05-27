@@ -140,7 +140,13 @@
     <Compile Include="Data\esp_Proizvodi_SelectByVrsta_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\esp_ServisiStanje_GetTopFiveByServisId_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\esp_Servisi_GetALL_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\esp_Servisi_GetTopFiveByKupacId_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\esp_ServisStanje_GetAllById_Result.cs">

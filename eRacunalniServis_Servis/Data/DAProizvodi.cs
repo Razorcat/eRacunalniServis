@@ -131,5 +131,8 @@ namespace eRacunalniServis_Servis.Data
         public static List<esp_Proizvodi_GetPopularne_Result> GetPopularneProizvode(){
             return Connection.dm.esp_Proizvodi_GetPopularne().ToList();
          }
+        public static void InsertOcjena(int ProizvodId, int KupacId, int Ocjena) {
+            Connection.dm.esp_Proizvodi_InsertOcjena(ProizvodId, KupacId, Ocjena);
+        }
     }
 }

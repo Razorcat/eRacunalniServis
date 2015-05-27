@@ -621,6 +621,11 @@
           <Parameter Name="Slika" Type="varbinary(max)" Mode="In" />
           <Parameter Name="SlikaThumb" Type="varbinary(max)" Mode="In" />
         </Function>
+        <Function Name="esp_Proizvodi_InsertOcjena" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProizvodID" Type="int" Mode="In" />
+          <Parameter Name="KupacID" Type="int" Mode="In" />
+          <Parameter Name="Ocjena" Type="int" Mode="In" />
+        </Function>
         <Function Name="esp_Proizvodi_SelectById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProizvodID" Type="int" Mode="In" />
         </Function>
@@ -651,10 +656,16 @@
         </Function>
         <Function Name="esp_Servisi_GetALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="esp_Servisi_GetLastID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_Servisi_GetTopFiveByKupacId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KupacID" Type="int" Mode="In" />
+        </Function>
         <Function Name="esp_Servisi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
           <Parameter Name="KupacID" Type="int" Mode="In" />
           <Parameter Name="QRcode" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="esp_ServisiStanje_GetTopFiveByServisId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ServisID" Type="int" Mode="In" />
         </Function>
         <Function Name="esp_ServisStanje_GetAllById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ServisID" Type="int" Mode="In" />
@@ -1618,6 +1629,17 @@
             <Parameter Name="NarudzbaID" Mode="In" Type="Int32" />
             <Parameter Name="Otkazano" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="esp_Servisi_GetTopFiveByKupacId" EntitySet="Servisi" ReturnType="Collection(eProdajaModel.Servisi)">
+          <Parameter Name="KupacID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_ServisiStanje_GetTopFiveByServisId" EntitySet="ServisStanje" ReturnType="Collection(eProdajaModel.ServisStanje)">
+          <Parameter Name="ServisID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Proizvodi_InsertOcjena">
+            <Parameter Name="ProizvodID" Mode="In" Type="Int32" />
+            <Parameter Name="KupacID" Mode="In" Type="Int32" />
+            <Parameter Name="Ocjena" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="esp_Korisnici_SelectByKorisnickoIme_Result">
           <Property Type="Int32" Name="KorisnikID" Nullable="false" />
@@ -1838,6 +1860,20 @@
           <Property Type="Boolean" Name="Status" Nullable="false" />
           <Property Type="DateTime" Name="Datum" Nullable="false" Precision="23" />
           <Property Type="Decimal" Name="Iznos" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="esp_Servisi_GetTopFiveByKupacId_Result">
+          <Property Type="Int32" Name="ServisID" Nullable="false" />
+          <Property Type="Int32" Name="KupacID" Nullable="false" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
+          <Property Type="Boolean" Name="Popravljeno" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="50" />
+          <Property Type="Binary" Name="QRcode" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="esp_ServisiStanje_GetTopFiveByServisId_Result">
+          <Property Type="Int32" Name="ServisStanjeID" Nullable="false" />
+          <Property Type="Int32" Name="ServisID" Nullable="false" />
+          <Property Type="String" Name="Opis" Nullable="false" MaxLength="255" />
+          <Property Type="DateTime" Name="Datum" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2244,6 +2280,11 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_Narudzbe_Otkazi" FunctionName="eProdajaModel.Store.esp_Narudzbe_Otkazi" />
+          <FunctionImportMapping FunctionImportName="esp_Servisi_GetTopFiveByKupacId" FunctionName="eProdajaModel.Store.esp_Servisi_GetTopFiveByKupacId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_ServisiStanje_GetTopFiveByServisId" FunctionName="eProdajaModel.Store.esp_ServisiStanje_GetTopFiveByServisId">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Proizvodi_InsertOcjena" FunctionName="eProdajaModel.Store.esp_Proizvodi_InsertOcjena" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

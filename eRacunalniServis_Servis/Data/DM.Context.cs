@@ -926,5 +926,58 @@ namespace eRacunalniServis_Servis.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Narudzbe_Otkazi", narudzbaIDParameter, otkazanoParameter);
         }
+    
+        public virtual ObjectResult<Servisi> esp_Servisi_GetTopFiveByKupacId(Nullable<int> kupacID)
+        {
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Servisi>("esp_Servisi_GetTopFiveByKupacId", kupacIDParameter);
+        }
+    
+        public virtual ObjectResult<Servisi> esp_Servisi_GetTopFiveByKupacId(Nullable<int> kupacID, MergeOption mergeOption)
+        {
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Servisi>("esp_Servisi_GetTopFiveByKupacId", mergeOption, kupacIDParameter);
+        }
+    
+        public virtual ObjectResult<ServisStanje> esp_ServisiStanje_GetTopFiveByServisId(Nullable<int> servisID)
+        {
+            var servisIDParameter = servisID.HasValue ?
+                new ObjectParameter("ServisID", servisID) :
+                new ObjectParameter("ServisID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ServisStanje>("esp_ServisiStanje_GetTopFiveByServisId", servisIDParameter);
+        }
+    
+        public virtual ObjectResult<ServisStanje> esp_ServisiStanje_GetTopFiveByServisId(Nullable<int> servisID, MergeOption mergeOption)
+        {
+            var servisIDParameter = servisID.HasValue ?
+                new ObjectParameter("ServisID", servisID) :
+                new ObjectParameter("ServisID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ServisStanje>("esp_ServisiStanje_GetTopFiveByServisId", mergeOption, servisIDParameter);
+        }
+    
+        public virtual int esp_Proizvodi_InsertOcjena(Nullable<int> proizvodID, Nullable<int> kupacID, Nullable<int> ocjena)
+        {
+            var proizvodIDParameter = proizvodID.HasValue ?
+                new ObjectParameter("ProizvodID", proizvodID) :
+                new ObjectParameter("ProizvodID", typeof(int));
+    
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            var ocjenaParameter = ocjena.HasValue ?
+                new ObjectParameter("Ocjena", ocjena) :
+                new ObjectParameter("Ocjena", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Proizvodi_InsertOcjena", proizvodIDParameter, kupacIDParameter, ocjenaParameter);
+        }
     }
 }

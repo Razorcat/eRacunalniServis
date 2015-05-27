@@ -27,7 +27,7 @@ namespace eRacunalniServis_Web
         {
             if(!IsPostBack)
                 BindVrste();
-            BindGrid();           
+            BindGrid();                  
         }
 
         private void BindVrste()
@@ -104,6 +104,12 @@ namespace eRacunalniServis_Web
                         HyperLink Kosarica = (HyperLink)this.Master.FindControl("hlOrder");
                         Kosarica.Text = string.Format("Moja košarica ({0})", narudzba.NarudzbaStavke.Count);
                     }                                   
+            }
+
+            if (e.CommandName == "cmdOcjeniProizvod") {
+               
+                //DropDownList dl= (DropDownList)e.Item.FindControl("slctOcjena");
+                string ocjena = Request.Form.Get("selectOcjena");
             }
         }
         
