@@ -11,7 +11,7 @@ namespace eRacunalniServis_Web
     public partial class _Default : Page
     {
         protected List<VrsteProizvoda> vrste;
-        protected List<esp_Proizvodi_SelectByVrstaNaziv_Result> proizvodi;
+        protected List<esp_Proizvodi_SelectByVrstaNaziv_Result> proizvodi;        
 
         public Narudzbe narudzba {
             get { return (Narudzbe)Session["narudzba"]; }
@@ -25,10 +25,12 @@ namespace eRacunalniServis_Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Title = "Dobrodošli";
             if(!IsPostBack)
                 BindVrste();
-            BindGrid();                  
+            BindGrid();           
         }
+       
 
         private void BindVrste()
         {
@@ -74,44 +76,66 @@ namespace eRacunalniServis_Web
 
         protected void dgProizvodi_ItemCommand(object source, DataGridCommandEventArgs e)
         {
-            if (e.CommandName == "DodajUKopruCmd" && kupac!=null) {
+            if (e.CommandName == "DodajUKopruCmd")
+            {
                 int proizvodId = Convert.ToInt32(dgProizvodi.DataKeys[e.Item.ItemIndex]);
                 TextBox kolicinaInput = (TextBox)e.Item.FindControl("txtbKolicina");
                 int kolicina =Convert.ToInt32(kolicinaInput.Text);
-                
-                if (narudzba == null) {
-                    narudzba = new Narudzbe();
-                    narudzba.Datum = DateTime.Now;
-                    narudzba.BrojNarudzbe = "1/2013";
-                    narudzba.KupacID = kupac.KupacID;
-                    narudzba.Status = false;
-                }
-                foreach (NarudzbaStavke s in narudzba.NarudzbaStavke) {
-                    if (s.ProizvodID == proizvodId)
-                    {
-                        s.Kolicina += kolicina;
-                        return;
-                    }
-                }
-                NarudzbaStavke stavka = new NarudzbaStavke();
-                stavka.ProizvodID = proizvodId;
-                stavka.Proizvodi = DAProizvodi.SelectById(proizvodId);
-                stavka.Kolicina = kolicina;
+                if (kolicina > 0)
+                {
 
-                narudzba.NarudzbaStavke.Add(stavka);             
-                if (narudzba.NarudzbaStavke.Count > 0)
+                    if (narudzba == null)
+                    {
+                        narudzba = new Narudzbe();
+                        narudzba.Datum = DateTime.Now;
+                        narudzba.BrojNarudzbe = "1/2013";
+                        narudzba.KupacID = kupac.KupacID;
+                        narudzba.Status = false;
+                    }
+                    foreach (NarudzbaStavke s in narudzba.NarudzbaStavke)
+                    {
+                        if (s.ProizvodID == proizvodId)
+                        {
+                            s.Kolicina += kolicina;
+                            return;
+                        }
+                    }
+                    NarudzbaStavke stavka = new NarudzbaStavke();
+                    stavka.ProizvodID = proizvodId;
+                    stavka.Proizvodi = DAProizvodi.SelectById(proizvodId);
+                    stavka.Kolicina = kolicina;
+
+                    narudzba.NarudzbaStavke.Add(stavka);
+                    if (narudzba.NarudzbaStavke.Count > 0)
                     {
                         HyperLink Kosarica = (HyperLink)this.Master.FindControl("hlOrder");
                         Kosarica.Text = string.Format("Moja košarica ({0})", narudzba.NarudzbaStavke.Count);
-                    }                                   
+                    }
+                }               
             }
 
-            if (e.CommandName == "cmdOcjeniProizvod") {
-               
-                //DropDownList dl= (DropDownList)e.Item.FindControl("slctOcjena");
-                string ocjena = Request.Form.Get("selectOcjena");
+            if (e.CommandName == "cmdOcjeniProizvod" && kupac!=null) {
+                int proizvodId = Convert.ToInt32(dgProizvodi.DataKeys[e.Item.ItemIndex]);
+
+                string ocjenaS = ((TextBox)e.Item.FindControl("txtbOcjena")).Text;
+                TextBox ocjenaInput = (TextBox)e.Item.FindControl("txtbOcjena");
+                int ocjena = Convert.ToInt32(ocjenaInput.Text);
+
+                if(ocjena>0 && ocjena<11)
+                    DAProizvodi.InsertOcjena(proizvodId, kupac.KupacID, ocjena);
             }
+            else if(kupac==null)
+                    Server.Transfer("Account/Login.aspx", true);
         }
+
+        protected void dgPopularniP_ItemCreated(object sender, DataGridItemEventArgs e)
+        {
+            if (e.Item.ItemIndex != -1) ///
+            {
+                Image img = (Image)e.Item.FindControl("imgSlikaPThumb");
+                img.ImageUrl = "~/ImageHandler.ashx?proizvodId=" + proizvodi[e.Item.ItemIndex].ProizvodID;
+            }
+        }               
         
     }
 }

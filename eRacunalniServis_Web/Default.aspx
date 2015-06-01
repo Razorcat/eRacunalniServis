@@ -26,10 +26,10 @@
         </tr>
         <tr>
             <td>
-                <asp:DropDownList ID="ddlVrstaList" runat="server" DataTextField="Naziv" DataValueField="VrstaID"></asp:DropDownList>
+                <asp:DropDownList ID="ddlVrstaList" runat="server" DataTextField="Naziv" DataValueField="VrstaID" BackColor="#CCCCCC"></asp:DropDownList>
             </td>
             <td>
-                <asp:TextBox ID="txtbNazivInput" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtbNazivInput" runat="server" BorderColor="#CCCCCC"></asp:TextBox>
             </td>
             <td>
                 <asp:Button ID="btnTraziSubmit" runat="server" Text="Traži" OnClick="btnTraziSubmit_Click" />
@@ -41,33 +41,22 @@
      <table>
          <tr>
              <td>
-    <asp:DataGrid ID="dgProizvodi" runat="server" AllowPaging="True" AllowCustomPaging="True" AutoGenerateColumns="False" PageSize="3" OnPageIndexChanged="dgProizvodi_PageIndexChanged" OnItemDataBound="dgProizvodi_ItemDataBound" DataKeyField="ProizvodID" OnItemCommand="dgProizvodi_ItemCommand">
+    <asp:DataGrid ID="dgProizvodi" runat="server" AllowPaging="True" AllowCustomPaging="True" AutoGenerateColumns="False" PageSize="3" OnPageIndexChanged="dgProizvodi_PageIndexChanged" OnItemDataBound="dgProizvodi_ItemDataBound" DataKeyField="ProizvodID" OnItemCommand="dgProizvodi_ItemCommand" BackColor="#FFFFCC" BorderColor="Black" BorderStyle="Groove" BorderWidth="2px" ForeColor="#FF5050">
         <PagerStyle Mode="NumericPages" />
         <Columns>
             <asp:TemplateColumn>
                 <ItemTemplate>
-                    <asp:Image ID="imgSlikaThumb" runat="server" BackColor="#FF9999" BorderColor="#9933FF" BorderStyle="Solid" />
+                    <asp:Image ID="imgSlikaThumb" runat="server" BackColor="#FF9999" BorderStyle="Solid" />
                 </ItemTemplate>
             </asp:TemplateColumn>
             <asp:BoundColumn DataField="Naziv" HeaderText="Naziv "> </asp:BoundColumn>
             <asp:BoundColumn DataField="Sifra" HeaderText="Šifra "> </asp:BoundColumn>
             <asp:BoundColumn DataField="Cijena" HeaderText="Cijena "> </asp:BoundColumn>
             <asp:TemplateColumn>
-                <ItemTemplate>                                         
-                        <select id="selectOcjena" name="selectOcjena" runat="server">
-                          <option value=1>1</option>
-                          <option value=2>2</option>
-                          <option value=3>3</option>
-                          <option value=4>4</option>
-                          <option value=5>5</option>
-                          <option value=6>6</option>
-                          <option value=7>7</option>
-                          <option value=8>8</option>
-                          <option value=9>9</option>
-                          <option value=10>10</option>
-                        </select> 
+                <ItemTemplate>                                                            
+                    <asp:TextBox ID="txtbOcjena" runat="server" Width="30px" Text="10"></asp:TextBox>
                     <asp:LinkButton ID="lbtnOcjeni" runat="server" CommandName="cmdOcjeniProizvod">Ocjeni</asp:LinkButton>
-                    <asp:TextBox ID="txtbKolicina" runat="server" Width="40px" Text="2" TextMode="Number" ></asp:TextBox>
+                    <asp:TextBox ID="txtbKolicina" runat="server" Width="25px" Text="1"></asp:TextBox>
                     <asp:LinkButton ID="lbtnDodajUKosaricu" runat="server" CommandName="DodajUKopruCmd">Dodaj u košarici</asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateColumn>
@@ -76,10 +65,10 @@
                 </td> 
              <td>
                  <h4>Najpopularniji proizvodi</h4>      
-    <asp:GridView ID="gwPopularniProizvodi" runat="server" CellPadding="4" DataSourceID="SqlDataSourceEprodaja" ForeColor="#333333" GridLines="None" Width="247px" AutoGenerateColumns="False" AllowPaging="True">
+    <asp:GridView ID="gwPopularniProizvodi" runat="server" CellPadding="4" DataSourceID="SqlDataSourceEprodaja" ForeColor="#333333" GridLines="None" Width="247px" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="Naziv" HeaderText="Naziv" SortExpression="Naziv" />
+            <asp:BoundField DataField="Naziv" HeaderText="Naziv" SortExpression="Naziv" ControlStyle-Width="100px"/>
             <asp:BoundField DataField="Cijena" HeaderText="Cijena" SortExpression="Cijena" />
             <asp:BoundField DataField="Ocjena" HeaderText="Ocjena" SortExpression="Ocjena" />
             <asp:ImageField DataImageUrlField="SlikaThumb" DataImageUrlFormatString="jpeg" HeaderText="Slika">
@@ -94,7 +83,7 @@
         <SortedAscendingHeaderStyle BackColor="#4D0000" />
         <SortedDescendingCellStyle BackColor="#FCF6C0" />
         <SortedDescendingHeaderStyle BackColor="#820000" />
-    </asp:GridView>
+    </asp:GridView>  
                  <asp:SqlDataSource ID="SqlDataSourceEprodaja" runat="server" ConnectionString="<%$ ConnectionStrings:eProdajaConnectionString %>" SelectCommand="esp_Proizvodi_GetPopularne" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
              </td>  
          </tr>

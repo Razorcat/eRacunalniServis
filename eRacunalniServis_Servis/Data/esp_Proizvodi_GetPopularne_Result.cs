@@ -17,5 +17,6 @@ namespace eRacunalniServis_Servis.Data
         public decimal Cijena { get; set; }
         public byte[] SlikaThumb { get; set; }
         public int Ocjena { get; set; }
+        public int ProizvodID { get; set; }
     }
 }

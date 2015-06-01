@@ -40,7 +40,9 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a runat="server" href="~/">your logo here</a>
+                    <a runat="server" href="~/">PC Prodaja i servis
+                        <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/computer-repair.png" Height="200px" ImageAlign="Left" />
+                    </a>
                 </p>
             </div>
             <div class="float-right">

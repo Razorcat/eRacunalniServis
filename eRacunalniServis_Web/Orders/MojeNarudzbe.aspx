@@ -7,7 +7,7 @@
     <table>
         <tr>
             <td>
-                <asp:DataGrid ID="dgNarudzbe" runat="server" AllowPaging="True" AllowCustomPaging="True" AutoGenerateColumns="False" PageSize="5" OnPageIndexChanged="dgNarudzbe_PageIndexChanged" DataKeyField="NarudzbaID" OnItemCommand="dgNarudzbe_ItemCommand">
+                <asp:DataGrid ID="dgNarudzbe" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanged="dgNarudzbe_PageIndexChanged" DataKeyField="NarudzbaID" OnItemCommand="dgNarudzbe_ItemCommand">
         <PagerStyle Mode="NumericPages" />
         <Columns>            
             <asp:BoundColumn DataField="BrojNarudzbe" HeaderText="Broj narudžbe "> </asp:BoundColumn>

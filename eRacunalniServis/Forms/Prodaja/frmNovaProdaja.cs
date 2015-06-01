@@ -53,7 +53,7 @@ namespace eRacunalniServis.Forms.Prodaja
 
         private void btnDodajP_Click(object sender, EventArgs e)
         {
-            if (dgPrKlik == true)
+            if (dgPrKlik == true && mtxtbCijena.MaskFull)
             {
                 eRacunalniServis_Servis.Data.Proizvodi proizvod = new eRacunalniServis_Servis.Data.Proizvodi();
                 IzlazStavke iStavka = new IzlazStavke();

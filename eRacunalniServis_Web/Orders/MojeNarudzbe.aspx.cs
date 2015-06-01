@@ -15,10 +15,8 @@ namespace eRacunalniServis_Web.Orders
             get { return (Kupci)Session["kupac"]; }
             set { Session["kupac"] = value; }
         }
-        protected List<esp_Narudzbe_SelectAktivneByKupacID_Result> mojeNarudzbe;
+        protected List<esp_Narudzbe_SelectAktivneByKupacID_Result> mojeNarudzbe;    
         
-
-
         protected void Page_Load(object sender, EventArgs e)
         {           
             BindGrid();

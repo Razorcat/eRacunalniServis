@@ -1829,6 +1829,7 @@
           <Property Type="Decimal" Name="Cijena" Nullable="false" Precision="5" Scale="2" />
           <Property Type="Binary" Name="SlikaThumb" Nullable="true" />
           <Property Type="Int32" Name="Ocjena" Nullable="false" />
+          <Property Type="Int32" Name="ProizvodID" Nullable="false" />
         </ComplexType>
         <ComplexType Name="esp_Izlaz_SelectByDatum_Result">
           <Property Type="String" Name="Sifra" Nullable="false" MaxLength="20" />
@@ -2223,6 +2224,7 @@
                 <ScalarProperty Name="Cijena" ColumnName="Cijena" />
                 <ScalarProperty Name="SlikaThumb" ColumnName="SlikaThumb" />
                 <ScalarProperty Name="Ocjena" ColumnName="Ocjena" />
+                <ScalarProperty Name="ProizvodID" ColumnName="ProizvodID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

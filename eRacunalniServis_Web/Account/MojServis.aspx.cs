@@ -19,8 +19,10 @@ namespace eRacunalniServis_Web.Account
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Title = "Moj servis";
+            kupac = (Kupci)Session["kupac"];
              if(!IsPostBack)
-                BindServis();            
+                BindServis();             
         }
 
         private void BindServis()

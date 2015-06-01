@@ -28,19 +28,17 @@ namespace eRacunalniServis_Web.Account
 
         protected void loginBox_Authenticate(object sender, AuthenticateEventArgs e)
         {
-            Kupci k = DAKupci.SelectByKorisnickoIme(loginBox.UserName,loginBox.Password);
+            kupac = DAKupci.SelectByKorisnickoIme(loginBox.UserName,loginBox.Password);
             try
             {
-                if (k == null)
+                if (kupac == null)
                 {
                     loginBox.FailureText = "Neispravni podaci ili račun neaktivan!";
                     e.Authenticated = false;
                 }
                 else
                 {
-                    e.Authenticated = true;
-                    kupac = k;
-                    Session.Add("kupac", kupac);
+                    e.Authenticated = true;                                       
                 }
             }
             catch (Exception ex)
