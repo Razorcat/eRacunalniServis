@@ -6,6 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using eRacunalniServis_Servis.Data;
 
+//TODO - Provjeri query za ocjene (srednja vrijednost)
+//TODO - Napravi da se ne moze dva puta ocijeniti proizvod (query proizvodID + kupacID ako nema nista ocjeni, ako ima nesto ne)
+//TODO - ocjeni servis
+
 namespace eRacunalniServis_Web
 {
     public partial class _Default : Page
@@ -26,9 +30,11 @@ namespace eRacunalniServis_Web
         protected void Page_Load(object sender, EventArgs e)
         {
             this.Title = "Dobrodošli";
-            if(!IsPostBack)
+            if (!IsPostBack)
+            {
                 BindVrste();
-            BindGrid();           
+                BindGrid();
+            }
         }
        
 
@@ -89,7 +95,7 @@ namespace eRacunalniServis_Web
                         narudzba = new Narudzbe();
                         narudzba.Datum = DateTime.Now;
                         narudzba.BrojNarudzbe = "1/2013";
-                        narudzba.KupacID = kupac.KupacID;
+                        //narudzba.KupacID = kupac.KupacID;
                         narudzba.Status = false;
                     }
                     foreach (NarudzbaStavke s in narudzba.NarudzbaStavke)
@@ -117,15 +123,12 @@ namespace eRacunalniServis_Web
             if (e.CommandName == "cmdOcjeniProizvod" && kupac!=null) {
                 int proizvodId = Convert.ToInt32(dgProizvodi.DataKeys[e.Item.ItemIndex]);
 
-                string ocjenaS = ((TextBox)e.Item.FindControl("txtbOcjena")).Text;
-                TextBox ocjenaInput = (TextBox)e.Item.FindControl("txtbOcjena");
-                int ocjena = Convert.ToInt32(ocjenaInput.Text);
+                DropDownList ocjenaInput = (DropDownList)e.Item.FindControl("ddlOcjena");
+                int ocjena = Convert.ToInt32(ocjenaInput.SelectedValue);
 
                 if(ocjena>0 && ocjena<11)
                     DAProizvodi.InsertOcjena(proizvodId, kupac.KupacID, ocjena);
-            }
-            else if(kupac==null)
-                    Server.Transfer("Account/Login.aspx", true);
+            }            
         }
 
         protected void dgPopularniP_ItemCreated(object sender, DataGridItemEventArgs e)

@@ -53,9 +53,24 @@
             <asp:BoundColumn DataField="Sifra" HeaderText="Šifra "> </asp:BoundColumn>
             <asp:BoundColumn DataField="Cijena" HeaderText="Cijena "> </asp:BoundColumn>
             <asp:TemplateColumn>
-                <ItemTemplate>                                                            
-                    <asp:TextBox ID="txtbOcjena" runat="server" Width="30px" Text="10"></asp:TextBox>
-                    <asp:LinkButton ID="lbtnOcjeni" runat="server" CommandName="cmdOcjeniProizvod">Ocjeni</asp:LinkButton>
+                            <ItemTemplate>
+                                <asp:DropDownList ID="ddlOcjena" runat="server">
+                                    <asp:ListItem>1</asp:ListItem>
+                                    <asp:ListItem>2</asp:ListItem>
+                                    <asp:ListItem>3</asp:ListItem>
+                                    <asp:ListItem>4</asp:ListItem>
+                                    <asp:ListItem>5</asp:ListItem>
+                                    <asp:ListItem>6</asp:ListItem>
+                                    <asp:ListItem>7</asp:ListItem>
+                                    <asp:ListItem>8</asp:ListItem>
+                                    <asp:ListItem>9</asp:ListItem>
+                                    <asp:ListItem>10</asp:ListItem>
+                                </asp:DropDownList>                               
+                                <asp:LinkButton ID="lbtnOcjeni" runat="server" CommandName="cmdOcjeniProizvod">Ocjeni</asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateColumn>
+            <asp:TemplateColumn>
+                <ItemTemplate>              
                     <asp:TextBox ID="txtbKolicina" runat="server" Width="25px" Text="1"></asp:TextBox>
                     <asp:LinkButton ID="lbtnDodajUKosaricu" runat="server" CommandName="DodajUKopruCmd">Dodaj u košarici</asp:LinkButton>
                 </ItemTemplate>

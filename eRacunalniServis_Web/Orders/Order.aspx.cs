@@ -16,6 +16,12 @@ namespace eRacunalniServis_Web.Orders
             get { return (Narudzbe)Session["narudzba"]; }
             set { Session["narudzba"] = value; }
         }
+        public Kupci kupac
+        {
+            get { return (Kupci)Session["kupac"]; }
+            set { Session["kupac"] = value; }
+        }
+
         decimal cijena = 0;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -40,6 +46,7 @@ namespace eRacunalniServis_Web.Orders
 
         protected void btnZakljuciSubmit_Click(object sender, EventArgs e)
         {
+            narudzba.KupacID = kupac.KupacID;
             try
             {
                 DANarudzbe.InsertNarudzbu(narudzba, narudzba.NarudzbaStavke.ToList());
