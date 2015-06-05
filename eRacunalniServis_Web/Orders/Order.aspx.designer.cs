@@ -47,5 +47,14 @@ namespace eRacunalniServis_Web.Orders {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnZakljuciSubmit;
+        
+        /// <summary>
+        /// btnOtkazi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOtkazi;
     }
 }

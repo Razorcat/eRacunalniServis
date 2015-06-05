@@ -19,6 +19,7 @@ namespace eRacunalniServis_Servis.Data
             this.Narudzbe = new HashSet<Narudzbe>();
             this.Ocjene = new HashSet<Ocjene>();
             this.Servisi = new HashSet<Servisi>();
+            this.ServisOcjene = new HashSet<ServisOcjene>();
         }
     
         public int KupacID { get; set; }
@@ -34,5 +35,6 @@ namespace eRacunalniServis_Servis.Data
         public virtual ICollection<Narudzbe> Narudzbe { get; set; }
         public virtual ICollection<Ocjene> Ocjene { get; set; }
         public virtual ICollection<Servisi> Servisi { get; set; }
+        public virtual ICollection<ServisOcjene> ServisOcjene { get; set; }
     }
 }

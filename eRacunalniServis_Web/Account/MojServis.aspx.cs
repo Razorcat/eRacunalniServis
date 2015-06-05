@@ -44,5 +44,14 @@ namespace eRacunalniServis_Web.Account
                 dgDetaljiServis.DataBind();
             }
         }
+
+        protected void btnOcjeni_Click(object sender, EventArgs e)
+        {
+            int ocjena = Convert.ToInt32(ddlOcjena.SelectedValue);
+            if (kupac != null) {
+                DAServisi.ServisOcjenaInsert(kupac.KupacID, ocjena);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Hvala na ocjeni!');</script>");
+            }
+        }
     }
 }

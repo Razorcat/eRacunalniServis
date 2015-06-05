@@ -6,9 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using eRacunalniServis_Servis.Data;
 
-//TODO - Provjeri query za ocjene (srednja vrijednost)
-//TODO - Napravi da se ne moze dva puta ocijeniti proizvod (query proizvodID + kupacID ako nema nista ocjeni, ako ima nesto ne)
-//TODO - ocjeni servis
+//TODO - testiraj
 
 namespace eRacunalniServis_Web
 {
@@ -94,7 +92,7 @@ namespace eRacunalniServis_Web
                     {
                         narudzba = new Narudzbe();
                         narudzba.Datum = DateTime.Now;
-                        narudzba.BrojNarudzbe = "1/2013";
+                        narudzba.BrojNarudzbe = Guid.NewGuid().ToString();
                         //narudzba.KupacID = kupac.KupacID;
                         narudzba.Status = false;
                     }
@@ -120,15 +118,22 @@ namespace eRacunalniServis_Web
                 }               
             }
 
-            if (e.CommandName == "cmdOcjeniProizvod" && kupac!=null) {
-                int proizvodId = Convert.ToInt32(dgProizvodi.DataKeys[e.Item.ItemIndex]);
+            if ( e.CommandName == "cmdOcjeniProizvod" && kupac == null)
+            {
+               Page.ClientScript.RegisterStartupScript(this.GetType(),"Scripts","<script>alert('Samo prijavljeni korisnici mogu ocjenjivati.');</script>");
+            }
+            else
+                if (e.CommandName == "cmdOcjeniProizvod" && kupac!=null) {
+                    int proizvodId = Convert.ToInt32(dgProizvodi.DataKeys[e.Item.ItemIndex]);
 
-                DropDownList ocjenaInput = (DropDownList)e.Item.FindControl("ddlOcjena");
-                int ocjena = Convert.ToInt32(ocjenaInput.SelectedValue);
-
-                if(ocjena>0 && ocjena<11)
-                    DAProizvodi.InsertOcjena(proizvodId, kupac.KupacID, ocjena);
-            }            
+                    DropDownList ocjenaInput = (DropDownList)e.Item.FindControl("ddlOcjena");
+                    int ocjena = Convert.ToInt32(ocjenaInput.SelectedValue);
+               
+                    int ocjenaProizvoda = DAOcjene.GetOcjenuByKupacID(kupac.KupacID, proizvodId);
+                    if(ocjena>0 && ocjena<11 && ocjenaProizvoda<=0)
+                        DAProizvodi.InsertOcjena(proizvodId, kupac.KupacID, ocjena);
+                    else Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Taj ste proizvod već ocjenili!');</script>");
+                }            
         }
 
         protected void dgPopularniP_ItemCreated(object sender, DataGridItemEventArgs e)

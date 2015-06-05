@@ -58,6 +58,7 @@
     <Compile Include="Data\DAKorisnici.cs" />
     <Compile Include="Data\DAKupci.cs" />
     <Compile Include="Data\DANarudzbe.cs" />
+    <Compile Include="Data\DAOcjene.cs" />
     <Compile Include="Data\DAProizvodi.cs" />
     <Compile Include="Data\DAServisi.cs" />
     <Compile Include="Data\DAServisStanje.cs" />
@@ -197,6 +198,9 @@
     </Compile>
     <Compile Include="Data\ProizvodiExtension.cs" />
     <Compile Include="Data\Servisi.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ServisOcjene.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\ServisStanje.cs">

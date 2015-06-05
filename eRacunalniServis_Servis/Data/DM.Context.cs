@@ -46,6 +46,7 @@ namespace eRacunalniServis_Servis.Data
         public virtual DbSet<UlazStavke> UlazStavke { get; set; }
         public virtual DbSet<Uloge> Uloge { get; set; }
         public virtual DbSet<VrsteProizvoda> VrsteProizvoda { get; set; }
+        public virtual DbSet<ServisOcjene> ServisOcjene { get; set; }
     
         public virtual ObjectResult<Nullable<decimal>> esp_Korisnici_Insert(string ime, string prezime, string email, string telefon, string korisnickoIme, string lozinkaSalt, string lozinkaHash)
         {
@@ -978,6 +979,32 @@ namespace eRacunalniServis_Servis.Data
                 new ObjectParameter("Ocjena", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Proizvodi_InsertOcjena", proizvodIDParameter, kupacIDParameter, ocjenaParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> esp_Ocjene_GetOcjenuByKupacId(Nullable<int> kupacID, Nullable<int> proizvodID)
+        {
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            var proizvodIDParameter = proizvodID.HasValue ?
+                new ObjectParameter("ProizvodID", proizvodID) :
+                new ObjectParameter("ProizvodID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("esp_Ocjene_GetOcjenuByKupacId", kupacIDParameter, proizvodIDParameter);
+        }
+    
+        public virtual int esp_ServisOcjene_Insert(Nullable<int> kupacID, Nullable<int> ocjena)
+        {
+            var kupacIDParameter = kupacID.HasValue ?
+                new ObjectParameter("KupacID", kupacID) :
+                new ObjectParameter("KupacID", typeof(int));
+    
+            var ocjenaParameter = ocjena.HasValue ?
+                new ObjectParameter("Ocjena", ocjena) :
+                new ObjectParameter("Ocjena", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_ServisOcjene_Insert", kupacIDParameter, ocjenaParameter);
         }
     }
 }

@@ -27,6 +27,10 @@ namespace eRacunalniServis_Servis.Data
          public static List<Servisi> GetTopFive(int KupacId) {
              return Connection.dm.esp_Servisi_GetTopFiveByKupacId(KupacId).ToList();
          }
-        
+
+
+        public static void ServisOcjenaInsert(int KupacId,int Ocjena){
+            Connection.dm.esp_ServisOcjene_Insert(KupacId, Ocjena);
+        }        
     }
 }

@@ -45,6 +45,8 @@
         <AssociationConnector Association="eProdajaModel.FK_ServisStanje_Servisi" ManuallyRouted="false" />
         <AssociationConnector Association="eProdajaModel.FK_Ulazi_Skladista" ManuallyRouted="false" />
         <AssociationConnector Association="eProdajaModel.FK_UlazStavke_Ulazi" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="eProdajaModel.ServisOcjene" Width="1.5" PointX="8.25" PointY="13" />
+        <AssociationConnector Association="eProdajaModel.FK_ServisOcjene_Kupci" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

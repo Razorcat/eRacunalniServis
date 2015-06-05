@@ -46,13 +46,41 @@ namespace eRacunalniServis_Web.Orders
 
         protected void btnZakljuciSubmit_Click(object sender, EventArgs e)
         {
-            narudzba.KupacID = kupac.KupacID;
-            try
+            if (narudzba != null)
             {
-                DANarudzbe.InsertNarudzbu(narudzba, narudzba.NarudzbaStavke.ToList());
+                narudzba.KupacID = kupac.KupacID;
+                if (narudzba.NarudzbaStavke.Count() > 0)
+                    try
+                    {
+                        DANarudzbe.InsertNarudzbu(narudzba, narudzba.NarudzbaStavke.ToList());
+                        narudzba = null;
+                        Server.Transfer("/Default.aspx", true);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
             }
-            catch(Exception ex){
+        }
+
+        protected void gvNarudzba_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "cmdPonisti")
+            {
+                GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
+
+                int selIndex = row.RowIndex;
+                List<NarudzbaStavke> ns=new List<eRacunalniServis_Servis.Data.NarudzbaStavke>();
+                ns=narudzba.NarudzbaStavke.ToList();
+
+                narudzba.NarudzbaStavke.Remove(ns[selIndex]);
+                BindGrid();
             }
+        }
+
+        protected void btnOtkazi_Click(object sender, EventArgs e)
+        {
+            narudzba = null;
+            Server.Transfer("/Default.aspx", true);
         }   
     }
 }

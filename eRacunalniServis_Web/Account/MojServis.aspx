@@ -29,7 +29,25 @@
                         <asp:BoundColumn DataField="Datum" HeaderText="Datum "> </asp:BoundColumn>
                      </Columns>
                 </asp:DataGrid>
-            </td>                        
+            </td>  
+            <td>
+                <asp:Label ID="Label1" runat="server" Text="Ocjenite naš servis"></asp:Label>
+                <br />
+                <asp:DropDownList ID="ddlOcjena" runat="server" Height="16px" Width="65px">
+                                    <asp:ListItem>1</asp:ListItem>
+                                    <asp:ListItem>2</asp:ListItem>
+                                    <asp:ListItem>3</asp:ListItem>
+                                    <asp:ListItem>4</asp:ListItem>
+                                    <asp:ListItem>5</asp:ListItem>
+                                    <asp:ListItem>6</asp:ListItem>
+                                    <asp:ListItem>7</asp:ListItem>
+                                    <asp:ListItem>8</asp:ListItem>
+                                    <asp:ListItem>9</asp:ListItem>
+                                    <asp:ListItem>10</asp:ListItem>
+                                </asp:DropDownList>
+                <br />
+                <asp:Button ID="btnOcjeni" runat="server" Text="Ocjeni" OnClick="btnOcjeni_Click" />
+            </td>                      
         </tr>
     </table>
 </asp:Content>

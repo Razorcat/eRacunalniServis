@@ -145,6 +145,15 @@
           <Property Name="Naziv" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="QRcode" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="ServisOcjene">
+          <Key>
+            <PropertyRef Name="ServisOcjena" />
+          </Key>
+          <Property Name="ServisOcjena" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KupacID" Type="int" Nullable="false" />
+          <Property Name="Ocjena" Type="int" Nullable="false" />
+          <Property Name="Datum" Type="datetime" />
+        </EntityType>
         <EntityType Name="ServisStanje">
           <Key>
             <PropertyRef Name="ServisStanjeID" />
@@ -392,6 +401,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ServisOcjene_Kupci">
+          <End Role="Kupci" Type="Self.Kupci" Multiplicity="1" />
+          <End Role="ServisOcjene" Type="Self.ServisOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kupci">
+              <PropertyRef Name="KupacID" />
+            </Principal>
+            <Dependent Role="ServisOcjene">
+              <PropertyRef Name="KupacID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ServisStanje_Servisi">
           <End Role="Servisi" Type="Self.Servisi" Multiplicity="1" />
           <End Role="ServisStanje" Type="Self.ServisStanje" Multiplicity="*" />
@@ -611,6 +632,10 @@
           <Parameter Name="ProizvodID" Type="int" Mode="In" />
           <Parameter Name="Kolicina" Type="int" Mode="In" />
         </Function>
+        <Function Name="esp_Ocjene_GetOcjenuByKupacId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KupacID" Type="int" Mode="In" />
+          <Parameter Name="ProizvodID" Type="int" Mode="In" />
+        </Function>
         <Function Name="esp_Proizvodi_GetPopularne" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="esp_Proizvodi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
@@ -667,6 +692,10 @@
         <Function Name="esp_ServisiStanje_GetTopFiveByServisId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ServisID" Type="int" Mode="In" />
         </Function>
+        <Function Name="esp_ServisOcjene_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="KupacID" Type="int" Mode="In" />
+          <Parameter Name="Ocjena" Type="int" Mode="In" />
+        </Function>
         <Function Name="esp_ServisStanje_GetAllById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ServisID" Type="int" Mode="In" />
         </Function>
@@ -708,6 +737,7 @@
           <EntitySet Name="Ocjene" EntityType="Self.Ocjene" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Proizvodi" EntityType="Self.Proizvodi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Servisi" EntityType="Self.Servisi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServisOcjene" EntityType="Self.ServisOcjene" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServisStanje" EntityType="Self.ServisStanje" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Skladista" EntityType="Self.Skladista" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -774,6 +804,10 @@
           <AssociationSet Name="FK_Servisi_Kupci" Association="Self.FK_Servisi_Kupci">
             <End Role="Kupci" EntitySet="Kupci" />
             <End Role="Servisi" EntitySet="Servisi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServisOcjene_Kupci" Association="Self.FK_ServisOcjene_Kupci">
+            <End Role="Kupci" EntitySet="Kupci" />
+            <End Role="ServisOcjene" EntitySet="ServisOcjene" />
           </AssociationSet>
           <AssociationSet Name="FK_ServisStanje_Servisi" Association="Self.FK_ServisStanje_Servisi">
             <End Role="Servisi" EntitySet="Servisi" />
@@ -904,6 +938,7 @@
           <NavigationProperty Name="Narudzbe" Relationship="Self.FK_Narudzbe_Kupci" FromRole="Kupci" ToRole="Narudzbe" />
           <NavigationProperty Name="Ocjene" Relationship="Self.FK_Ocjene_Kupci" FromRole="Kupci" ToRole="Ocjene" />
           <NavigationProperty Name="Servisi" Relationship="Self.FK_Servisi_Kupci" FromRole="Kupci" ToRole="Servisi" />
+          <NavigationProperty Name="ServisOcjene" Relationship="eProdajaModel.FK_ServisOcjene_Kupci" FromRole="Kupci" ToRole="ServisOcjene" />
         </EntityType>
         <EntityType Name="NarudzbaStavke">
           <Key>
@@ -1640,6 +1675,19 @@
             <Parameter Name="KupacID" Mode="In" Type="Int32" />
             <Parameter Name="Ocjena" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="esp_Ocjene_GetOcjenuByKupacId" ReturnType="Collection(Int32)">
+            <Parameter Name="KupacID" Mode="In" Type="Int32" />
+            <Parameter Name="ProizvodID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="ServisOcjene" EntityType="eProdajaModel.ServisOcjene" />
+          <AssociationSet Name="FK_ServisOcjene_Kupci" Association="eProdajaModel.FK_ServisOcjene_Kupci">
+            <End Role="Kupci" EntitySet="Kupci" />
+            <End Role="ServisOcjene" EntitySet="ServisOcjene" />
+          </AssociationSet>
+          <FunctionImport Name="esp_ServisOcjene_Insert">
+            <Parameter Name="KupacID" Mode="In" Type="Int32" />
+            <Parameter Name="Ocjena" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="esp_Korisnici_SelectByKorisnickoIme_Result">
           <Property Type="Int32" Name="KorisnikID" Nullable="false" />
@@ -1876,6 +1924,28 @@
           <Property Type="String" Name="Opis" Nullable="false" MaxLength="255" />
           <Property Type="DateTime" Name="Datum" Nullable="false" />
         </ComplexType>
+        <EntityType Name="ServisOcjene">
+          <Key>
+            <PropertyRef Name="ServisOcjena" />
+          </Key>
+          <Property Name="ServisOcjena" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KupacID" Type="Int32" Nullable="false" />
+          <Property Name="Ocjena" Type="Int32" Nullable="false" />
+          <Property Name="Datum" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Kupci" Relationship="eProdajaModel.FK_ServisOcjene_Kupci" FromRole="ServisOcjene" ToRole="Kupci" />
+        </EntityType>
+        <Association Name="FK_ServisOcjene_Kupci">
+          <End Type="eProdajaModel.Kupci" Role="Kupci" Multiplicity="1" />
+          <End Type="eProdajaModel.ServisOcjene" Role="ServisOcjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kupci">
+              <PropertyRef Name="KupacID" />
+            </Principal>
+            <Dependent Role="ServisOcjene">
+              <PropertyRef Name="KupacID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2287,6 +2357,18 @@
           <FunctionImportMapping FunctionImportName="esp_ServisiStanje_GetTopFiveByServisId" FunctionName="eProdajaModel.Store.esp_ServisiStanje_GetTopFiveByServisId">
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="esp_Proizvodi_InsertOcjena" FunctionName="eProdajaModel.Store.esp_Proizvodi_InsertOcjena" />
+          <FunctionImportMapping FunctionImportName="esp_Ocjene_GetOcjenuByKupacId" FunctionName="eProdajaModel.Store.esp_Ocjene_GetOcjenuByKupacId" />
+          <EntitySetMapping Name="ServisOcjene">
+            <EntityTypeMapping TypeName="eProdajaModel.ServisOcjene">
+              <MappingFragment StoreEntitySet="ServisOcjene">
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Ocjena" ColumnName="Ocjena" />
+                <ScalarProperty Name="KupacID" ColumnName="KupacID" />
+                <ScalarProperty Name="ServisOcjena" ColumnName="ServisOcjena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="esp_ServisOcjene_Insert" FunctionName="eProdajaModel.Store.esp_ServisOcjene_Insert" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
