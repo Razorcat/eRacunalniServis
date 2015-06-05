@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using eRacunalniServis_Servis.Data;
+using eRacunalniServis_Servis.Util;
 
 //TODO - testiraj
 
@@ -13,7 +14,10 @@ namespace eRacunalniServis_Web
     public partial class _Default : Page
     {
         protected List<VrsteProizvoda> vrste;
-        protected List<esp_Proizvodi_SelectByVrstaNaziv_Result> proizvodi;        
+        protected List<esp_Proizvodi_SelectByVrstaNaziv_Result> proizvodi;
+
+        public List<Proizvodi> pList;
+        public Preporuka preporuka;
 
         public Narudzbe narudzba {
             get { return (Narudzbe)Session["narudzba"]; }
@@ -115,6 +119,7 @@ namespace eRacunalniServis_Web
                         HyperLink Kosarica = (HyperLink)this.Master.FindControl("hlOrder");
                         Kosarica.Text = string.Format("Moja košarica ({0})", narudzba.NarudzbaStavke.Count);
                     }
+                    BindPreporuka(proizvodId);
                 }               
             }
 
@@ -143,7 +148,69 @@ namespace eRacunalniServis_Web
                 Image img = (Image)e.Item.FindControl("imgSlikaPThumb");
                 img.ImageUrl = "~/ImageHandler.ashx?proizvodId=" + proizvodi[e.Item.ItemIndex].ProizvodID;
             }
-        }               
+        }       
+
+        private void BindPreporuka(int ProizvodID)
+        {
+            preporuka = new Preporuka();
+            pList = preporuka.GetSlicneProizvode(ProizvodID);
+            if (pList.Count > 0)
+            {
+                gdPreporuka.DataSource = pList;
+                gdPreporuka.DataBind();
+            }
+        }
+
+        protected void dgProizvodi_ItemDataBoundPreporuka(object sender, DataGridItemEventArgs e)
+        {
+            if (e.Item.ItemIndex != -1) ///
+            {
+                Image img = (Image)e.Item.FindControl("imgSlikaThumb");
+                img.ImageUrl = "~/ImageHandler.ashx?proizvodId=" + pList[e.Item.ItemIndex].ProizvodID;
+            }
+        }
+
+        protected void dgProizvodi_ItemCommandPreporuka(object source, DataGridCommandEventArgs e)
+        {
+            if (e.CommandName == "DodajUKopruCmd")
+            {
+                int proizvodId = Convert.ToInt32(gdPreporuka.DataKeys[e.Item.ItemIndex]);
+                TextBox kolicinaInput = (TextBox)e.Item.FindControl("txtbKolicina");
+                int kolicina = Convert.ToInt32(kolicinaInput.Text);
+                if (kolicina > 0)
+                {
+
+                    if (narudzba == null)
+                    {
+                        narudzba = new Narudzbe();
+                        narudzba.Datum = DateTime.Now;
+                        narudzba.BrojNarudzbe = Guid.NewGuid().ToString();
+                        //narudzba.KupacID = kupac.KupacID;
+                        narudzba.Status = false;
+                    }
+                    foreach (NarudzbaStavke s in narudzba.NarudzbaStavke)
+                    {
+                        if (s.ProizvodID == proizvodId)
+                        {
+                            s.Kolicina += kolicina;
+                            return;
+                        }
+                    }
+                    NarudzbaStavke stavka = new NarudzbaStavke();
+                    stavka.ProizvodID = proizvodId;
+                    stavka.Proizvodi = DAProizvodi.SelectById(proizvodId);
+                    stavka.Kolicina = kolicina;
+
+                    narudzba.NarudzbaStavke.Add(stavka);
+                    if (narudzba.NarudzbaStavke.Count > 0)
+                    {
+                        HyperLink Kosarica = (HyperLink)this.Master.FindControl("hlOrder");
+                        Kosarica.Text = string.Format("Moja košarica ({0})", narudzba.NarudzbaStavke.Count);
+                    }
+                    BindPreporuka(proizvodId);
+                }
+            }
+        }
         
     }
 }

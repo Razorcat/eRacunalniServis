@@ -41,6 +41,7 @@
      <table>
          <tr>
              <td>
+                 <h4>Proizvodi</h4>  
     <asp:DataGrid ID="dgProizvodi" runat="server" AllowPaging="True" AllowCustomPaging="True" AutoGenerateColumns="False" PageSize="3" OnPageIndexChanged="dgProizvodi_PageIndexChanged" OnItemDataBound="dgProizvodi_ItemDataBound" DataKeyField="ProizvodID" OnItemCommand="dgProizvodi_ItemCommand" BackColor="#FFFFCC" BorderColor="Black" BorderStyle="Groove" BorderWidth="2px" ForeColor="#FF5050">
         <PagerStyle Mode="NumericPages" />
         <Columns>
@@ -83,11 +84,23 @@
     <asp:GridView ID="gwPopularniProizvodi" runat="server" CellPadding="4" DataSourceID="SqlDataSourceEprodaja" ForeColor="#333333" GridLines="None" Width="247px" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="Naziv" HeaderText="Naziv" SortExpression="Naziv" ControlStyle-Width="100px"/>
+            <asp:BoundField DataField="ProizvodID" Visible="False" />
+            <asp:BoundField DataField="Naziv" HeaderText="Naziv" SortExpression="Naziv" ControlStyle-Width="100px">
+<ControlStyle Width="100px"></ControlStyle>
+            </asp:BoundField>
             <asp:BoundField DataField="Cijena" HeaderText="Cijena" SortExpression="Cijena" />
-            <asp:BoundField DataField="Ocjena" HeaderText="Ocjena" SortExpression="Ocjena" />
-            <asp:ImageField DataImageUrlField="SlikaThumb" DataImageUrlFormatString="jpeg" HeaderText="Slika">
+            <asp:BoundField DataField="Ocjena" HeaderText="Ocjena" SortExpression="Ocjena" />            
+            <asp:ImageField DataImageUrlField="SlikaThumb" DataImageUrlFormatString = "ImageHandler.aspx?PorizvodID={0}" HeaderText="Slika">
             </asp:ImageField>
+
+            <asp:TemplateField Visible="False">
+              <ItemTemplate>
+              <asp:image ID="image" runat="server" ImageUrl='<%# string.Format("/ImageHandler.ashx?id={0}", Eval("ProizvodID")) %>'  />
+              </ItemTemplate>
+            </asp:TemplateField>
+
+            <asp:BoundField DataField="ProizvodID" HeaderText="ID" Visible="False" />
+
         </Columns>
         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -101,6 +114,30 @@
     </asp:GridView>  
                  <asp:SqlDataSource ID="SqlDataSourceEprodaja" runat="server" ConnectionString="<%$ ConnectionStrings:eProdajaConnectionString %>" SelectCommand="esp_Proizvodi_GetPopularne" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
              </td>  
+         </tr>
+
+         <tr>
+             <td>
+                 <h4>Preporuka</h4>
+                 <asp:DataGrid ID="gdPreporuka" runat="server"  AutoGenerateColumns="False" PageSize="5"  OnItemDataBound="dgProizvodi_ItemDataBoundPreporuka" DataKeyField="ProizvodID" OnItemCommand="dgProizvodi_ItemCommandPreporuka" BackColor="#FFFFCC" BorderColor="Black" BorderStyle="Groove" BorderWidth="2px" ForeColor="#FF5050">                        
+                        <Columns>
+                            <asp:TemplateColumn>
+                                <ItemTemplate>
+                                    <asp:Image ID="imgSlikaThumb" runat="server" BackColor="#FF9999" BorderStyle="Solid" />
+                                 </ItemTemplate>
+                             </asp:TemplateColumn>
+                                    <asp:BoundColumn DataField="Naziv" HeaderText="Naziv "> </asp:BoundColumn>
+                                    <asp:BoundColumn DataField="Sifra" HeaderText="Šifra "> </asp:BoundColumn>
+                                    <asp:BoundColumn DataField="Cijena" HeaderText="Cijena "> </asp:BoundColumn>
+                            <asp:TemplateColumn>
+                                <ItemTemplate>              
+                                    <asp:TextBox ID="txtbKolicina" runat="server" Width="25px" Text="1"></asp:TextBox>
+                                    <asp:LinkButton ID="lbtnDodajUKosaricu" runat="server" CommandName="DodajUKopruCmd">Dodaj u košarici</asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateColumn>
+                            </Columns>
+                     </asp:DataGrid>
+             </td>
          </tr>
     </table> 
         
