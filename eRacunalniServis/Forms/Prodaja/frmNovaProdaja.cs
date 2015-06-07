@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using eRacunalniServis_Servis.Data;
+using eRacunalniServis.Forms.Izvjestaji;
 
 namespace eRacunalniServis.Forms.Prodaja
 {
@@ -146,7 +147,7 @@ namespace eRacunalniServis.Forms.Prodaja
                 //insert zlaz stavka
                 izlaz.KorisnikID = eRacunalniServis_Servis.Global.prijavljeniKorisnik.KorisnikID;
 
-                DAProizvodi.InsertProdaju(izlaz, izlazStavke);
+                int IzlazId = DAProizvodi.InsertProdaju(izlaz, izlazStavke);
                 foreach (IzlazStavke IzS in izlazStavke)
                 {
                     //IzS.Kolicina;
@@ -156,7 +157,15 @@ namespace eRacunalniServis.Forms.Prodaja
 
                 MessageBox.Show("Uspješno ste zaključili prodaju", "Prodaja info", MessageBoxButtons.OK, MessageBoxIcon.Information);               
                 this.Close();
+                if (IzlazId > 0)
+                {
+                    frmReportRacunById rpt = new frmReportRacunById(IzlazId);
+                    rpt.MdiParent = this;
+                    rpt.Show();
+                    rpt.WindowState = FormWindowState.Maximized;
+                }
             }
+            else MessageBox.Show("Imate prazna polja", "Prodaja info", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnNoviKupac_Click(object sender, EventArgs e)

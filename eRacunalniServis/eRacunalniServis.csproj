@@ -95,6 +95,12 @@
     <Compile Include="Forms\Izvjestaji\frmReportProizvodi.Designer.cs">
       <DependentUpon>frmReportProizvodi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Izvjestaji\frmReportRacunById.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Izvjestaji\frmReportRacunById.Designer.cs">
+      <DependentUpon>frmReportRacunById.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Korisnici\frmDodajKorisnika.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,8 +241,12 @@
     <EmbeddedResource Include="Forms\Izvjestaji\frmReportProizvodi.resx">
       <DependentUpon>frmReportProizvodi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Izvjestaji\frmReportRacunById.resx">
+      <DependentUpon>frmReportRacunById.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Izvjestaji\rptPopularniProizvodi.rdlc" />
     <EmbeddedResource Include="Forms\Izvjestaji\rptProdajaDatum.rdlc" />
+    <EmbeddedResource Include="Forms\Izvjestaji\rptRacun.rdlc" />
     <EmbeddedResource Include="Forms\Korisnici\frmDodajKorisnika.resx">
       <DependentUpon>frmDodajKorisnika.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +317,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\eRacunalniServis_Servis.Data.esp_Izlazi_GetRacunByID_Result.datasource" />
     <None Include="Properties\DataSources\eRacunalniServis_Servis.Data.esp_Izlaz_SelectByDatum_Result.datasource" />
     <None Include="Properties\DataSources\eRacunalniServis_Servis.Data.esp_Proizvodi_GetPopularne_Result.datasource" />
     <None Include="Properties\Settings.settings">

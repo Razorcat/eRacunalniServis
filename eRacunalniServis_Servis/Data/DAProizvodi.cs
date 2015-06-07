@@ -109,21 +109,23 @@ namespace eRacunalniServis_Servis.Data
 
 
         #region Prodaja
-        public static void InsertProdaju(Izlazi i, List<IzlazStavke> izlazStavke)
+        public static int InsertProdaju(Izlazi i, List<IzlazStavke> izlazStavke)
         {
+            int izID = 0;
             try
             {
                 Int32 izlazID = Convert.ToInt32(Connection.dm.esp_Izlazi_Insert(i.BrojRacuna,i.KorisnikID,i.Zakljucen,i.IznosBezPDV,i.IznosSaPDV,i.SkladisteID).First());
-
+                izID = izlazID;
                 foreach (IzlazStavke IzS in izlazStavke)
                 {
-                    Connection.dm.esp_IzlazStavke_Insert(izlazID, IzS.ProizvodID, IzS.Kolicina, IzS.Cijena, IzS.Popust);
-                }
+                    Connection.dm.esp_IzlazStavke_Insert(izlazID, IzS.ProizvodID, IzS.Kolicina, IzS.Cijena, IzS.Popust);                    
+                }                
             }
             catch (EntityException e)
             {
                 ExceptionHandler.HandleException(e);
             }
+            return izID;
         }
 
         #endregion

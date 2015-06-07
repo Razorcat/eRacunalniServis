@@ -1006,5 +1006,14 @@ namespace eRacunalniServis_Servis.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_ServisOcjene_Insert", kupacIDParameter, ocjenaParameter);
         }
+    
+        public virtual ObjectResult<esp_Izlazi_GetRacunByID_Result> esp_Izlazi_GetRacunByID(Nullable<int> izlazID)
+        {
+            var izlazIDParameter = izlazID.HasValue ?
+                new ObjectParameter("IzlazID", izlazID) :
+                new ObjectParameter("IzlazID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Izlazi_GetRacunByID_Result>("esp_Izlazi_GetRacunByID", izlazIDParameter);
+        }
     }
 }

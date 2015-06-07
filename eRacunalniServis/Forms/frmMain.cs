@@ -257,6 +257,17 @@ namespace eRacunalniServis_Servis.Forms
             frmPP.Show();
             frmPP.WindowState = FormWindowState.Maximized;
         }
+
+        private void racunToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblDobrodosli.Hide();
+            if (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+            frmReportRacunById rpt = new frmReportRacunById(1);
+            rpt.MdiParent = this;
+            rpt.Show();
+            rpt.WindowState = FormWindowState.Maximized;
+        }
        
     }
 }

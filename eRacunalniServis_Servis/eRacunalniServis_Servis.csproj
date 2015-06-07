@@ -93,6 +93,9 @@
     <Compile Include="Data\esp_Izlazi_GetPovijestProdaje_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\esp_Izlazi_GetRacunByID_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\esp_Izlaz_SelectByDatum_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
