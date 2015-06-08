@@ -33,7 +33,7 @@
             <td>
                 <asp:Label ID="Label1" runat="server" Text="Ocjenite naš servis"></asp:Label>
                 <br />
-                <asp:DropDownList ID="ddlOcjena" runat="server" Height="16px" Width="65px">
+                <asp:DropDownList ID="ddlOcjena" runat="server" Height="20px" Width="65px">
                                     <asp:ListItem>1</asp:ListItem>
                                     <asp:ListItem>2</asp:ListItem>
                                     <asp:ListItem>3</asp:ListItem>
