@@ -132,6 +132,9 @@
     <Compile Include="Data\esp_Proizvodi_GetPopularne_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\esp_Proizvodi_GetTopTenNajprodavanije_Result.cs">
+      <DependentUpon>DM.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\esp_Proizvodi_SelectById_Result.cs">
       <DependentUpon>DM.tt</DependentUpon>
     </Compile>

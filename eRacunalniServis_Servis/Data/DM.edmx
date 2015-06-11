@@ -640,6 +640,7 @@
           <Parameter Name="ProizvodID" Type="int" Mode="In" />
         </Function>
         <Function Name="esp_Proizvodi_GetPopularne" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="esp_Proizvodi_GetTopTenNajprodavanije" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="esp_Proizvodi_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Naziv" Type="nvarchar" Mode="In" />
           <Parameter Name="Sifra" Type="nvarchar" Mode="In" />
@@ -670,6 +671,10 @@
           <Parameter Name="Offset" Type="int" Mode="In" />
           <Parameter Name="MaxRows" Type="int" Mode="In" />
           <Parameter Name="TotalRows" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="esp_Proizvodi_SmanjiNaSkladistu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProizvodID" Type="int" Mode="In" />
+          <Parameter Name="Kolicina" Type="int" Mode="In" />
         </Function>
         <Function Name="esp_Proizvodi_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ProizvodID" Type="int" Mode="In" />
@@ -1692,7 +1697,12 @@
             <Parameter Name="Ocjena" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="esp_Izlazi_GetRacunByID" ReturnType="Collection(eProdajaModel.esp_Izlazi_GetRacunByID_Result)">
-            <Parameter Name="IzlazID" Mode="In" Type="Int32" />
+          <Parameter Name="IzlazID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="esp_Proizvodi_GetTopTenNajprodavanije" ReturnType="Collection(eProdajaModel.esp_Proizvodi_GetTopTenNajprodavanije_Result)" />
+          <FunctionImport Name="esp_Proizvodi_SmanjiNaSkladistu">
+            <Parameter Name="ProizvodID" Mode="In" Type="Int32" />
+            <Parameter Name="Kolicina" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="esp_Korisnici_SelectByKorisnickoIme_Result">
@@ -1962,6 +1972,11 @@
           <Property Type="Decimal" Name="Cijena" Nullable="false" Precision="5" Scale="2" />
           <Property Type="Int32" Name="Kolicina" Nullable="false" />
           <Property Type="Decimal" Name="Popust" Nullable="true" Precision="5" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="esp_Proizvodi_GetTopTenNajprodavanije_Result">
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Kolicina" Nullable="false" />
+          <Property Type="Decimal" Name="Cijena" Nullable="false" Precision="18" Scale="2" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2401,6 +2416,16 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Proizvodi_GetTopTenNajprodavanije" FunctionName="eProdajaModel.Store.esp_Proizvodi_GetTopTenNajprodavanije">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="eProdajaModel.esp_Proizvodi_GetTopTenNajprodavanije_Result">
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="esp_Proizvodi_SmanjiNaSkladistu" FunctionName="eProdajaModel.Store.esp_Proizvodi_SmanjiNaSkladistu" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

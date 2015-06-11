@@ -29,6 +29,12 @@ namespace eRacunalniServis.Forms.Izvjestaji
               ReportDataSource rds = new ReportDataSource("DataSetPP", ds);
               reportViewer1.LocalReport.DataSources.Add(rds);
         }
+        private void top10NProizvoda()
+        {
+            List<eRacunalniServis_Servis.Data.esp_Proizvodi_GetTopTenNajprodavanije_Result> ds = DAProizvodi.GetNajProdavanije();
+            ReportDataSource rds = new ReportDataSource("dsNP", ds);
+            reportViewer1.LocalReport.DataSources.Add(rds);
+        }
 
         private void cmbIzvjestaji_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -39,7 +45,13 @@ namespace eRacunalniServis.Forms.Izvjestaji
                     top10Proizvoda();
                     this.reportViewer1.RefreshReport();
                     break;
-                default: break;
+                case 1:
+                    this.reportViewer1.LocalReport.ReportEmbeddedResource = "eRacunalniServis.Forms.Izvjestaji.rptNajprodavanijiProizvodi.rdlc";
+                    top10NProizvoda();
+                    this.reportViewer1.RefreshReport();
+                    break;
+                default: 
+                    break;
             }
         }
     }

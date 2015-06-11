@@ -24,7 +24,7 @@ namespace eRacunalniServis.Forms.Prodaja
         private int skladisteId=1;
         private bool dgPKlik = false;
         private bool dgPrKlik = false;
-        private int dostupnoK = 0;
+        private int dostupnoK = 0;        
 
         public frmNovaProdaja()
         {
@@ -107,7 +107,7 @@ namespace eRacunalniServis.Forms.Prodaja
             eRacunalniServis_Servis.Data.Proizvodi proizvod = new eRacunalniServis_Servis.Data.Proizvodi();
             proizvod = DAProizvodi.SelectById(proizvodID);
             if (proizvod.UlazStavke.ToList().Count > 0)
-            {
+            {               
                 dostupnoK = proizvod.UlazStavke.ToList().First().Kolicina;
                 txtStanjeNaSkladistu.Text = dostupnoK+ " kom";
             }
@@ -121,7 +121,7 @@ namespace eRacunalniServis.Forms.Prodaja
         private void btnBrisiStavku_Click(object sender, EventArgs e)
         {
             if (dgPKlik==true && izlazStavke.Count>0)
-            {
+            {                
                 iznos -= izlazStavke[dgvProdaja.CurrentCell.RowIndex].Proizvodi.Cijena * izlazStavke[dgvProdaja.CurrentCell.RowIndex].Kolicina;
                 izlazStavke.RemoveAt(dgvProdaja.CurrentCell.RowIndex);
                 iznosPDV = iznos * (decimal)1.17;
@@ -153,16 +153,16 @@ namespace eRacunalniServis.Forms.Prodaja
                     //IzS.Kolicina;
                     //IzS.ProizvodID
                     //smanji kolicinu na skladistu
+                    DAProizvodi.SmanjiNaSkladistu(IzS.ProizvodID, IzS.Kolicina);
                 }
 
                 MessageBox.Show("Uspješno ste zaključili prodaju", "Prodaja info", MessageBoxButtons.OK, MessageBoxIcon.Information);               
                 this.Close();
                 if (IzlazId > 0)
                 {
-                    frmReportRacunById rpt = new frmReportRacunById(IzlazId);
-                    rpt.MdiParent = this;
+                    frmReportRacunById rpt = new frmReportRacunById(IzlazId);                    
                     rpt.Show();
-                    rpt.WindowState = FormWindowState.Maximized;
+                    rpt.WindowState = FormWindowState.Normal;
                 }
             }
             else MessageBox.Show("Imate prazna polja", "Prodaja info", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -120,7 +120,8 @@ namespace eRacunalniServis_Web
                         Kosarica.Text = string.Format("Moja košarica ({0})", narudzba.NarudzbaStavke.Count);
                     }
                     BindPreporuka(proizvodId);
-                }               
+                }
+                else Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Molimo odaberite količinu veću od 0.');</script>");
             }
 
             if ( e.CommandName == "cmdOcjeniProizvod" && kupac == null)

@@ -65,7 +65,8 @@
             // 
             this.cmbIzvjestaji.FormattingEnabled = true;
             this.cmbIzvjestaji.Items.AddRange(new object[] {
-            "Top 10 proizvoda"});
+            "Top 10 proizvoda (ocjena)",
+            "Top 10 proizvoda (prodaja)"});
             this.cmbIzvjestaji.Location = new System.Drawing.Point(12, 12);
             this.cmbIzvjestaji.Name = "cmbIzvjestaji";
             this.cmbIzvjestaji.Size = new System.Drawing.Size(178, 21);
@@ -83,7 +84,7 @@
             this.Controls.Add(this.btnOsvjezi);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReportProizvodi";
-            this.Text = "Izvještaji o proizvodima";            
+            this.Text = "Izvještaji o proizvodima";
             ((System.ComponentModel.ISupportInitialize)(this.esp_Proizvodi_GetPopularne_ResultBindingSource)).EndInit();
             this.ResumeLayout(false);
 

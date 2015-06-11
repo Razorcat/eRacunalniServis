@@ -1015,5 +1015,23 @@ namespace eRacunalniServis_Servis.Data
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Izlazi_GetRacunByID_Result>("esp_Izlazi_GetRacunByID", izlazIDParameter);
         }
+    
+        public virtual ObjectResult<esp_Proizvodi_GetTopTenNajprodavanije_Result> esp_Proizvodi_GetTopTenNajprodavanije()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<esp_Proizvodi_GetTopTenNajprodavanije_Result>("esp_Proizvodi_GetTopTenNajprodavanije");
+        }
+    
+        public virtual int esp_Proizvodi_SmanjiNaSkladistu(Nullable<int> proizvodID, Nullable<int> kolicina)
+        {
+            var proizvodIDParameter = proizvodID.HasValue ?
+                new ObjectParameter("ProizvodID", proizvodID) :
+                new ObjectParameter("ProizvodID", typeof(int));
+    
+            var kolicinaParameter = kolicina.HasValue ?
+                new ObjectParameter("Kolicina", kolicina) :
+                new ObjectParameter("Kolicina", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("esp_Proizvodi_SmanjiNaSkladistu", proizvodIDParameter, kolicinaParameter);
+        }
     }
 }

@@ -136,5 +136,11 @@ namespace eRacunalniServis_Servis.Data
         public static void InsertOcjena(int ProizvodId, int KupacId, int Ocjena) {
             Connection.dm.esp_Proizvodi_InsertOcjena(ProizvodId, KupacId, Ocjena);
         }
+        public static List<esp_Proizvodi_GetTopTenNajprodavanije_Result> GetNajProdavanije() {
+            return Connection.dm.esp_Proizvodi_GetTopTenNajprodavanije().ToList();
+        }
+        public static void SmanjiNaSkladistu(int ProizvodId, int Kolicina) {
+            Connection.dm.esp_Proizvodi_SmanjiNaSkladistu(ProizvodId, Kolicina);
+        }
     }
 }
